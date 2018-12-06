@@ -11,11 +11,63 @@
 
 	<RelativeLayout
 		android:layout_width="match_parent"
-		android:layout_height="72dp"	
-		android:background = "@color/colorPrimaryDark"	
-		android:alpha="0.4"
-		android:layout_marginTop="700px"
-		android:id="@+id/relativeLayout2">
+		android:layout_height="250dp"	
+		android:layout_centerVertical="true"
+		android:id="@+id/dish1_container1">
+	
+		<RelativeLayout			
+			android:layout_alignParentBottom="true"
+			android:layout_width="match_parent"
+			android:layout_height="60dp"	
+			android:background = "@color/colorPrimaryDark"	
+			android:alpha="0.4"
+			android:id="@+id/dish1_container2">
+
+			<View android:id="@+id/dish1_separator"
+			android:layout_width="10px"
+			android:layout_height="60dp" 
+			android:alpha="0.4"
+			android:background="@color/colorBlack"
+			android:layout_centerHorizontal="true"/>
+
+			<RelativeLayout
+				android:id="@+id/dish1_container3"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:gravity="center"
+				android:layout_centerVertical="true"
+			    android:layout_alignRight="@id/dish1_separator"
+			    android:layout_alignParentLeft="true">
+				<TextView
+					android:text="Ingredients"
+					android:textAppearance="?android:attr/textAppearanceMedium"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					style="@style/Dish1Buttons"
+					android:id="@+id/dish1_ingredients_btn" />
+			</RelativeLayout>
+						
+			<RelativeLayout
+				android:id="@+id/dish1_container4"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:gravity="center"
+				android:layout_alignLeft="@id/dish1_separator"
+			    android:layout_alignParentRight="true"
+				android:layout_centerVertical="true">							
+				<TextView
+					android:text="Dishes"
+					android:textAppearance="?android:attr/textAppearanceMedium"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"				
+					android:gravity="center"
+					style="@style/Dish1Buttons"
+					android:id="@+id/dish1_dishes_btn" />
+			</RelativeLayout>
+				
+		</RelativeLayout>
+
 	</RelativeLayout>
 
 </RelativeLayout>
