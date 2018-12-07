@@ -98,11 +98,16 @@
     <PackageReference Include="MvvmCross">
       <Version>6.2.2</Version>
     </PackageReference>
+    <PackageReference Include="Xamarin.Android.Support.Constraint.Layout">
+      <Version>1.1.2</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Design" Version="27.0.2.1" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\dish1_font.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\dish1_github_logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

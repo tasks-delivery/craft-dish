@@ -13,6 +13,7 @@ namespace Craft_dish
     [Activity(Label = "@string/app_name", Theme = "@style/NoActionBar", MainLauncher = true)]
     public class Dish1View : AppCompatActivity
     {
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
