@@ -23,12 +23,6 @@ namespace Craft_dish
             StartActivity(intent);
         }
 
-        public void closeApplication()
-        {
-            var activity = (Activity)this;
-            activity.FinishAffinity();
-        }
-
         public override void OnBackPressed()
         {
             JavaSystem.Exit(0);
