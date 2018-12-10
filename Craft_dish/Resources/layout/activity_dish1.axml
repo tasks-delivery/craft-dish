@@ -6,6 +6,7 @@
 	android:layout_width="match_parent"
 	android:background="@drawable/dish1_font"
 	android:layout_height="match_parent"
+	android:orientation="vertical"
 	android:minWidth="25px"
 	android:minHeight="25px">
 
@@ -44,7 +45,7 @@
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					android:gravity="center"
-					style="@style/Dish1Buttons"
+					style="@style/TextStyle1"
 					android:id="@+id/dish1_ingredients_btn" />
 			</RelativeLayout>
 						
@@ -62,7 +63,7 @@
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"				
 					android:gravity="center"
-					style="@style/Dish1Buttons"
+					style="@style/TextStyle1"
 					android:id="@+id/dish1_dishes_btn" />
 			</RelativeLayout>
 				
