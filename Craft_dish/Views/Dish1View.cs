@@ -11,7 +11,7 @@ using Java.Lang;
 
 namespace Craft_dish
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/NoActionBar", MainLauncher = true)]
+    [Activity(Label = "@string/app_name", Theme = "@style/NoActionBar", MainLauncher = false)]
     public class Dish1View : AppCompatActivity
     {
 
@@ -25,7 +25,7 @@ namespace Craft_dish
 
         public override void OnBackPressed()
         {
-            JavaSystem.Exit(0);
+            FinishAffinity();
         }
 
         protected override void OnCreate(Bundle savedInstanceState)
