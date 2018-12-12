@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Craft_dish</string>
+    <string name="app_name">Craft dish</string>
     <string name="action_settings">Settings</string>
     <string name="text_ingredients">Ingredients</string>
     <string name="text_dishes">Dishes</string>
