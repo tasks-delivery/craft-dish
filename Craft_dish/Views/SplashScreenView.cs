@@ -16,6 +16,11 @@ namespace Craft_dish.Views
     [Activity(Theme = "@style/MyTheme.Splash", MainLauncher = true, NoHistory = true)]
     public class SplashScreenView : AppCompatActivity
     {
+
+        private bool back;
+
+        public bool Back { get => back; set => back = value; }
+
         public override void OnCreate(Bundle savedInstanceState, PersistableBundle persistentState)
         {
             base.OnCreate(savedInstanceState, persistentState);
@@ -27,9 +32,24 @@ namespace Craft_dish.Views
               Task startLoading = new Task(async () => {
                   RunOnUiThread(() => SetContentView(Resource.Layout.activity_splash_screen));
                   await Task.Delay(4000);
-                  StartActivity(new Intent(Application.Context, typeof(Dish1View)));
+                  if (Back == false)
+                  {
+                      StartActivity(new Intent(Application.Context, typeof(Dish1View)));
+                  }
+                  else
+                  {                     
+                      FinishAffinity();
+                  }
               });
-              startLoading.Start();
+            startLoading.Start();
+        }       
+
+        public override void OnBackPressed()
+        {            
+            base.OnBackPressed();           
+            Back = true;
+            Back.ToString();
+            FinishAffinity();
         }
 
     }
