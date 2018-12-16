@@ -13,3 +13,11 @@ build_script:
   - msbuild "/t:SignAndroidPackage" "/p:Configuration=Release" "Craft_dish\Craft_dish.csproj"
 artifacts:
 - path: Craft_dish\bin\Release\Craft_dish.Craft_dish-Signed.apk
+
+notifications:
+  - provider: Email
+    to:
+      - ordeh@mail.ru
+    on_build_success: true
+    on_build_failure: true
+    on_build_status_changed: true
