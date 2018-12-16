@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:background="@drawable/dish1_font"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:minWidth="25px"
+	android:minHeight="25px">
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="250dp"	
+		android:layout_centerVertical="true"
+		android:id="@+id/dish1_container1">
+	
+		<RelativeLayout			
+			android:layout_alignParentBottom="true"
+			android:layout_width="match_parent"
+			android:layout_height="60dp"	
+			android:background = "@color/colorPrimaryDark"	
+			android:alpha="0.4"
+			android:id="@+id/dish1_container2">
+
+			<View android:id="@+id/dish1_separator"
+			android:layout_width="10px"
+			android:layout_height="60dp" 
+			android:alpha="0.4"
+			android:background="@color/colorBlack"
+			android:layout_centerHorizontal="true"/>
+
+			<RelativeLayout
+				android:id="@+id/dish1_container3"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:gravity="center"
+				android:layout_centerVertical="true"
+			    android:layout_alignRight="@id/dish1_separator"
+			    android:layout_alignParentLeft="true">
+				<TextView
+					android:text="@string/text_ingredients"
+					android:textAppearance="?android:attr/textAppearanceMedium"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:gravity="center"
+					style="@style/TextStyle1"
+					android:id="@+id/dish1_ingredients_btn" />
+			</RelativeLayout>
+						
+			<RelativeLayout
+				android:id="@+id/dish1_container4"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:gravity="center"
+				android:layout_alignLeft="@id/dish1_separator"
+			    android:layout_alignParentRight="true"
+				android:layout_centerVertical="true">							
+				<TextView
+					android:text="@string/text_dishes"
+					android:textAppearance="?android:attr/textAppearanceMedium"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"				
+					android:gravity="center"
+					style="@style/TextStyle1"
+					android:id="@+id/dish1_dishes_btn" />
+			</RelativeLayout>
+				
+		</RelativeLayout>
+
+	</RelativeLayout>
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"	
+		android:id="@+id/dish1_footer_container"
+		android:layout_below="@id/dish1_container1">	
+						
+		<View android:id="@+id/dish1_separator"
+			android:layout_width="match_parent"
+			android:layout_height="5.76dp" 
+			android:layout_centerVertical="true"
+			android:background="@color/colorPrimaryDark"/>
+			
+		<TextView
+			android:layout_alignTop="@id/dish1_separator"
+			android:id="@+id/dish1_text_contacts"
+			android:layout_marginLeft="50px"
+			android:layout_marginTop="20px"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"			
+			android:fontFamily="Roboto"
+			android:textColor="@color/colorAccent"
+			android:textSize="25sp"
+			android:lineSpacingMultiplier="0.22"	
+			android:text="@string/text_contacts"/>
+
+		<TextView
+			android:layout_marginLeft="50px"
+			android:layout_below="@id/dish1_text_contacts"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"			
+			android:fontFamily="Roboto"
+			android:textColor="@color/colorAccent"
+			android:textSize="15sp"
+			android:lineSpacingMultiplier="0.22"	
+			android:id="@+id/dish1_text_feedback"
+			android:text="@string/text_send_feedback"/>
+		
+		<ImageButton	
+			android:onClick="openGitHub"
+			android:fontFamily="Roboto"
+			android:textColor="#FF969FAA"
+			android:textSize="10sp"
+			android:lineSpacingMultiplier="1.28"
+			android:layout_marginLeft="24px"
+			android:background="@drawable/dish1_github_logo"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_toRightOf="@id/dish1_text_feedback"
+			android:layout_below="@id/dish1_text_contacts"
+			android:id="@+id/imageButton1" />
+		</RelativeLayout>
+	
+</RelativeLayout>
