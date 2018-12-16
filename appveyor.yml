@@ -10,6 +10,6 @@ environment:
 before_build:
   - nuget restore
 build_script:
-  - msbuild "/t:SignAndroidPackage" "/p:Configuration=Release" "/p:AndroidKeyStore=true" "/p:AndroidSigningKeyAlias=YourKeyAlias" "/p:AndroidSigningKeyPass=%keystore-password%" "/p:AndroidSigningKeyStore=YourLocalKeyStoreFilename" "/p:AndroidSigningStorePass=%keystore-password%"  "Craft_dish\Craft_dish.csproj"
+  - msbuild "/t:SignAndroidPackage" "/p:Configuration=Release" "Craft_dish\Craft_dish.csproj"
 artifacts:
 - path: Craft_dish\bin\Release\Craft_dish.Craft_dish-Signed.apk
