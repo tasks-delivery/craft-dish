@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:alpha="0.8"
+	android:background="@drawable/dish2_font"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+	<RelativeLayout
+		android:layout_centerVertical="true"
+		android:alpha="0.95"
+		android:layout_width="match_parent"
+		android:layout_marginLeft="30px"
+		android:layout_marginRight="30px"
+		android:background="@color/colorPrimaryDark"
+		android:layout_height="1000px">
+
+		<RelativeLayout
+			android:layout_marginLeft="50px"
+		    android:layout_marginRight="50px"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+			<android.support.design.widget.TextInputLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				app:counterTextAppearance="@style/CounterStyle"
+				android:textColorHint="#c1c2c4"
+				app:counterEnabled="true"									
+				android:id="@+id/text_container_1"
+				app:errorEnabled="true"
+				app:counterMaxLength="30">	
+
+					<EditText
+					android:textColor="@color/white"
+					android:backgroundTint="@color/white"
+					android:textColorHint="@color/white"							
+					android:id="@+id/dish_2_field_dish_name"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:hint="@string/placeholder_dish_name"
+					android:imeOptions="actionNext"
+					android:maxLength="30"
+					android:maxLines="1"
+					android:inputType=""
+					android:textColorHighlight="@color/white"
+					android:singleLine="true" />
+
+			</android.support.design.widget.TextInputLayout>
+			
+			<android.support.design.widget.TextInputLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				app:counterEnabled="true"	
+				android:textColorHint="#c1c2c4"
+				app:counterTextAppearance="@style/CounterStyle"
+				android:layout_below="@id/text_container_1"
+				app:counterMaxLength="120">	
+							
+					<EditText		
+					android:textColorHighlight="@color/white"
+					android:textColor="@color/white"
+					android:textColorHint="@color/white"
+					android:backgroundTint="@color/white"
+					android:layout_marginTop="30dp"
+					android:id="@+id/dish_2_field_dish_description"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"					
+					android:ems="5"
+					android:hint="@string/description"
+					android:imeOptions="actionNext"
+					android:inputType="textMultiLine"
+					android:maxLength="120"
+					android:maxLines="5"
+					android:singleLine="true" />
+
+			</android.support.design.widget.TextInputLayout>			
+
+			<Button     
+				android:id="@+id/dish_2_btn_save"
+				android:background="#FF47525E"			
+				android:textColor="@color/white"
+				android:onClick="openDish4"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentBottom="true"
+				android:layout_centerHorizontal="true"
+				android:layout_marginBottom="40px"
+				android:text="@string/save" />
+			
+		</RelativeLayout>
+
+	</RelativeLayout>
+
+</RelativeLayout>
