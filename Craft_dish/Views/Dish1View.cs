@@ -23,6 +23,13 @@ namespace Craft_dish
             StartActivity(intent);
         }
 
+
+        [Java.Interop.Export("openDish4")]
+        public void goToDish4(View v)
+        {
+            StartActivity(new Intent(Application.Context, typeof(Views.Dish4View)));        
+        }
+
         public override void OnBackPressed()
         {
             FinishAffinity();
