@@ -1,13 +1,8 @@
 ﻿using Android.App;
 using Android.OS;
 using Android.Support.V7.App;
-using Android.Runtime;
-using Android.Widget;
 using Android.Views;
-using Android.Media;
-using static Android.Resource;
 using Android.Content;
-using Java.Lang;
 
 namespace Craft_dish
 {
@@ -23,7 +18,6 @@ namespace Craft_dish
             StartActivity(intent);
         }
 
-
         [Java.Interop.Export("openDish4")]
         public void goToDish4(View v)
         {
@@ -35,9 +29,9 @@ namespace Craft_dish
             FinishAffinity();
         }
 
-        protected override void OnCreate(Bundle savedInstanceState)
+        protected override void OnCreate(Bundle bundle)
         {
-            base.OnCreate(savedInstanceState);
+            base.OnCreate(bundle);
             SetContentView(Resource.Layout.activity_dish1);
         }
     }
