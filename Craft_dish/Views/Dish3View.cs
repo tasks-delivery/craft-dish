@@ -13,21 +13,14 @@ using Android.Widget;
 
 namespace Craft_dish.Views
 {
-
-    [Activity(Label = "@string/new_dish", Theme = "@style/AppTheme", MainLauncher = false)]
-    public class Dish4View : AppCompatActivity
+    [Activity(Label = "@string/new_dish", Theme = "@style/NoActionBar", MainLauncher = false)]
+    class Dish3View : AppCompatActivity
     {
-
-        [Java.Interop.Export("openDish2")]
-        public void goToDish2(View v)
-        {
-            StartActivity(new Intent(Application.Context, typeof(Views.Dish2View)));
-        }
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            SetContentView(Resource.Layout.activity_dish4);
+            SetContentView(Resource.Layout.activity_dish3);
         }
 
     }

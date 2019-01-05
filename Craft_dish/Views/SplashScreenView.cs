@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Android.App;
 using Android.Content;
 using Android.OS;
-using Android.Runtime;
 using Android.Support.V7.App;
-using Android.Views;
-using Android.Widget;
 
 namespace Craft_dish.Views
 {
@@ -21,9 +14,9 @@ namespace Craft_dish.Views
 
         public bool Back { get => back; set => back = value; }
 
-        public override void OnCreate(Bundle savedInstanceState, PersistableBundle persistentState)
+        public override void OnCreate(Bundle bundle, PersistableBundle persistentState)
         {
-            base.OnCreate(savedInstanceState, persistentState);
+            base.OnCreate(bundle, persistentState);
         }
 
         protected override void OnResume()
