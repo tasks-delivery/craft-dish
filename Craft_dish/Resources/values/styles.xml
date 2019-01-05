@@ -19,33 +19,21 @@
       <item name="android:lineSpacingMultiplier">0.27</item>
     </style>
 
-    <style name="CounterStyle" parent="TextAppearance.AppCompat.Small">
-      <item name="android:textColor">@android:color/white</item>
-      <item name="android:textColorHint">@android:color/white</item>
-    </style>
-
-    <style name="TextStyle3">
-      <item name="android:fontFamily">Roboto</item>
-      <item name="android:textColor">#FF8492A6</item>
-      <item name="android:textSize">18sp</item>
-      <item name="android:lineSpacingMultiplier">1.28</item>
-    </style>
-
     <style name="SplashTheme" parent="android:Theme">
       <item name="android:windowNoTitle">true</item>
     </style>
 
-    <style name="MyTheme.Splash" parent ="Theme.AppCompat.Light.NoActionBar">
-      <item name="android:windowBackground">@drawable/splash_screen</item>
-      <item name="android:windowNoTitle">true</item>
-      <item name="android:windowFullscreen">true</item>
-    </style>
+  <style name="MyTheme.Splash" parent ="Theme.AppCompat.Light.NoActionBar">
+    <item name="android:windowBackground">@drawable/splash_screen</item>
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowFullscreen">true</item>
+  </style>
 
-    <style name="TextStyle2">
-      <item name="android:fontFamily">Roboto</item>
-      <item name="android:textColor">#FFFFFFFF</item>
-      <item name="android:textSize">28sp</item>
-      <item name="android:lineSpacingMultiplier">1.29</item>
-    </style>
+  <style name="TextStyle2">
+    <item name="android:fontFamily">Roboto</item>
+    <item name="android:textColor">#FFFFFFFF</item>
+    <item name="android:textSize">28sp</item>
+    <item name="android:lineSpacingMultiplier">1.29</item>
+  </style>
 
 </resources>
