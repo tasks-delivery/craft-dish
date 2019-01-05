@@ -6,9 +6,4 @@
     <string name="text_contacts">Contacts</string>
     <string name="text_send_feedback">Send feedback</string>
     <string name="text_welcome_to_craft_dish">Welcome to Craft dish</string>
-    <string name="placeholder_dish_name">Dish name</string>
-    <string name="description">Dish description</string>
-    <string name="save">Save</string>
-    <string name="new_dish">New Dish</string>
-    <string name="dish_warning1">Dish with that name already exists</string>
 </resources>
