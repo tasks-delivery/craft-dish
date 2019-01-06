@@ -1,0 +1,1 @@
+powershell appium -a localhost -p 4800 --relaxed-security
