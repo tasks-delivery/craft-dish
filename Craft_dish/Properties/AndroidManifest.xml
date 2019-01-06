@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" 
+          android:versionCode="1" 
+          android:versionName="1.0" 
+          package="Craft_dish.Craft_dish">
+  <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="27" />
+  <application 
+    android:allowBackup="true" 
+    android:icon="@drawable/app_icon_craft_dish" 
+    android:label="@string/app_name" 
+    android:roundIcon="@drawable/app_icon_craft_dish" 
+    android:supportsRtl="true" 
+    android:theme="@style/NoActionBar">
+  </application>
+  
+</manifest>
