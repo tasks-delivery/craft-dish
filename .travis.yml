@@ -1,7 +1,7 @@
 language: csharp
 solution: Craft_dish.sln
 install:
-- nuget restore Craft_disht.sln
+- nuget restore Craft_dish.sln
 - nuget install NUnit.Runners -Version 3.7.0 -OutputDirectory testrunner
 script:
 - ls -R testrunner
