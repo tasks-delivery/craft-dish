@@ -10,9 +10,9 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
-namespace Craft_dish.ViewModels
+namespace Craft_dish.Models
 {
-    class Dish1ViewModel
+    class Dish1
     {
     }
 }
