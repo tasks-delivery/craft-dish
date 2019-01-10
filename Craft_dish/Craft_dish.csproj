@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Dish.cs" />
+    <Compile Include="Services\DishService.cs" />
     <Compile Include="ViewModels\Dish2ViewModel.cs" />
     <Compile Include="Views\Dish1View.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -75,6 +76,7 @@
     <Compile Include="Views\Dish3View.cs" />
     <Compile Include="Views\Dish4View.cs" />
     <Compile Include="Views\Dish2View.cs" />
+    <Compile Include="Views\Dish5View.cs" />
     <Compile Include="Views\SplashScreenView.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -179,6 +181,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\success.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_dish5.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
