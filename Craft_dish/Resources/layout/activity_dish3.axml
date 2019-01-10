@@ -1,13 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
+	android:background="@color/colorPrimaryDark"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-	<TextView
-		android:gravity = "center"
-		android:text = "Dish is created"
+	<View
+		android:id="@+id/dish3_success_img"
+		android:layout_centerInParent="true"
+		android:background="@drawable/success"
+		android:layout_width="600px"
+		android:layout_height="700px"/>
+	
+	
+	<TextView	
+		android:layout_marginLeft="100px"
+		android:layout_marginRight="100px"
+		android:gravity="center_horizontal"		
+		android:layout_above="@id/dish3_success_img"
+		android:id="@+id/dish3_text1"	
+		android:singleLine="false"  
+		android:text="@string/dish3_text1"
+		style="@style/TextStyle4"	
+		android:inputType="textMultiLine"
+		android:layout_marginBottom="200px"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"/>
+
+	<TextView		
+		android:textStyle="bold"
+		android:layout_above="@id/dish3_text1"
+		android:gravity="center_horizontal"
+		android:id="@+id/dish3_success_text"	
+		android:text = "@string/success"
+		android:textColor="@color/white"
+		style="@style/TextStyle5"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent"/>
+		android:layout_height="wrap_content"/>
+	
+		<Button
+			android:layout_centerInParent="true"
+			android:layout_below="@id/dish3_success_img"
+			android:id="@+id/dish3_btn_skip"
+			android:text="@string/skip"
+			android:textColor="@color/white"
+			android:backgroundTint="#FF47525E"	
+			style="@style/ButtonStyle1"
+			android:layout_width="400px"
+			android:layout_height="wrap_content"/>
+
+		<Button		
+			android:textColor="@color/white"
+			android:backgroundTint="#FF47525E"
+			android:layout_centerInParent="true"
+			android:layout_below="@id/dish3_btn_skip"
+			android:id="@+id/dish3_btn_attach"			
+			android:text="@string/attach"
+			style="@style/ButtonStyle1"
+			android:layout_width="400px"
+			android:layout_height="wrap_content"/>
 		
 </RelativeLayout>
