@@ -1,42 +1,26 @@
 ﻿using System;
-using System.Linq;
-using Craft_dish.Models;
-using Realms;
+using Craft_dish.Services;
 
 namespace Craft_dish.ViewModels
 {
     public class Dish2ViewModel
     {
-        private readonly Realm _realm;
+
+        private DishService dishService;
     
         public Dish2ViewModel()
         {
-            _realm = Realm.GetInstance();       
+            dishService = new DishService();
         }
 
-        public void createDish(string dish_name, string dish_description)
+        public void saveDish(string dish_name, string dish_description)
         {
-            _realm.Write(() =>
-            {
-                _realm.Add(new Dish { DishName = dish_name, DishDescription = dish_description });             
-
-            });
-        }
-
-        public Dish getDishByName(string dish_name)
-        {
-            Dish test = new Dish();        
-            var dishes = _realm.All<Dish>().Where(d => d.DishName == dish_name);
-            foreach (var dish in dishes)
-            {
-                test = dish;
-            }
-            return test;
+            dishService.createDish(dish_name, dish_description);        
         }
 
         public bool dishIsExists(String dish_name)
         {
-            if(dish_name == getDishByName(dish_name).DishName)
+            if(dish_name == dishService.getDishByName(dish_name).DishName)
             {
                 return true;
             }

@@ -1,7 +1,9 @@
 ﻿
 using Android.App;
+using Android.Content;
 using Android.OS;
 using Android.Support.V7.App;
+using Android.Views;
 using Android.Widget;
 
 namespace Craft_dish.Views
@@ -23,6 +25,18 @@ namespace Craft_dish.Views
             btn_attach = (Button)FindViewById(Resource.Id.dish3_btn_attach);
             btn_skip = (Button)FindViewById(Resource.Id.dish3_btn_skip);
             text1 = (TextView)FindViewById(Resource.Id.dish3_text1);          
+        }
+
+        [Java.Interop.Export("openDish4")]
+        public void goToDish4(View v)
+        {
+            StartActivity(new Intent(Application.Context, typeof(Views.Dish4View)));
+        }
+
+        [Java.Interop.Export("openDish5")]
+        public void goToDish5(View v)
+        {
+            StartActivity(new Intent(Application.Context, typeof(Views.Dish5View)));
         }
 
     }
