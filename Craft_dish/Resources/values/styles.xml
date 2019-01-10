@@ -41,7 +41,7 @@
     <style name="TextStyle4">
       <item name="android:fontFamily">Roboto</item>
       <item name="android:textColor">#FFFFFFFF</item>
-      <item name="android:textSize">26sp</item>
+      <item name="android:textSize">15sp</item>
       <item name="android:lineSpacingMultiplier">1.29</item>
     </style>
 
