@@ -17,10 +17,19 @@ namespace Craft_dish.Views
     class Dish3View : AppCompatActivity
     {
 
+        private Button btn_skip;
+
+        private Button btn_attach;
+
+        private TextView text1;
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.activity_dish3);
+            btn_attach = (Button)FindViewById(Resource.Id.dish3_btn_attach);
+            btn_skip = (Button)FindViewById(Resource.Id.dish3_btn_skip);
+            text1 = (TextView)FindViewById(Resource.Id.dish3_text1);          
         }
 
     }
