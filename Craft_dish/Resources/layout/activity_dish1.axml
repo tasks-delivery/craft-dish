@@ -34,7 +34,7 @@
 			<RelativeLayout
 				android:id="@+id/dish1_container3"
 				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
+				android:layout_height="match_parent"
 				android:gravity="center"
 				android:layout_centerVertical="true"
 			    android:layout_alignRight="@id/dish1_separator"
@@ -52,7 +52,7 @@
 			<RelativeLayout
 				android:id="@+id/dish1_container4"
 				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
+				android:layout_height="match_parent"
 				android:onClick="openDish4"
 				android:gravity="center"
 				android:layout_alignLeft="@id/dish1_separator"
