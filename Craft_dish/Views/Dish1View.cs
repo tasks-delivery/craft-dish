@@ -11,7 +11,7 @@ namespace Craft_dish
     {
 
         [Java.Interop.Export("openGitHub")]
-        public void button_OnClick(View v)
+        public void Button_OnClick(View v)
         {
             var uri = Android.Net.Uri.Parse("https://github.com/tasks-delivery/craft-dish/issues");
             var intent = new Intent(Intent.ActionView, uri);
@@ -19,7 +19,7 @@ namespace Craft_dish
         }
 
         [Java.Interop.Export("openDish4")]
-        public void goToDish4(View v)
+        public void GoToDish4(View v)
         {
             StartActivity(new Intent(Application.Context, typeof(Views.Dish4View)));        
         }

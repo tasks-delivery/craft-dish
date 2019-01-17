@@ -59,11 +59,11 @@ namespace Craft_dish.Views
         }
 
         [Java.Interop.Export("openDish3")]
-        public void buttonSaveDish(View v)
+        public void ButtonSaveDish(View v)
         {
             if(dish2ViewModel.dishIsExists(field_name.Text) == true)
             {
-                showError();
+                ShowError();
             }
             else
             {
@@ -74,7 +74,7 @@ namespace Craft_dish.Views
                            
         }
 
-        private void showError()
+        private void ShowError()
         {            
             field_name.Error = GetString(Resource.String.dish_warning1);
         }
