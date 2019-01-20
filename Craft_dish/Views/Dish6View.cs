@@ -6,14 +6,14 @@ using Android.Support.V7.App;
 
 namespace Craft_dish.Views
 {
-    [Activity(Label = "@string/dish_photo", Theme = "@style/AppTheme", MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
-    public class Dish5View : AppCompatActivity
+    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
+    public class Dish6View : AppCompatActivity
     {
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            SetContentView(Resource.Layout.activity_dish5);
+            SetContentView(Resource.Layout.activity_dish6);
         }
 
     }

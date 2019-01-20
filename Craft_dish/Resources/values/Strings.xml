@@ -16,4 +16,5 @@
     <string name="success">Success</string>
     <string name="dish3_text1">The dish was created successfully. Do you want to attach a photo for the dish?</string>
     <string name="dish_photo">Dish photo</string>
+    <string name="search">Search...</string>
 </resources>
