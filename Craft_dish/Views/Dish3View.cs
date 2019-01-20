@@ -1,6 +1,7 @@
 ﻿
 using Android.App;
 using Android.Content;
+using Android.Content.PM;
 using Android.OS;
 using Android.Support.V7.App;
 using Android.Views;
@@ -8,7 +9,7 @@ using Android.Widget;
 
 namespace Craft_dish.Views
 {
-    [Activity(Label = "@string/new_dish", Theme = "@style/NoActionBar", MainLauncher = false)]
+    [Activity(Label = "@string/new_dish", Theme = "@style/NoActionBar", MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
     class Dish3View : AppCompatActivity
     {
 

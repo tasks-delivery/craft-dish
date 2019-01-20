@@ -4,7 +4,8 @@
           android:versionName="1.0" 
           package="Craft_dish.Craft_dish">
   <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="27" />
-  <application 
+  <application
+    android:screenOrientation="portrait"
     android:allowBackup="true" 
     android:icon="@drawable/app_icon_craft_dish" 
     android:label="@string/app_name" 
