@@ -3,10 +3,11 @@ using Android.OS;
 using Android.Support.V7.App;
 using Android.Views;
 using Android.Content;
+using Android.Content.PM;
 
 namespace Craft_dish
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/NoActionBar", MainLauncher = false)]
+    [Activity(Label = "@string/app_name", Theme = "@style/NoActionBar", MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
     public class Dish1View : AppCompatActivity
     {
 
@@ -32,7 +33,7 @@ namespace Craft_dish
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            SetContentView(Resource.Layout.activity_dish1);
+            SetContentView(Resource.Layout.activity_dish1);           
         }
     }
 }
