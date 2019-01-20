@@ -15,12 +15,12 @@ namespace Craft_dish.ViewModels
 
         public void saveDish(string dish_name, string dish_description)
         {
-            dishService.createDish(dish_name, dish_description);        
+            dishService.CreateDish(dish_name, dish_description);        
         }
 
-        public bool dishIsExists(String dish_name)
+        public bool dishIsExists(string dish_name)
         {
-            if(dish_name == dishService.getDishByName(dish_name).DishName)
+            if(dish_name == dishService.GetDishByName(dish_name).DishName)
             {
                 return true;
             }

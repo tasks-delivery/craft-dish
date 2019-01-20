@@ -79,11 +79,18 @@
 		android:layout_height="match_parent">
 	</RelativeLayout>
 
-	<android.support.v7.widget.RecyclerView
+	<RelativeLayout		
 		android:layout_below="@id/dish4_toolbar"
-		android:id="@+id/dish4_dish_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+	</RelativeLayout>
+
+	 <android.support.v7.widget.RecyclerView  
+		android:layout_below="@id/dish4_toolbar"
+		android:id="@+id/recyclerView"  
+		android:scrollbars="vertical"  
+		android:layout_width="fill_parent"  
+		android:layout_height="fill_parent"/> 
 
 	<android.support.design.widget.FloatingActionButton	
 		app:fabSize="normal"			
@@ -97,5 +104,5 @@
         android:layout_height="wrap_content"  
 		android:src="@android:drawable/ic_input_add"
         android:layout_margin="16dp" />
-	 
+	
 </RelativeLayout>

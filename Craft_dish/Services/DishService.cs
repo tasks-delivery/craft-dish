@@ -15,35 +15,41 @@ namespace Craft_dish.Services
             _realm = Realm.GetInstance();
         }
 
-        public void createDish(string dish_name, string dish_description)
+        public void CreateDish(string dish_name, string dish_description)
         {
             _realm.Write(() =>
             {
-                _realm.Add(new Dish { DishName = dish_name, DishDescription = dish_description });
+                _realm.Add(new Dish { DishName = dish_name, DishDescription = dish_description, DishPhoto = Resource.Drawable.icon_not_found });
 
             });
         }
 
-        public void updateDish()
+        public void UpdateDish()
         {
 
         }
 
-        public void deleteDish()
+        public void DeleteDish()
         {
 
         }
 
-        public List<Dish> getAllDishes()
+        public List<Dish> GetAllDishes()
         {
             List<Dish> dishes = _realm.All<Dish>().ToList();
             return dishes;
         }
 
-        public Dish getDishByName(string dish_name)
+        public List<Dish> GetDishesByNameContent(string dish_name)
+        {
+            List<Dish> dishes = _realm.All<Dish>().Where(item => item.DishName.StartsWith(dish_name)).ToList();    
+            return dishes;
+        }
+
+        public Dish GetDishByName(string dish_name)
         {
             Dish resultDish = new Dish();
-            foreach (var dish in getAllDishes())
+            foreach (var dish in GetAllDishes())
             {
                 resultDish = dish;
             }
