@@ -42,7 +42,7 @@ namespace Craft_dish.Views
 
         private void OnTextChanged(object sender, TextChangedEventArgs e)
         {
-            if (field_name.Text.Length <= 0)
+            if (field_name.Text.Length <= 0 || field_name.Text.Trim() == "")
             {
                 btn_save.Enabled = false;
             }
