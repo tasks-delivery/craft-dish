@@ -14,6 +14,7 @@ namespace Craft_dish.Views
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.activity_dish5);
+            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
         }
 
     }
