@@ -7,4 +7,5 @@
     <color name="colorPrimaryYellow">#F7F14A</color>
     <color name="white">#FFFFFFFF</color>
     <color name="colorGrey">#FF47525E</color>
+    <color name="previewAreaColor">#969FAA</color>
 </resources>
