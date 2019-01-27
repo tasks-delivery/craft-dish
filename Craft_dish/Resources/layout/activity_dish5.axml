@@ -4,10 +4,127 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-	<TextView	
-		android:layout_centerInParent="true"
-		android:text="Dish 5"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"/>	
+	<RelativeLayout
+		android:layout_above="@+id/dish5_preview_container"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+	
+		<RelativeLayout	
+			android:alpha="0.3"
+			android:background="@drawable/dish5_header_font"
+			android:id="@+id/dish5_header_container"
+			android:layout_above="@+id/dish5_preview_container"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+			
+	    </RelativeLayout>
 
+		<RelativeLayout
+			android:layout_marginRight="250px"
+			android:layout_marginLeft="250px"
+			android:layout_centerInParent="true"
+			android:layout_width="match_parent"
+			android:layout_height="100dp">
+		
+			<RelativeLayout
+				android:alpha="0.7"
+				android:background="@color/colorPrimaryDark"
+				android:layout_width="100dp"
+				android:layout_height="100dp">
+			
+				<ImageView		
+					android:layout_centerInParent="true"
+					android:layout_margin="80px"					
+					android:background="@drawable/dish5_share_icon"
+					android:backgroundTint="@color/white"
+					android:onClick="openPhoteStorage"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"/>
+				
+			</RelativeLayout>
+
+			<RelativeLayout
+				android:alpha="0.7"
+				android:layout_alignParentRight="true"
+				android:background="@color/colorPrimaryDark"
+				android:layout_width="100dp"
+				android:layout_height="100dp">
+
+				<ImageView	
+				android:layout_centerInParent="true"
+				android:layout_margin="80px"					
+				android:background="@drawable/dish5_photo_icon"
+				android:backgroundTint="@color/white"
+				android:onClick="openPhoneCamera"
+				android:layout_width="wrap_content"					
+				android:layout_height="wrap_content"/>
+
+			</RelativeLayout>
+		
+		</RelativeLayout>
+
+	</RelativeLayout>
+	
+	<RelativeLayout
+		android:layout_centerInParent="true"
+		android:id="@+id/dish5_preview_container"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+
+		<TextView			
+			android:id="@+id/dish5_preview_text"
+			android:layout_centerInParent="true"
+			android:background="#5A6978"
+			style="@style/TextStyle4"
+			android:gravity="center"
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:text="@string/preview_photo"
+			android:layout_width="match_parent"
+			android:layout_height="100px"/>	
+
+	</RelativeLayout>
+
+	<RelativeLayout		
+		android:alpha="0.2"
+		android:background="@drawable/dish_5_footer_font"
+		android:layout_below="@+id/dish5_preview_container"
+		android:id="@+id/dish5_footer_container"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+	</RelativeLayout>
+
+	<RelativeLayout				   
+		android:id="@+id/dish5_photo_area"
+		android:layout_marginTop="100px"
+		android:layout_below="@id/dish5_preview_container"
+		android:layout_centerInParent="true"
+		android:layout_width="170dp"
+		android:layout_height="150dp">
+			
+		<View					
+			android:alpha="0.7"
+			android:background="@color/previewAreaColor"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"/>
+
+	</RelativeLayout>
+	
+	<RelativeLayout
+		android:layout_marginTop="70px"
+		android:layout_below="@id/dish5_photo_area"
+		android:layout_centerHorizontal="true"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content">
+
+		<Button   
+			android:id="@+id/dish_5_btn_save"
+			android:background="@color/colorGrey"			
+			android:textColor="@color/white"
+			android:onClick="savePhoto"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="@string/save" />
+	
+	</RelativeLayout>
+		
 </RelativeLayout>

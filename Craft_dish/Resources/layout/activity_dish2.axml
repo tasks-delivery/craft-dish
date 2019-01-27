@@ -80,7 +80,7 @@
 
 			<Button     
 				android:id="@+id/dish_2_btn_save"
-				android:background="#FF47525E"			
+				android:background="@color/colorGrey"			
 				android:textColor="@color/white"
 				android:onClick="openDish3"
 				android:layout_width="wrap_content"
