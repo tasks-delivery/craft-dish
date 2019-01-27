@@ -34,6 +34,7 @@ namespace Craft_dish.Views
 
         private DishAdapter dishAdapter;
 
+       
         [Java.Interop.Export("openDish2")]
         public void GoToDish2(View v)
         {
@@ -74,15 +75,18 @@ namespace Craft_dish.Views
             close_icon.Visibility = ViewStates.Invisible;
             LoadDishes();
             search_field.TextChanged += SearchDish;
+
+
         }
 
         private void SetUpAdapter(List<Dish> dishes)
         {
-            dishAdapter = new DishAdapter(dishes);
+            dishAdapter = new DishAdapter(dishes, this);
             mRecycleView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
             mLayoutManager = new LinearLayoutManager(this);
             mRecycleView.SetLayoutManager(mLayoutManager);
             dishAdapter.ItemClick += MAdapter_ItemClick;
+            
             mRecycleView.SetAdapter(dishAdapter);
         }
 

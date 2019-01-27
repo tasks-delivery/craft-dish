@@ -26,6 +26,15 @@ namespace Craft_dish
 		
 		public static void UpdateIdValues()
 		{
+			global::blocke.circleimageview.Resource.Attribute.civ_border_color = global::Craft_dish.Resource.Attribute.civ_border_color;
+			global::blocke.circleimageview.Resource.Attribute.civ_border_overlay = global::Craft_dish.Resource.Attribute.civ_border_overlay;
+			global::blocke.circleimageview.Resource.Attribute.civ_border_width = global::Craft_dish.Resource.Attribute.civ_border_width;
+			global::blocke.circleimageview.Resource.Attribute.civ_fill_color = global::Craft_dish.Resource.Attribute.civ_fill_color;
+			global::blocke.circleimageview.Resource.Styleable.CircleImageView = global::Craft_dish.Resource.Styleable.CircleImageView;
+			global::blocke.circleimageview.Resource.Styleable.CircleImageView_civ_border_color = global::Craft_dish.Resource.Styleable.CircleImageView_civ_border_color;
+			global::blocke.circleimageview.Resource.Styleable.CircleImageView_civ_border_overlay = global::Craft_dish.Resource.Styleable.CircleImageView_civ_border_overlay;
+			global::blocke.circleimageview.Resource.Styleable.CircleImageView_civ_border_width = global::Craft_dish.Resource.Styleable.CircleImageView_civ_border_width;
+			global::blocke.circleimageview.Resource.Styleable.CircleImageView_civ_fill_color = global::Craft_dish.Resource.Styleable.CircleImageView_civ_fill_color;
 			global::MvvmCross.Resource.Attribute.MvxBind = global::Craft_dish.Resource.Attribute.MvxBind;
 			global::MvvmCross.Resource.Attribute.MvxDropDownItemTemplate = global::Craft_dish.Resource.Attribute.MvxDropDownItemTemplate;
 			global::MvvmCross.Resource.Attribute.MvxGroupItemTemplate = global::Craft_dish.Resource.Attribute.MvxGroupItemTemplate;
@@ -383,6 +392,18 @@ namespace Craft_dish
 			
 			// aapt resource value: 0x7f0100a5
 			public const int checkedTextViewStyle = 2130772133;
+			
+			// aapt resource value: 0x7f01019a
+			public const int civ_border_color = 2130772378;
+			
+			// aapt resource value: 0x7f01019b
+			public const int civ_border_overlay = 2130772379;
+			
+			// aapt resource value: 0x7f010199
+			public const int civ_border_width = 2130772377;
+			
+			// aapt resource value: 0x7f01019c
+			public const int civ_fill_color = 2130772380;
 			
 			// aapt resource value: 0x7f0100d5
 			public const int closeIcon = 2130772181;
@@ -2612,8 +2633,8 @@ namespace Craft_dish
 			// aapt resource value: 0x7f080039
 			public const int SYM = 2131230777;
 			
-			// aapt resource value: 0x7f0800d1
-			public const int action0 = 2131230929;
+			// aapt resource value: 0x7f0800d4
+			public const int action0 = 2131230932;
 			
 			// aapt resource value: 0x7f08008b
 			public const int action_bar = 2131230859;
@@ -2636,17 +2657,17 @@ namespace Craft_dish
 			// aapt resource value: 0x7f080069
 			public const int action_bar_title = 2131230825;
 			
-			// aapt resource value: 0x7f0800ce
-			public const int action_container = 2131230926;
+			// aapt resource value: 0x7f0800d1
+			public const int action_container = 2131230929;
 			
 			// aapt resource value: 0x7f08008c
 			public const int action_context_bar = 2131230860;
 			
-			// aapt resource value: 0x7f0800d5
-			public const int action_divider = 2131230933;
+			// aapt resource value: 0x7f0800d8
+			public const int action_divider = 2131230936;
 			
-			// aapt resource value: 0x7f0800cf
-			public const int action_image = 2131230927;
+			// aapt resource value: 0x7f0800d2
+			public const int action_image = 2131230930;
 			
 			// aapt resource value: 0x7f080003
 			public const int action_menu_divider = 2131230723;
@@ -2663,11 +2684,11 @@ namespace Craft_dish
 			// aapt resource value: 0x7f08006b
 			public const int action_mode_close_button = 2131230827;
 			
-			// aapt resource value: 0x7f0800d0
-			public const int action_text = 2131230928;
+			// aapt resource value: 0x7f0800d3
+			public const int action_text = 2131230931;
 			
-			// aapt resource value: 0x7f0800de
-			public const int actions = 2131230942;
+			// aapt resource value: 0x7f0800e1
+			public const int actions = 2131230945;
 			
 			// aapt resource value: 0x7f08006c
 			public const int activity_chooser_view_content = 2131230828;
@@ -2705,8 +2726,8 @@ namespace Craft_dish
 			// aapt resource value: 0x7f080072
 			public const int buttonPanel = 2131230834;
 			
-			// aapt resource value: 0x7f0800d2
-			public const int cancel_action = 2131230930;
+			// aapt resource value: 0x7f0800d5
+			public const int cancel_action = 2131230933;
 			
 			// aapt resource value: 0x7f080047
 			public const int center = 2131230791;
@@ -2723,8 +2744,8 @@ namespace Craft_dish
 			// aapt resource value: 0x7f080082
 			public const int checkbox = 2131230850;
 			
-			// aapt resource value: 0x7f0800da
-			public const int chronometer = 2131230938;
+			// aapt resource value: 0x7f0800dd
+			public const int chronometer = 2131230941;
 			
 			// aapt resource value: 0x7f080050
 			public const int clip_horizontal = 2131230800;
@@ -2735,14 +2756,14 @@ namespace Craft_dish
 			// aapt resource value: 0x7f08003b
 			public const int collapseActionView = 2131230779;
 			
-			// aapt resource value: 0x7f0800bf
-			public const int container = 2131230911;
+			// aapt resource value: 0x7f0800c2
+			public const int container = 2131230914;
 			
 			// aapt resource value: 0x7f080075
 			public const int contentPanel = 2131230837;
 			
-			// aapt resource value: 0x7f0800c0
-			public const int coordinator = 2131230912;
+			// aapt resource value: 0x7f0800c3
+			public const int coordinator = 2131230915;
 			
 			// aapt resource value: 0x7f08007c
 			public const int custom = 2131230844;
@@ -2756,20 +2777,20 @@ namespace Craft_dish
 			// aapt resource value: 0x7f08006f
 			public const int default_activity_button = 2131230831;
 			
-			// aapt resource value: 0x7f0800c2
-			public const int design_bottom_sheet = 2131230914;
+			// aapt resource value: 0x7f0800c5
+			public const int design_bottom_sheet = 2131230917;
+			
+			// aapt resource value: 0x7f0800cc
+			public const int design_menu_item_action_area = 2131230924;
+			
+			// aapt resource value: 0x7f0800cb
+			public const int design_menu_item_action_area_stub = 2131230923;
+			
+			// aapt resource value: 0x7f0800ca
+			public const int design_menu_item_text = 2131230922;
 			
 			// aapt resource value: 0x7f0800c9
-			public const int design_menu_item_action_area = 2131230921;
-			
-			// aapt resource value: 0x7f0800c8
-			public const int design_menu_item_action_area_stub = 2131230920;
-			
-			// aapt resource value: 0x7f0800c7
-			public const int design_menu_item_text = 2131230919;
-			
-			// aapt resource value: 0x7f0800c6
-			public const int design_navigation_view = 2131230918;
+			public const int design_navigation_view = 2131230921;
 			
 			// aapt resource value: 0x7f080062
 			public const int dimensions = 2131230818;
@@ -2831,14 +2852,14 @@ namespace Craft_dish
 			// aapt resource value: 0x7f0800b2
 			public const int dish4_close_search_icon = 2131230898;
 			
-			// aapt resource value: 0x7f0800cd
-			public const int dish4_dish_description = 2131230925;
+			// aapt resource value: 0x7f0800d0
+			public const int dish4_dish_description = 2131230928;
 			
-			// aapt resource value: 0x7f0800cb
-			public const int dish4_dish_image = 2131230923;
+			// aapt resource value: 0x7f0800ce
+			public const int dish4_dish_image = 2131230926;
 			
-			// aapt resource value: 0x7f0800cc
-			public const int dish4_dish_name = 2131230924;
+			// aapt resource value: 0x7f0800cf
+			public const int dish4_dish_name = 2131230927;
 			
 			// aapt resource value: 0x7f0800af
 			public const int dish4_search_field = 2131230895;
@@ -2849,20 +2870,32 @@ namespace Craft_dish
 			// aapt resource value: 0x7f0800ae
 			public const int dish4_toolbar = 2131230894;
 			
-			// aapt resource value: 0x7f0800b8
-			public const int dish5_footer_container = 2131230904;
+			// aapt resource value: 0x7f0800bd
+			public const int dish5_btn_save = 2131230909;
+			
+			// aapt resource value: 0x7f0800ba
+			public const int dish5_footer_container = 2131230906;
 			
 			// aapt resource value: 0x7f0800b6
 			public const int dish5_header_container = 2131230902;
 			
-			// aapt resource value: 0x7f0800b9
-			public const int dish5_photo_area = 2131230905;
+			// aapt resource value: 0x7f0800bc
+			public const int dish5_icon_area = 2131230908;
+			
+			// aapt resource value: 0x7f0800bb
+			public const int dish5_photo_area = 2131230907;
+			
+			// aapt resource value: 0x7f0800b8
+			public const int dish5_photo_icon = 2131230904;
 			
 			// aapt resource value: 0x7f0800b5
 			public const int dish5_preview_container = 2131230901;
 			
+			// aapt resource value: 0x7f0800b9
+			public const int dish5_preview_text = 2131230905;
+			
 			// aapt resource value: 0x7f0800b7
-			public const int dish5_preview_text = 2131230903;
+			public const int dish5_share_icon = 2131230903;
 			
 			// aapt resource value: 0x7f0800a8
 			public const int dish_2_btn_save = 2131230888;
@@ -2873,17 +2906,14 @@ namespace Craft_dish
 			// aapt resource value: 0x7f0800a6
 			public const int dish_2_field_dish_name = 2131230886;
 			
-			// aapt resource value: 0x7f0800ba
-			public const int dish_5_btn_save = 2131230906;
-			
 			// aapt resource value: 0x7f08008d
 			public const int edit_query = 2131230861;
 			
 			// aapt resource value: 0x7f080032
 			public const int end = 2131230770;
 			
-			// aapt resource value: 0x7f0800e0
-			public const int end_padder = 2131230944;
+			// aapt resource value: 0x7f0800e3
+			public const int end_padder = 2131230947;
 			
 			// aapt resource value: 0x7f080041
 			public const int enterAlways = 2131230785;
@@ -2933,8 +2963,8 @@ namespace Craft_dish
 			// aapt resource value: 0x7f080071
 			public const int icon = 2131230833;
 			
-			// aapt resource value: 0x7f0800df
-			public const int icon_group = 2131230943;
+			// aapt resource value: 0x7f0800e2
+			public const int icon_group = 2131230946;
 			
 			// aapt resource value: 0x7f08003c
 			public const int ifRoom = 2131230780;
@@ -2945,8 +2975,8 @@ namespace Craft_dish
 			// aapt resource value: 0x7f0800a4
 			public const int imageButton1 = 2131230884;
 			
-			// aapt resource value: 0x7f0800db
-			public const int info = 2131230939;
+			// aapt resource value: 0x7f0800de
+			public const int info = 2131230942;
 			
 			// aapt resource value: 0x7f080059
 			public const int invisible = 2131230809;
@@ -2957,8 +2987,8 @@ namespace Craft_dish
 			// aapt resource value: 0x7f080000
 			public const int item_touch_helper_previous_elevation = 2131230720;
 			
-			// aapt resource value: 0x7f0800be
-			public const int largeLabel = 2131230910;
+			// aapt resource value: 0x7f0800c1
+			public const int largeLabel = 2131230913;
 			
 			// aapt resource value: 0x7f08004b
 			public const int left = 2131230795;
@@ -2975,14 +3005,14 @@ namespace Craft_dish
 			// aapt resource value: 0x7f080070
 			public const int list_item = 2131230832;
 			
-			// aapt resource value: 0x7f0800e3
-			public const int masked = 2131230947;
+			// aapt resource value: 0x7f0800e6
+			public const int masked = 2131230950;
 			
-			// aapt resource value: 0x7f0800d4
-			public const int media_actions = 2131230932;
+			// aapt resource value: 0x7f0800d7
+			public const int media_actions = 2131230935;
 			
-			// aapt resource value: 0x7f0800e1
-			public const int message = 2131230945;
+			// aapt resource value: 0x7f0800e4
+			public const int message = 2131230948;
 			
 			// aapt resource value: 0x7f080033
 			public const int middle = 2131230771;
@@ -2993,8 +3023,8 @@ namespace Craft_dish
 			// aapt resource value: 0x7f08002a
 			public const int multiply = 2131230762;
 			
-			// aapt resource value: 0x7f0800c5
-			public const int navigation_header_container = 2131230917;
+			// aapt resource value: 0x7f0800c8
+			public const int navigation_header_container = 2131230920;
 			
 			// aapt resource value: 0x7f08003d
 			public const int never = 2131230781;
@@ -3005,14 +3035,14 @@ namespace Craft_dish
 			// aapt resource value: 0x7f080020
 			public const int normal = 2131230752;
 			
-			// aapt resource value: 0x7f0800dd
-			public const int notification_background = 2131230941;
+			// aapt resource value: 0x7f0800e0
+			public const int notification_background = 2131230944;
 			
-			// aapt resource value: 0x7f0800d7
-			public const int notification_main_column = 2131230935;
+			// aapt resource value: 0x7f0800da
+			public const int notification_main_column = 2131230938;
 			
-			// aapt resource value: 0x7f0800d6
-			public const int notification_main_column_container = 2131230934;
+			// aapt resource value: 0x7f0800d9
+			public const int notification_main_column_container = 2131230937;
 			
 			// aapt resource value: 0x7f08005e
 			public const int packed = 2131230814;
@@ -3050,11 +3080,11 @@ namespace Craft_dish
 			// aapt resource value: 0x7f08004c
 			public const int right = 2131230796;
 			
-			// aapt resource value: 0x7f0800dc
-			public const int right_icon = 2131230940;
+			// aapt resource value: 0x7f0800df
+			public const int right_icon = 2131230943;
 			
-			// aapt resource value: 0x7f0800d8
-			public const int right_side = 2131230936;
+			// aapt resource value: 0x7f0800db
+			public const int right_side = 2131230939;
 			
 			// aapt resource value: 0x7f08000c
 			public const int save_image_matrix = 2131230732;
@@ -3128,14 +3158,14 @@ namespace Craft_dish
 			// aapt resource value: 0x7f080027
 			public const int showTitle = 2131230759;
 			
-			// aapt resource value: 0x7f0800bd
-			public const int smallLabel = 2131230909;
+			// aapt resource value: 0x7f0800c0
+			public const int smallLabel = 2131230912;
 			
-			// aapt resource value: 0x7f0800c4
-			public const int snackbar_action = 2131230916;
+			// aapt resource value: 0x7f0800c7
+			public const int snackbar_action = 2131230919;
 			
-			// aapt resource value: 0x7f0800c3
-			public const int snackbar_text = 2131230915;
+			// aapt resource value: 0x7f0800c6
+			public const int snackbar_text = 2131230918;
 			
 			// aapt resource value: 0x7f080045
 			public const int snap = 2131230789;
@@ -3143,11 +3173,11 @@ namespace Craft_dish
 			// aapt resource value: 0x7f080073
 			public const int spacer = 2131230835;
 			
-			// aapt resource value: 0x7f0800bc
-			public const int spash_screen_progress_bar = 2131230908;
+			// aapt resource value: 0x7f0800bf
+			public const int spash_screen_progress_bar = 2131230911;
 			
-			// aapt resource value: 0x7f0800bb
-			public const int splash_screen_img_container1 = 2131230907;
+			// aapt resource value: 0x7f0800be
+			public const int splash_screen_img_container1 = 2131230910;
 			
 			// aapt resource value: 0x7f080008
 			public const int split_action_bar = 2131230728;
@@ -3173,8 +3203,8 @@ namespace Craft_dish
 			// aapt resource value: 0x7f08004d
 			public const int start = 2131230797;
 			
-			// aapt resource value: 0x7f0800d3
-			public const int status_bar_latest_event_content = 2131230931;
+			// aapt resource value: 0x7f0800d6
+			public const int status_bar_latest_event_content = 2131230934;
 			
 			// aapt resource value: 0x7f080085
 			public const int submenuarrow = 2131230853;
@@ -3203,8 +3233,8 @@ namespace Craft_dish
 			// aapt resource value: 0x7f0800a5
 			public const int text_container_1 = 2131230885;
 			
-			// aapt resource value: 0x7f0800ca
-			public const int text_input_password_toggle = 2131230922;
+			// aapt resource value: 0x7f0800cd
+			public const int text_input_password_toggle = 2131230925;
 			
 			// aapt resource value: 0x7f080014
 			public const int textinput_counter = 2131230740;
@@ -3212,8 +3242,8 @@ namespace Craft_dish
 			// aapt resource value: 0x7f080015
 			public const int textinput_error = 2131230741;
 			
-			// aapt resource value: 0x7f0800d9
-			public const int time = 2131230937;
+			// aapt resource value: 0x7f0800dc
+			public const int time = 2131230940;
 			
 			// aapt resource value: 0x7f08001c
 			public const int title = 2131230748;
@@ -3230,8 +3260,8 @@ namespace Craft_dish
 			// aapt resource value: 0x7f08007d
 			public const int topPanel = 2131230845;
 			
-			// aapt resource value: 0x7f0800c1
-			public const int touch_outside = 2131230913;
+			// aapt resource value: 0x7f0800c4
+			public const int touch_outside = 2131230916;
 			
 			// aapt resource value: 0x7f08000f
 			public const int transition_current_scene = 2131230735;
@@ -3260,8 +3290,8 @@ namespace Craft_dish
 			// aapt resource value: 0x7f080016
 			public const int view_offset_helper = 2131230742;
 			
-			// aapt resource value: 0x7f0800e2
-			public const int visible = 2131230946;
+			// aapt resource value: 0x7f0800e5
+			public const int visible = 2131230949;
 			
 			// aapt resource value: 0x7f08003e
 			public const int withText = 2131230782;
@@ -5811,6 +5841,24 @@ namespace Craft_dish
 			
 			// aapt resource value: 0
 			public const int ButtonBarLayout_allowStacking = 0;
+			
+			public static int[] CircleImageView = new int[] {
+					2130772377,
+					2130772378,
+					2130772379,
+					2130772380};
+			
+			// aapt resource value: 1
+			public const int CircleImageView_civ_border_color = 1;
+			
+			// aapt resource value: 2
+			public const int CircleImageView_civ_border_overlay = 2;
+			
+			// aapt resource value: 0
+			public const int CircleImageView_civ_border_width = 0;
+			
+			// aapt resource value: 3
+			public const int CircleImageView_civ_fill_color = 3;
 			
 			public static int[] CollapsingToolbarLayout = new int[] {
 					2130771980,
