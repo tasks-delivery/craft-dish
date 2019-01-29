@@ -68,6 +68,7 @@ namespace Craft_dish.Views
             search_field.Visibility = ViewStates.Invisible;
             close_icon.Visibility = ViewStates.Invisible;
             search_icon.Visibility = ViewStates.Visible;
+            search_field.Text = "";
             LoadDishes();
         }
 
