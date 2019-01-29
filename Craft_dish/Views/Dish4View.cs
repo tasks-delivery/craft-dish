@@ -38,7 +38,7 @@ namespace Craft_dish.Views
         [Java.Interop.Export("openDish2")]
         public void GoToDish2(View v)
         {
-            StartActivity(new Intent(Application.Context, typeof(Views.Dish2View)));
+            StartActivity(new Intent(Application.Context, typeof(Dish2View)));
         }
 
         [Java.Interop.Export("openSearch")]
@@ -53,6 +53,14 @@ namespace Craft_dish.Views
         public void Back(View v)
         {
             OnBackPressed();
+        }
+
+        public override void OnBackPressed()
+        {
+           
+            base.OnBackPressed();
+            StartActivity(new Intent(Application.Context, typeof(Dish1View)));
+            Finish();
         }
 
         [Java.Interop.Export("closeSearch")]
@@ -75,8 +83,6 @@ namespace Craft_dish.Views
             close_icon.Visibility = ViewStates.Invisible;
             LoadDishes();
             search_field.TextChanged += SearchDish;
-
-
         }
 
         private void SetUpAdapter(List<Dish> dishes)
@@ -111,7 +117,7 @@ namespace Craft_dish.Views
 
         private void MAdapter_ItemClick(object sender, int e)
         {
-            StartActivity(new Intent(Application.Context, typeof(Views.Dish6View)));
+            StartActivity(new Intent(Application.Context, typeof(Dish6View)));
         }
 
     }

@@ -4,6 +4,7 @@ using Android.Support.V7.App;
 using Android.Views;
 using Android.Content;
 using Android.Content.PM;
+using Craft_dish.Views;
 
 namespace Craft_dish
 {
@@ -22,7 +23,7 @@ namespace Craft_dish
         [Java.Interop.Export("openDish4")]
         public void GoToDish4(View v)
         {
-            StartActivity(new Intent(Application.Context, typeof(Views.Dish4View)));        
+            StartActivity(new Intent(Application.Context, typeof(Dish4View)));        
         }
 
         public override void OnBackPressed()

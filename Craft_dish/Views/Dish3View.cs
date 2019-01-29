@@ -31,13 +31,13 @@ namespace Craft_dish.Views
         [Java.Interop.Export("openDish4")]
         public void goToDish4(View v)
         {
-            StartActivity(new Intent(Application.Context, typeof(Views.Dish4View)));
+            StartActivity(new Intent(Application.Context, typeof(Dish4View)));
         }
 
         [Java.Interop.Export("openDish5")]
         public void goToDish5(View v)
         {
-            Intent intent = new Intent(Application.Context, typeof(Views.Dish5View));
+            Intent intent = new Intent(Application.Context, typeof(Dish5View));
             intent.PutExtra("dish_name", dish_name);
             intent.PutExtra("navigation", "Dish3");
             StartActivity(intent);

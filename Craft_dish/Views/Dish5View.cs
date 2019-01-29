@@ -60,11 +60,11 @@ namespace Craft_dish.Views
             Intent intent = null;
             if(navigation == "Dish3")
             {
-                intent = new Intent(Application.Context, typeof(Views.Dish4View));
+                intent = new Intent(Application.Context, typeof(Dish4View));
             }
             else
             {
-                intent = new Intent(Application.Context, typeof(Views.Dish7View));
+                intent = new Intent(Application.Context, typeof(Dish7View));
             }               
             StartActivity(intent);
             Finish();
@@ -87,7 +87,7 @@ namespace Craft_dish.Views
             using (var cursor = ManagedQuery(MediaStore.Images.Media.ExternalContentUri, null, selection, new string[] { doc_id }, null))
             {
                 if (cursor == null) return path;
-                var columnIndex = cursor.GetColumnIndexOrThrow(Android.Provider.MediaStore.Images.Media.InterfaceConsts.Data);
+                var columnIndex = cursor.GetColumnIndexOrThrow(MediaStore.Images.Media.InterfaceConsts.Data);
                 cursor.MoveToFirst();
                 path = cursor.GetString(columnIndex);
             }
@@ -130,7 +130,7 @@ namespace Craft_dish.Views
 
         public Bitmap ExportBitmapAsPNG(Bitmap bitmap, string dish_name)
         {
-            var sdCardPath = Android.OS.Environment.ExternalStorageDirectory.AbsolutePath + "/Craft_dish";
+            var sdCardPath = Environment.ExternalStorageDirectory.AbsolutePath + "/Craft_dish";
             var filePath = System.IO.Path.Combine(sdCardPath, dish_name + ".png");
             photo_path = filePath;
             var stream = new FileStream(filePath, FileMode.Create);
