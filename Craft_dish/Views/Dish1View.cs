@@ -10,7 +10,7 @@ namespace Craft_dish
 {
     [Activity(Label = "@string/app_name", Theme = "@style/NoActionBar", MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
     public class Dish1View : AppCompatActivity
-    {
+    {        
 
         [Java.Interop.Export("openGitHub")]
         public void Button_OnClick(View v)
@@ -23,8 +23,8 @@ namespace Craft_dish
         [Java.Interop.Export("openDish4")]
         public void GoToDish4(View v)
         {
-            StartActivity(new Intent(Application.Context, typeof(Dish4View)));        
-        }
+            StartActivity(new Intent(Application.Context, typeof(Dish4View)));
+        }      
 
         public override void OnBackPressed()
         {
@@ -34,7 +34,7 @@ namespace Craft_dish
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            SetContentView(Resource.Layout.activity_dish1);           
+            SetContentView(Resource.Layout.activity_dish1);
         }
     }
 }

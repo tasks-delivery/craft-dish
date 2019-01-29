@@ -11,6 +11,8 @@ using Android.Content.PM;
 using Craft_dish.ViewModels;
 using Android.Views;
 using Android.Util;
+using Android.Support.V4.Content;
+using Android;
 
 namespace Craft_dish.Views
 {
@@ -30,6 +32,8 @@ namespace Craft_dish.Views
 
         private string photo_path;
 
+        private RelativeLayout btn_camera;
+
         public static readonly int PickImageId = 1000;
 
         protected override void OnCreate(Bundle bundle)
@@ -38,7 +42,7 @@ namespace Craft_dish.Views
             SetContentView(Resource.Layout.activity_dish5);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             var btn_share = (RelativeLayout)FindViewById(Resource.Id.dish5_share_icon);
-            var btn_camera = (RelativeLayout)FindViewById(Resource.Id.dish5_photo_icon);
+            btn_camera = (RelativeLayout)FindViewById(Resource.Id.dish5_photo_icon);
             icon_area = FindViewById<ImageView>(Resource.Id.dish5_icon_area);
             dish5ViewModel = new Dish5ViewModel();
             dish_name = Intent.GetStringExtra("dish_name");
@@ -122,10 +126,50 @@ namespace Craft_dish.Views
             StartActivityForResult(Intent.CreateChooser(Intent, "Select Picture"), PickImageId);
         }
 
+        protected override void OnStart()
+        {
+            base.OnStart();             
+        }
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
+        {
+            if (requestCode == 200)
+            {
+                if ((grantResults.Length == 1) && (grantResults[0] == Permission.Granted))
+                {
+                    Intent intent = new Intent(MediaStore.ActionImageCapture);
+                    StartActivityForResult(intent, 0);
+                }
+                else
+                {
+                    OnStart();
+                }
+            }
+            else
+            {
+                base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            }
+        }
+
+        public void SetPermissions()
+        {
+            string[] permissions = { "android.permission.CAMERA" };
+            RequestPermissions(permissions, 200);
+        }
+
         private void BtnCamera_Click(object sender, System.EventArgs e)
         {
-            Intent intent = new Intent(MediaStore.ActionImageCapture);
-            StartActivityForResult(intent, 0);
+            var cam = ContextCompat.CheckSelfPermission(Application.Context, Manifest.Permission.Camera);
+            if (cam == Permission.Denied)
+            {
+                SetPermissions();
+            }
+            else
+            {
+                Intent intent = new Intent(MediaStore.ActionImageCapture);
+                StartActivityForResult(intent, 0);
+            }
+                      
         }
 
         public Bitmap ExportBitmapAsPNG(Bitmap bitmap, string dish_name)
