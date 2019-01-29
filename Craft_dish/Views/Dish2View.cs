@@ -53,9 +53,16 @@ namespace Craft_dish.Views
             }
         }
 
+        public override void OnBackPressed()
+        {
+            base.OnBackPressed();
+            StartActivity(new Intent(Application.Context, typeof(Dish4View)));
+            Finish();
+        }
+
         public override bool OnOptionsItemSelected(IMenuItem item)
-        {   
-            Finish();          
+        {
+            OnBackPressed();         
             return true;
         }
 
