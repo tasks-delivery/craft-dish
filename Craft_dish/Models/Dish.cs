@@ -9,10 +9,10 @@ namespace Craft_dish.Models
     public class Dish : RealmObject
     {
 
-        public int DishId { get; set; }
-        public string DishName { get; set; }
-        public string DishDescription { get; set; }
-        public int DishPhoto { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public string PhotoPath { get; set; }
 
     }
 
@@ -21,6 +21,7 @@ namespace Craft_dish.Models
         public ImageView DishPhoto { get; set; }
         public TextView DishName { get; set; }
         public TextView DishDescription { get; set; }
+
         public DishViewHolder(View itemview, Action<int> listener) : base(itemview)
         {
             DishPhoto = itemview.FindViewById<ImageView>(Resource.Id.dish4_dish_image);

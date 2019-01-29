@@ -41,7 +41,7 @@ namespace Craft_dish.ViewModels
             {
                 for(int i = 0; i < LoadDishes().Count; i++)
                 {
-                    if (LoadDishes()[i].DishName.Contains(dish_name) == true)
+                    if (LoadDishes()[i].Name.Contains(dish_name) == true)
                     {
                         dishes.Add(LoadDishes()[i]);
                     }

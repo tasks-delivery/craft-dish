@@ -69,7 +69,9 @@ namespace Craft_dish.Views
             else
             {
                 dish2ViewModel.saveDish(field_name.Text, field_description.Text);
-                StartActivity(new Intent(Application.Context, typeof(Views.Dish3View)));
+                Intent intent = new Intent(Application.Context, typeof(Views.Dish3View));
+                intent.PutExtra("dish_name", field_name.Text);
+                StartActivity(intent);
                 Finish();
             }
                            

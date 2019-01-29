@@ -20,7 +20,7 @@ namespace Craft_dish.ViewModels
 
         public bool dishIsExists(string dish_name)
         {
-            if(dish_name == dishService.GetDishByName(dish_name).DishName)
+            if(dish_name == dishService.GetDishByName(dish_name).Name)
             {
                 return true;
             }

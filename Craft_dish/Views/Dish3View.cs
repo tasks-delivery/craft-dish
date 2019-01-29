@@ -17,7 +17,7 @@ namespace Craft_dish.Views
 
         private Button btn_attach;
 
-        private TextView text1;
+        private string dish_name;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -25,7 +25,7 @@ namespace Craft_dish.Views
             SetContentView(Resource.Layout.activity_dish3);
             btn_attach = (Button)FindViewById(Resource.Id.dish3_btn_attach);
             btn_skip = (Button)FindViewById(Resource.Id.dish3_btn_skip);
-            text1 = (TextView)FindViewById(Resource.Id.dish3_text1);          
+            dish_name = Intent.GetStringExtra("dish_name");
         }
 
         [Java.Interop.Export("openDish4")]
@@ -37,7 +37,10 @@ namespace Craft_dish.Views
         [Java.Interop.Export("openDish5")]
         public void goToDish5(View v)
         {
-            StartActivity(new Intent(Application.Context, typeof(Views.Dish5View)));
+            Intent intent = new Intent(Application.Context, typeof(Views.Dish5View));
+            intent.PutExtra("dish_name", dish_name);
+            intent.PutExtra("navigation", "Dish3");
+            StartActivity(intent);
         }
 
     }

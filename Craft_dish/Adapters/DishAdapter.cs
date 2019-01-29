@@ -1,16 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Android.App;
 using Android.Content;
-using Android.OS;
-using Android.Runtime;
 using Android.Support.V7.Widget;
 using Android.Views;
-using Android.Widget;
 using Craft_dish.Models;
+using Java.IO;
+using JP.Wasabeef.PicassoTransformations;
+using Square.Picasso;
 
 namespace Craft_dish.Adapters
 {
@@ -21,30 +17,45 @@ namespace Craft_dish.Adapters
 
         private List<Dish> mDishes;
 
-        public DishAdapter(List<Dish> dishes)
-        {
+        private Context mContext;
 
+        public DishAdapter(List<Dish> dishes, Context context)
+        {
             mDishes = dishes;
-   
+            mContext = context;          
         }
 
         public override int ItemCount
         {
             get { return mDishes.Count; }
         }
+
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
-            DishViewHolder vh = holder as DishViewHolder;
-            vh.DishPhoto.SetImageResource(mDishes[position].DishPhoto);
-            vh.DishName.Text = mDishes[position].DishName;
-            vh.DishDescription.Text = mDishes[position].DishDescription;
+            DishViewHolder vh = holder as DishViewHolder;           
+            string path = mDishes[position].PhotoPath;
+            File imgFile = new File(path);
+            if (path != null && path != "" && imgFile.Exists())
+            {
+                Picasso.With(mContext)
+                       .Load(imgFile).CenterCrop().Resize(130, 130)
+                       .Transform(new RoundedCornersTransformation(100, 0)).Into(vh.DishPhoto);   
+            }
+            else
+            {
+                vh.DishPhoto.SetImageResource(Resource.Drawable.icon_not_found);
+            }
+            vh.DishName.Text = mDishes[position].Name;
+            vh.DishDescription.Text = mDishes[position].Description;
         }
+
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
             View itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.dish4_list_items, parent, false);
             DishViewHolder vh = new DishViewHolder(itemView, OnClick);
             return vh;
         }
+
         private void OnClick(int obj)
         {
             if (ItemClick != null)
