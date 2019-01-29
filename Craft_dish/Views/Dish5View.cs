@@ -20,6 +20,7 @@ namespace Craft_dish.Views
     [Activity(Label = "@string/dish_photo", Theme = "@style/AppTheme", MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
     public class Dish5View : AppCompatActivity
     {
+        private string tag = "CRAFT DISH";
 
         private ImageView icon_area;
 
@@ -105,8 +106,7 @@ namespace Craft_dish.Views
           
             if ((requestCode == PickImageId) && (resultCode == Result.Ok) && (data != null))
             {
-                uri = data.Data;
-                string tag = "CRAFT DISH";
+                uri = data.Data;               
                 Log.Info(tag, GetPathToImage(uri));
                 icon_area.SetImageURI(uri);
                 photo_path = GetPathToImage(uri);            
@@ -183,8 +183,9 @@ namespace Craft_dish.Views
 
         public Bitmap ExportBitmapAsPNG(Bitmap bitmap, string dish_name)
         {
-            var sdCardPath = Android.OS.Environment.ExternalStorageDirectory.AbsolutePath + "/Craft_dish";
-            var filePath = System.IO.Path.Combine(sdCardPath, dish_name + ".png");
+            var path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData);
+            var filePath = System.IO.Path.Combine(path,  dish_name + ".png");
+            Log.Info(tag, filePath);
             photo_path = filePath;
             var stream = new FileStream(filePath, FileMode.Create);
             bitmap.Compress(Bitmap.CompressFormat.Png, 100, stream);
