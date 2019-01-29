@@ -2885,8 +2885,8 @@ namespace Craft_dish
 			// aapt resource value: 0x7f0800bb
 			public const int dish5_photo_area = 2131230907;
 			
-			// aapt resource value: 0x7f0800b8
-			public const int dish5_photo_icon = 2131230904;
+			// aapt resource value: 0x7f0800b7
+			public const int dish5_photo_icon = 2131230903;
 			
 			// aapt resource value: 0x7f0800b5
 			public const int dish5_preview_container = 2131230901;
@@ -2894,8 +2894,8 @@ namespace Craft_dish
 			// aapt resource value: 0x7f0800b9
 			public const int dish5_preview_text = 2131230905;
 			
-			// aapt resource value: 0x7f0800b7
-			public const int dish5_share_icon = 2131230903;
+			// aapt resource value: 0x7f0800b8
+			public const int dish5_share_icon = 2131230904;
 			
 			// aapt resource value: 0x7f0800a8
 			public const int dish_2_btn_save = 2131230888;

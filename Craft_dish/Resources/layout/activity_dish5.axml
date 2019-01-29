@@ -19,17 +19,18 @@
 			
 	    </RelativeLayout>
 
-		<RelativeLayout
-			android:layout_marginRight="250px"
-			android:layout_marginLeft="250px"
+		<RelativeLayout			
+			android:gravity="center"
 			android:layout_centerInParent="true"
 			android:layout_width="match_parent"
 			android:layout_height="100dp">
 		
-			<RelativeLayout
+			<RelativeLayout				
+				android:layout_toLeftOf="@+id/dish5_photo_icon"							
+				android:layout_marginRight="200px"
 				android:id="@+id/dish5_share_icon"
 				android:alpha="0.7"
-				android:background="@color/colorPrimaryDark"
+				android:background="@color/colorPrimaryDark"			
 				android:layout_width="100dp"
 				android:layout_height="100dp">
 			
@@ -43,10 +44,9 @@
 				
 			</RelativeLayout>
 
-			<RelativeLayout
+			<RelativeLayout							
 				android:id="@+id/dish5_photo_icon"
-				android:alpha="0.7"
-				android:layout_alignParentRight="true"
+				android:alpha="0.7"				
 				android:background="@color/colorPrimaryDark"
 				android:layout_width="100dp"
 				android:layout_height="100dp">
@@ -95,30 +95,28 @@
 
 	<RelativeLayout				   
 		android:id="@+id/dish5_photo_area"
-		android:layout_marginTop="100px"
+		android:layout_marginTop="90px"
 		android:layout_below="@id/dish5_preview_container"
 		android:layout_centerInParent="true"
-		android:layout_width="170dp"
+		android:layout_width="150dp"
 		android:layout_height="150dp">
 			
-		    <ImageView 
+		<ImageView 
 			android:alpha="0.7"
 			android:background="@color/previewAreaColor"
-		android:id="@+id/dish5_icon_area" 
-		android:layout_weight="70" 
-		android:layout_width="match_parent" 
-		android:layout_height="match_parent" />  
-
-		
-
+			android:id="@+id/dish5_icon_area" 
+			android:layout_weight="70" 
+			android:layout_width="match_parent" 
+			android:layout_height="match_parent" />  
+	
 	</RelativeLayout>
 	
-	<RelativeLayout
-		android:layout_marginTop="70px"
+	<RelativeLayout		
+		android:gravity="center"
 		android:layout_below="@id/dish5_photo_area"
 		android:layout_centerHorizontal="true"
 		android:layout_width="wrap_content"
-		android:layout_height="wrap_content">
+		android:layout_height="match_parent">
 
 		<Button   
 			android:id="@+id/dish5_btn_save"
