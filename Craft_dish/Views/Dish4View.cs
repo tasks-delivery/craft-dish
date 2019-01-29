@@ -42,12 +42,15 @@ namespace Craft_dish.Views
             Finish();
         }
 
+        private static void HideKeyboard(Activity activity, View pView)
+        {
+            InputMethodManager inputMethodManager = activity.GetSystemService(InputMethodService) as InputMethodManager;
+            inputMethodManager.HideSoftInputFromWindow(pView.WindowToken, HideSoftInputFlags.None);
+        }
 
-
-        public static void ShowKeyboard(Activity activity, View pView)
+        private static void ShowKeyboard(Activity activity, View pView)
         {
             pView.RequestFocus();
-
             InputMethodManager inputMethodManager = activity.GetSystemService(InputMethodService) as InputMethodManager;
             inputMethodManager.ShowSoftInput(pView, ShowFlags.Forced);
             inputMethodManager.ToggleSoftInput(ShowFlags.Forced, HideSoftInputFlags.ImplicitOnly);
@@ -59,10 +62,6 @@ namespace Craft_dish.Views
             search_field.Visibility = ViewStates.Visible;
             close_icon.Visibility = ViewStates.Visible;
             search_icon.Visibility = ViewStates.Invisible;
-          //  search_field.Focusable = true;
-          //  search_field.FocusableInTouchMode = true;
-          //  search_field.RequestFocus();
-          //  search_field.RequestFocusFromTouch();
             ShowKeyboard(this, search_field);
         }
 
@@ -86,7 +85,14 @@ namespace Craft_dish.Views
             close_icon.Visibility = ViewStates.Invisible;
             search_icon.Visibility = ViewStates.Visible;
             search_field.Text = "";
+            HideKeyboard(this, search_field);
             LoadDishes();
+        }
+
+        protected override void OnPause()
+        {
+            base.OnPause();
+            HideKeyboard(this, search_field);
         }
 
         protected override void OnCreate(Bundle bundle)
