@@ -33,13 +33,21 @@ namespace Craft_dish.Adapters
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
             DishViewHolder vh = holder as DishViewHolder;           
-            string path = mDishes[position].PhotoPath;
-            File imgFile = new File(path);
-            if (path != null && path != "" && imgFile.Exists())
+            string path = mDishes[position].PhotoPath;         
+            if (path != null && path != "")
             {
-                Picasso.With(mContext)
-                       .Load(imgFile).CenterCrop().Resize(130, 130)
-                       .Transform(new RoundedCornersTransformation(100, 0)).Into(vh.DishPhoto);   
+                File imgFile = new File(path);
+                if (imgFile.Exists())
+                {
+                    Picasso.With(mContext)
+                           .Load(imgFile).CenterCrop().Resize(130, 130)
+                           .Transform(new RoundedCornersTransformation(100, 0)).Into(vh.DishPhoto);
+                }
+                else
+                {
+                    vh.DishPhoto.SetImageResource(Resource.Drawable.icon_not_found);
+                }
+                
             }
             else
             {
