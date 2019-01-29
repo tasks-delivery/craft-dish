@@ -7,6 +7,7 @@ using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using Android.Text;
 using Android.Views;
+using Android.Views.InputMethods;
 using Android.Widget;
 using Craft_dish.Adapters;
 using Craft_dish.Models;
@@ -41,12 +42,28 @@ namespace Craft_dish.Views
             Finish();
         }
 
+
+
+        public static void ShowKeyboard(Activity activity, View pView)
+        {
+            pView.RequestFocus();
+
+            InputMethodManager inputMethodManager = activity.GetSystemService(InputMethodService) as InputMethodManager;
+            inputMethodManager.ShowSoftInput(pView, ShowFlags.Forced);
+            inputMethodManager.ToggleSoftInput(ShowFlags.Forced, HideSoftInputFlags.ImplicitOnly);
+        }
+
         [Java.Interop.Export("openSearch")]
         public void ShownSearchField(View v)
         {
             search_field.Visibility = ViewStates.Visible;
             close_icon.Visibility = ViewStates.Visible;
             search_icon.Visibility = ViewStates.Invisible;
+          //  search_field.Focusable = true;
+          //  search_field.FocusableInTouchMode = true;
+          //  search_field.RequestFocus();
+          //  search_field.RequestFocusFromTouch();
+            ShowKeyboard(this, search_field);
         }
 
         [Java.Interop.Export("back")]
