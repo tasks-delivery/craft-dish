@@ -33,12 +33,12 @@ namespace Craft_dish.Views
         private Dish4ViewModel dish4ViewModel;
 
         private DishAdapter dishAdapter;
-
-       
+     
         [Java.Interop.Export("openDish2")]
         public void GoToDish2(View v)
         {
             StartActivity(new Intent(Application.Context, typeof(Dish2View)));
+            Finish();
         }
 
         [Java.Interop.Export("openSearch")]
@@ -56,8 +56,7 @@ namespace Craft_dish.Views
         }
 
         public override void OnBackPressed()
-        {
-           
+        {           
             base.OnBackPressed();
             StartActivity(new Intent(Application.Context, typeof(Dish1View)));
             Finish();
