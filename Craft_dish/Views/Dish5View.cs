@@ -13,6 +13,7 @@ using Android.Views;
 using Android.Util;
 using Android.Support.V4.Content;
 using Android;
+using System;
 
 namespace Craft_dish.Views
 {
@@ -112,8 +113,16 @@ namespace Craft_dish.Views
             }
             else
             {
-                Bitmap bitmap = (Bitmap)data.Extras.Get("data");
-                icon_area.SetImageBitmap(ExportBitmapAsPNG(bitmap, dish_name));
+                try
+                {
+                    Bitmap bitmap = (Bitmap)data.Extras.Get("data");
+                    icon_area.SetImageBitmap(ExportBitmapAsPNG(bitmap, dish_name));
+                }
+                catch(NullReferenceException e)
+                {
+                    OnStart();
+                }
+                
             }
          
         }
@@ -174,7 +183,7 @@ namespace Craft_dish.Views
 
         public Bitmap ExportBitmapAsPNG(Bitmap bitmap, string dish_name)
         {
-            var sdCardPath = Environment.ExternalStorageDirectory.AbsolutePath + "/Craft_dish";
+            var sdCardPath = Android.OS.Environment.ExternalStorageDirectory.AbsolutePath + "/Craft_dish";
             var filePath = System.IO.Path.Combine(sdCardPath, dish_name + ".png");
             photo_path = filePath;
             var stream = new FileStream(filePath, FileMode.Create);
