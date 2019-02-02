@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Craft_dish.Models;
 using Craft_dish.Services;
 
@@ -41,7 +42,7 @@ namespace Craft_dish.ViewModels
             {
                 for(int i = 0; i < LoadDishes().Count; i++)
                 {
-                    if (LoadDishes()[i].Name.Contains(dish_name) == true)
+                    if (LoadDishes()[i].Name.Contains(dish_name, StringComparison.OrdinalIgnoreCase) == true)
                     {
                         dishes.Add(LoadDishes()[i]);
                     }
