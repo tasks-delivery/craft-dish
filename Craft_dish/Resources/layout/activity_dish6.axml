@@ -1,13 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:orientation="vertical"	
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+		
+	<RelativeLayout	
+		android:background="@drawable/dish6_font"
+		android:alpha="0.1"		
+		android:id="@+id/dish6_font_container"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent">
+		
+	</RelativeLayout>
 
-	<TextView	
+	<android.support.v7.widget.Toolbar
+      android:id="@+id/dish6_toolbar"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="@color/colorPrimaryDark">
+
+		<RelativeLayout
+			 android:layout_width="match_parent"
+			 android:layout_height="match_parent">
+		    
+			<TextView
+				android:text="Dish name"
+				android:textSize="20sp"
+				android:layout_width="800px"
+			    android:layout_height="wrap_content"							
+				android:layout_marginLeft="100px"
+				android:layout_centerVertical="true"
+				android:layout_toRightOf="@+id/dish6_back_arrow"				
+			    android:id="@+id/dish6_dish_name_text"
+				android:textColor="@color/white"
+				android:backgroundTint="@color/white"
+				android:textColorHint="@color/white"/>
+				
+			<ImageView
+				android:layout_centerVertical="true"
+				android:layout_marginRight="50px"
+				android:id="@+id/dish6_edit_icon"
+				android:layout_alignParentRight="true"
+				android:layout_width="80px"
+			    android:layout_height="80px"
+				android:background="@drawable/dish6_edit_icon"
+				android:backgroundTint="@color/white"/>
+
+			<ImageView
+				android:layout_centerVertical="true"			
+				android:id="@+id/dish6_back_arrow"				
+				android:layout_marginLeft="15px"
+				android:layout_alignParentLeft="true"
+				android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+				android:background="@drawable/abc_ic_ab_back_material"
+				android:backgroundTint="@color/white"/>
+										
+		</RelativeLayout>
+     
+	</android.support.v7.widget.Toolbar>
+
+	<RelativeLayout		
+		android:layout_below="@+id/dish6_toolbar"
+		android:layout_marginTop="200px"
 		android:layout_centerInParent="true"
-		android:text="Dish 6"
+		android:id="@+id/dish6_photo_icon"		
+		android:background="@color/colorPrimaryDark"
+		android:layout_width="100dp"
+		android:layout_height="100dp">
+
+		<ImageView						
+			android:layout_centerInParent="true"
+			android:layout_margin="80px"					
+			android:background="@drawable/dish_photo_icon"
+			android:backgroundTint="@color/white"
+			android:layout_width="wrap_content"					
+			android:layout_height="wrap_content"/>
+
+		</RelativeLayout>
+
+	<TextView				
+		android:layout_marginTop="100px"
+		android:layout_below="@id/dish6_photo_icon"
+		android:layout_centerInParent="true"
+		android:text="Dish description"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"/>	
 
+	<RelativeLayout	
+		android:layout_margin="50px"
+		android:layout_alignParentBottom="true"
+		android:background="@color/dish6_ing_list_color"
+	    android:layout_width="match_parent"
+		android:layout_height="800px">
+
+		<RelativeLayout
+			android:id="@+id/dish6_ingredient_header"
+			android:background="@color/colorPrimaryDark"
+			android:layout_alignParentTop="true"
+			android:layout_width="match_parent"
+			android:layout_height="150px">
+
+			<TextView
+				android:textSize="18sp"
+				android:layout_marginLeft="50px"
+				android:layout_centerVertical="true"
+				android:textColor="@color/white"
+				android:text="@string/text_ingredients"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"/>
+			
+			<ImageView	
+				android:id="@+id/dish6_plus_icon"
+				android:layout_width="90px"
+				android:layout_height="90px"
+				android:background="@drawable/dish6_plus_icon"
+				android:backgroundTint="@color/white"												
+				android:layout_toLeftOf="@+id/dish6_minus_icon"						
+				android:layout_centerVertical="true"/>								
+						
+			<ImageView															
+				android:id="@+id/dish6_minus_icon"
+				android:layout_width="90px"
+				android:layout_height="90px"
+				android:background="@drawable/dish6_minus_icon"
+				android:backgroundTint="@color/white"				
+				android:layout_alignParentRight="true"
+				android:layout_marginRight="50px"	
+				android:layout_marginLeft="50px"		
+				android:layout_centerVertical="true"/>				
+								
+		</RelativeLayout>
+			
+	 <android.support.v7.widget.RecyclerView  
+		android:layout_below="@id/dish6_ingredient_header"
+		android:id="@+id/dish6_recyclerView"  
+		android:scrollbars="vertical"  
+		android:layout_width="fill_parent"  
+		android:layout_height="fill_parent"/> 
+	
+	</RelativeLayout>
+	
 </RelativeLayout>
