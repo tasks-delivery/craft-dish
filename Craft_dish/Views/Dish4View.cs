@@ -114,8 +114,7 @@ namespace Craft_dish.Views
             mRecycleView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
             mLayoutManager = new LinearLayoutManager(this);
             mRecycleView.SetLayoutManager(mLayoutManager);
-            dishAdapter.ItemClick += MAdapter_ItemClick;
-            
+            dishAdapter.ItemClick += MAdapter_ItemClick;           
             mRecycleView.SetAdapter(dishAdapter);
         }
 

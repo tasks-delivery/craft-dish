@@ -67,7 +67,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapters\DishAdapter.cs" />
+    <Compile Include="Adapters\IngredientAdapter.cs" />
     <Compile Include="Models\Dish.cs" />
+    <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Services\DishService.cs" />
     <Compile Include="ViewModels\Dish2ViewModel.cs" />
     <Compile Include="ViewModels\Dish4ViewModel.cs" />
@@ -226,10 +228,27 @@
     <AndroidResource Include="Resources\drawable\dish5_header_font.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\dish5_photo_icon.png" />
+    <AndroidResource Include="Resources\drawable\dish_photo_icon.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\dish5_share_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\dish6_font.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\dish6_edit_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\dish6_ingredient_list_items.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\dish6_plus_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\dish6_minus_icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
