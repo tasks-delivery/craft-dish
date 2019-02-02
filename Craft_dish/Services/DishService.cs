@@ -53,7 +53,11 @@ namespace Craft_dish.Services
             Dish resultDish = new Dish();
             foreach (var dish in GetAllDishes())
             {
-                resultDish = dish;
+                if (dish.Name == dish_name)
+                {
+                    resultDish = dish;
+                }
+                
             }
             return resultDish;
         }

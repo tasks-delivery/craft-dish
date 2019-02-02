@@ -60,15 +60,16 @@ namespace Craft_dish.Adapters
         public override RecyclerView.ViewHolder OnCreateViewHolder(ViewGroup parent, int viewType)
         {
             View itemView = LayoutInflater.From(parent.Context).Inflate(Resource.Layout.dish4_list_items, parent, false);
-            DishViewHolder vh = new DishViewHolder(itemView, OnClick);
+            DishViewHolder vh = new DishViewHolder(itemView, OnClick);        
             return vh;
         }
 
         private void OnClick(int obj)
         {
             if (ItemClick != null)
-                ItemClick(this, obj);
-        }
+                ItemClick(this, obj);            
+        }     
 
     }
+
 }

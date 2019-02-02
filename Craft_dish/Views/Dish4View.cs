@@ -34,7 +34,7 @@ namespace Craft_dish.Views
         private Dish4ViewModel dish4ViewModel;
 
         private DishAdapter dishAdapter;
-     
+
         [Java.Interop.Export("openDish2")]
         public void GoToDish2(View v)
         {
@@ -72,7 +72,7 @@ namespace Craft_dish.Views
         }
 
         public override void OnBackPressed()
-        {           
+        {
             base.OnBackPressed();
             StartActivity(new Intent(Application.Context, typeof(Dish1View)));
             Finish();
@@ -114,13 +114,12 @@ namespace Craft_dish.Views
             mRecycleView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
             mLayoutManager = new LinearLayoutManager(this);
             mRecycleView.SetLayoutManager(mLayoutManager);
-            dishAdapter.ItemClick += MAdapter_ItemClick;           
+            dishAdapter.ItemClick += MAdapter_ItemClick;
             mRecycleView.SetAdapter(dishAdapter);
         }
 
         private void LoadDishes()
         {
-            
             dish4ViewModel = new Dish4ViewModel();
             if (dish4ViewModel.DishesIsExist() == true)
             {
@@ -128,19 +127,23 @@ namespace Craft_dish.Views
             }
             else
             {
-                
+
             }
         }
 
         private void SearchDish(object sender, TextChangedEventArgs e)
         {
-            SetUpAdapter(dish4ViewModel.SearchDishByName(search_field.Text));      
+            SetUpAdapter(dish4ViewModel.SearchDishByName(search_field.Text));
         }
-
+     
         private void MAdapter_ItemClick(object sender, int e)
         {
-            StartActivity(new Intent(Application.Context, typeof(Dish6View)));
+            var item = dish4ViewModel.LoadDishes()[e];
+            Intent intent = new Intent(Application.Context, typeof(Dish6View));
+            intent.PutExtra("dish_name", item.Name);
+            StartActivity(intent);
         }
 
     }
-}
+
+}         

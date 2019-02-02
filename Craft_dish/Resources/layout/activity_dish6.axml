@@ -22,33 +22,48 @@
 		<RelativeLayout
 			 android:layout_width="match_parent"
 			 android:layout_height="match_parent">
-		    
-			<TextView
+
+			<RelativeLayout
+				android:layout_marginRight="150px"
+				android:layout_centerVertical="true"
+				android:layout_toRightOf="@+id/dish6_back_arrow"	
+				android:layout_marginLeft="50px"
+				android:layout_width="wrap_content"
+			    android:layout_height="wrap_content">			
+
+				<TextView
 				android:text="Dish name"
 				android:textSize="20sp"
-				android:layout_width="800px"
-			    android:layout_height="wrap_content"							
-				android:layout_marginLeft="100px"
-				android:layout_centerVertical="true"
-				android:layout_toRightOf="@+id/dish6_back_arrow"				
+				android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"														
 			    android:id="@+id/dish6_dish_name_text"
 				android:textColor="@color/white"
 				android:backgroundTint="@color/white"
 				android:textColorHint="@color/white"/>
-				
-			<ImageView
+			
+			</RelativeLayout>
+			
+			<RelativeLayout
 				android:layout_centerVertical="true"
 				android:layout_marginRight="50px"
-				android:id="@+id/dish6_edit_icon"
 				android:layout_alignParentRight="true"
+				android:layout_width="80px"
+			    android:layout_height="80px">
+						
+				<ImageView
+				android:onClick="openDish7"				
+				android:id="@+id/dish6_edit_icon"				
 				android:layout_width="80px"
 			    android:layout_height="80px"
 				android:background="@drawable/dish6_edit_icon"
 				android:backgroundTint="@color/white"/>
-
+			
+			</RelativeLayout>
+			
 			<ImageView
 				android:layout_centerVertical="true"			
-				android:id="@+id/dish6_back_arrow"				
+				android:id="@+id/dish6_back_arrow"	
+				android:onClick="back"
 				android:layout_marginLeft="15px"
 				android:layout_alignParentLeft="true"
 				android:layout_width="wrap_content"
@@ -62,14 +77,15 @@
 
 	<RelativeLayout		
 		android:layout_below="@+id/dish6_toolbar"
-		android:layout_marginTop="200px"
+		android:layout_marginTop="100px"
 		android:layout_centerInParent="true"
 		android:id="@+id/dish6_photo_icon"		
 		android:background="@color/colorPrimaryDark"
 		android:layout_width="100dp"
 		android:layout_height="100dp">
 
-		<ImageView						
+		<ImageView		
+			android:id="@+id/dish6_photo_image"
 			android:layout_centerInParent="true"
 			android:layout_margin="80px"					
 			android:background="@drawable/dish_photo_icon"
@@ -79,10 +95,12 @@
 
 		</RelativeLayout>
 
-	<TextView				
-		android:layout_marginTop="100px"
+	<TextView		
+		android:id="@+id/dish6_dish_description_text"	
+		android:layout_margin="50px"
 		android:layout_below="@id/dish6_photo_icon"
 		android:layout_centerInParent="true"
+		android:gravity="center"
 		android:text="Dish description"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"/>	
@@ -114,12 +132,14 @@
 				android:id="@+id/dish6_plus_icon"
 				android:layout_width="90px"
 				android:layout_height="90px"
+				android:onClick="openIngredient1Add"
 				android:background="@drawable/dish6_plus_icon"
 				android:backgroundTint="@color/white"												
 				android:layout_toLeftOf="@+id/dish6_minus_icon"						
 				android:layout_centerVertical="true"/>								
 						
-			<ImageView															
+			<ImageView	
+				android:onClick="openIngredient1Remove"
 				android:id="@+id/dish6_minus_icon"
 				android:layout_width="90px"
 				android:layout_height="90px"
