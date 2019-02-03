@@ -7,6 +7,7 @@ using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using Android.Text;
 using Android.Views;
+using Android.Views.InputMethods;
 using Android.Widget;
 using Craft_dish.Adapters;
 using Craft_dish.Models;
@@ -37,7 +38,22 @@ namespace Craft_dish.Views
         [Java.Interop.Export("openDish2")]
         public void GoToDish2(View v)
         {
-            StartActivity(new Intent(Application.Context, typeof(Views.Dish2View)));
+            StartActivity(new Intent(Application.Context, typeof(Dish2View)));
+            Finish();
+        }
+
+        private static void HideKeyboard(Activity activity, View pView)
+        {
+            InputMethodManager inputMethodManager = activity.GetSystemService(InputMethodService) as InputMethodManager;
+            inputMethodManager.HideSoftInputFromWindow(pView.WindowToken, HideSoftInputFlags.None);
+        }
+
+        private static void ShowKeyboard(Activity activity, View pView)
+        {
+            pView.RequestFocus();
+            InputMethodManager inputMethodManager = activity.GetSystemService(InputMethodService) as InputMethodManager;
+            inputMethodManager.ShowSoftInput(pView, ShowFlags.Forced);
+            inputMethodManager.ToggleSoftInput(ShowFlags.Forced, HideSoftInputFlags.ImplicitOnly);
         }
 
         [Java.Interop.Export("openSearch")]
@@ -46,6 +62,7 @@ namespace Craft_dish.Views
             search_field.Visibility = ViewStates.Visible;
             close_icon.Visibility = ViewStates.Visible;
             search_icon.Visibility = ViewStates.Invisible;
+            ShowKeyboard(this, search_field);
         }
 
         [Java.Interop.Export("back")]
@@ -54,13 +71,28 @@ namespace Craft_dish.Views
             OnBackPressed();
         }
 
+        public override void OnBackPressed()
+        {
+            base.OnBackPressed();
+            StartActivity(new Intent(Application.Context, typeof(Dish1View)));
+            Finish();
+        }
+
         [Java.Interop.Export("closeSearch")]
         public void HideSearchField(View v)
         {
             search_field.Visibility = ViewStates.Invisible;
             close_icon.Visibility = ViewStates.Invisible;
             search_icon.Visibility = ViewStates.Visible;
+            search_field.Text = "";
+            HideKeyboard(this, search_field);
             LoadDishes();
+        }
+
+        protected override void OnPause()
+        {
+            base.OnPause();
+            HideKeyboard(this, search_field);
         }
 
         protected override void OnCreate(Bundle bundle)
@@ -78,7 +110,7 @@ namespace Craft_dish.Views
 
         private void SetUpAdapter(List<Dish> dishes)
         {
-            dishAdapter = new DishAdapter(dishes);
+            dishAdapter = new DishAdapter(dishes, this);
             mRecycleView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
             mLayoutManager = new LinearLayoutManager(this);
             mRecycleView.SetLayoutManager(mLayoutManager);
@@ -88,7 +120,6 @@ namespace Craft_dish.Views
 
         private void LoadDishes()
         {
-            
             dish4ViewModel = new Dish4ViewModel();
             if (dish4ViewModel.DishesIsExist() == true)
             {
@@ -96,19 +127,23 @@ namespace Craft_dish.Views
             }
             else
             {
-                
+
             }
         }
 
         private void SearchDish(object sender, TextChangedEventArgs e)
         {
-            SetUpAdapter(dish4ViewModel.SearchDishByName(search_field.Text));      
+            SetUpAdapter(dish4ViewModel.SearchDishByName(search_field.Text));
         }
-
+     
         private void MAdapter_ItemClick(object sender, int e)
         {
-            StartActivity(new Intent(Application.Context, typeof(Views.Dish6View)));
+            var item = dish4ViewModel.LoadDishes()[e];
+            Intent intent = new Intent(Application.Context, typeof(Dish6View));
+            intent.PutExtra("dish_name", item.Name);
+            StartActivity(intent);
         }
 
     }
-}
+
+}         

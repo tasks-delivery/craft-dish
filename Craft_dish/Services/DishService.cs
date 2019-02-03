@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Craft_dish.Models;
 using Realms;
@@ -19,14 +20,16 @@ namespace Craft_dish.Services
         {
             _realm.Write(() =>
             {
-                _realm.Add(new Dish { DishName = dish_name, DishDescription = dish_description, DishPhoto = Resource.Drawable.icon_not_found });
-
+                _realm.Add(new Dish { Name = dish_name, Description = dish_description, PhotoPath = "" });
             });
         }
 
-        public void UpdateDish()
+        public void UpdateDish(Dish dish, string photo_path)
         {
-
+            _realm.Write(() =>
+            {
+                dish.PhotoPath = photo_path;
+            });
         }
 
         public void DeleteDish()
@@ -42,7 +45,7 @@ namespace Craft_dish.Services
 
         public List<Dish> GetDishesByNameContent(string dish_name)
         {
-            List<Dish> dishes = _realm.All<Dish>().Where(item => item.DishName.StartsWith(dish_name)).ToList();    
+            List<Dish> dishes = _realm.All<Dish>().Where(item => item.Name.StartsWith(dish_name)).ToList();    
             return dishes;
         }
 
@@ -51,7 +54,11 @@ namespace Craft_dish.Services
             Dish resultDish = new Dish();
             foreach (var dish in GetAllDishes())
             {
-                resultDish = dish;
+                if (dish.Name == dish_name)
+                {
+                    resultDish = dish;
+                }
+                
             }
             return resultDish;
         }

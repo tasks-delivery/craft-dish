@@ -19,45 +19,45 @@
 			
 	    </RelativeLayout>
 
-		<RelativeLayout
-			android:layout_marginRight="250px"
-			android:layout_marginLeft="250px"
+		<RelativeLayout			
+			android:gravity="center"
 			android:layout_centerInParent="true"
 			android:layout_width="match_parent"
 			android:layout_height="100dp">
 		
-			<RelativeLayout
+			<RelativeLayout				
+				android:layout_toLeftOf="@+id/dish5_photo_icon"							
+				android:layout_marginRight="200px"
+				android:id="@+id/dish5_share_icon"
 				android:alpha="0.7"
-				android:background="@color/colorPrimaryDark"
+				android:background="@color/colorPrimaryDark"			
 				android:layout_width="100dp"
 				android:layout_height="100dp">
 			
-				<ImageView		
+				<ImageView					
 					android:layout_centerInParent="true"
 					android:layout_margin="80px"					
 					android:background="@drawable/dish5_share_icon"
 					android:backgroundTint="@color/white"
-					android:onClick="openPhoteStorage"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"/>
 				
 			</RelativeLayout>
 
-			<RelativeLayout
-				android:alpha="0.7"
-				android:layout_alignParentRight="true"
+			<RelativeLayout							
+				android:id="@+id/dish5_photo_icon"
+				android:alpha="0.7"				
 				android:background="@color/colorPrimaryDark"
 				android:layout_width="100dp"
 				android:layout_height="100dp">
 
-				<ImageView	
-				android:layout_centerInParent="true"
-				android:layout_margin="80px"					
-				android:background="@drawable/dish5_photo_icon"
-				android:backgroundTint="@color/white"
-				android:onClick="openPhoneCamera"
-				android:layout_width="wrap_content"					
-				android:layout_height="wrap_content"/>
+				<ImageView						
+					android:layout_centerInParent="true"
+					android:layout_margin="80px"					
+					android:background="@drawable/dish_photo_icon"
+					android:backgroundTint="@color/white"
+					android:layout_width="wrap_content"					
+					android:layout_height="wrap_content"/>
 
 			</RelativeLayout>
 		
@@ -95,29 +95,31 @@
 
 	<RelativeLayout				   
 		android:id="@+id/dish5_photo_area"
-		android:layout_marginTop="100px"
+		android:layout_marginTop="90px"
 		android:layout_below="@id/dish5_preview_container"
 		android:layout_centerInParent="true"
-		android:layout_width="170dp"
+		android:layout_width="150dp"
 		android:layout_height="150dp">
 			
-		<View					
+		<ImageView 
 			android:alpha="0.7"
 			android:background="@color/previewAreaColor"
-			android:layout_width="match_parent"
-			android:layout_height="match_parent"/>
-
+			android:id="@+id/dish5_icon_area" 
+			android:layout_weight="70" 
+			android:layout_width="match_parent" 
+			android:layout_height="match_parent" />  
+	
 	</RelativeLayout>
 	
-	<RelativeLayout
-		android:layout_marginTop="70px"
+	<RelativeLayout		
+		android:gravity="center"
 		android:layout_below="@id/dish5_photo_area"
 		android:layout_centerHorizontal="true"
 		android:layout_width="wrap_content"
-		android:layout_height="wrap_content">
+		android:layout_height="match_parent">
 
 		<Button   
-			android:id="@+id/dish_5_btn_save"
+			android:id="@+id/dish5_btn_save"
 			android:background="@color/colorGrey"			
 			android:textColor="@color/white"
 			android:onClick="savePhoto"

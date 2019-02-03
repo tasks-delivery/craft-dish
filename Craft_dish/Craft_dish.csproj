@@ -67,10 +67,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adapters\DishAdapter.cs" />
+    <Compile Include="Adapters\IngredientAdapter.cs" />
     <Compile Include="Models\Dish.cs" />
+    <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Services\DishService.cs" />
     <Compile Include="ViewModels\Dish2ViewModel.cs" />
     <Compile Include="ViewModels\Dish4ViewModel.cs" />
+    <Compile Include="ViewModels\Dish5ViewModel.cs" />
+    <Compile Include="ViewModels\Dish6ViewModel.cs" />
     <Compile Include="Views\Dish1View.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,7 +83,9 @@
     <Compile Include="Views\Dish4View.cs" />
     <Compile Include="Views\Dish2View.cs" />
     <Compile Include="Views\Dish5View.cs" />
+    <Compile Include="Views\Dish7View.cs" />
     <Compile Include="Views\Dish6View.cs" />
+    <Compile Include="Views\Ingredient1View.cs" />
     <Compile Include="Views\SplashScreenView.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -116,10 +122,16 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_round.png" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="blocke.circleimageview">
+      <Version>1.0.0</Version>
+    </PackageReference>
     <PackageReference Include="Fody">
       <Version>3.3.5</Version>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Karamunting.Android.Wasabeef.PicassoTransformations">
+      <Version>2.2.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.CSharp">
       <Version>4.5.0</Version>
@@ -129,6 +141,9 @@
     </PackageReference>
     <PackageReference Include="Realm">
       <Version>3.3.0</Version>
+    </PackageReference>
+    <PackageReference Include="Square.Picasso">
+      <Version>2.5.2.1</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Android.Support.Constraint.Layout">
       <Version>1.1.2</Version>
@@ -215,10 +230,39 @@
     <AndroidResource Include="Resources\drawable\dish5_header_font.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\dish5_photo_icon.png" />
+    <AndroidResource Include="Resources\drawable\dish_photo_icon.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\dish5_share_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\dish6_font.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\dish6_edit_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\dish6_ingredient_list_items.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\dish6_plus_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\dish6_minus_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_dish7.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_ingredient1.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

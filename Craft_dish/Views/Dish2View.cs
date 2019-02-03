@@ -53,9 +53,16 @@ namespace Craft_dish.Views
             }
         }
 
+        public override void OnBackPressed()
+        {
+            base.OnBackPressed();
+            StartActivity(new Intent(Application.Context, typeof(Dish4View)));
+            Finish();
+        }
+
         public override bool OnOptionsItemSelected(IMenuItem item)
-        {   
-            Finish();          
+        {
+            OnBackPressed();         
             return true;
         }
 
@@ -69,7 +76,9 @@ namespace Craft_dish.Views
             else
             {
                 dish2ViewModel.saveDish(field_name.Text, field_description.Text);
-                StartActivity(new Intent(Application.Context, typeof(Views.Dish3View)));
+                Intent intent = new Intent(Application.Context, typeof(Dish3View));
+                intent.PutExtra("dish_name", field_name.Text);
+                StartActivity(intent);
                 Finish();
             }
                            
