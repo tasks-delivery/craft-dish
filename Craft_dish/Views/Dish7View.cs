@@ -6,7 +6,7 @@ using Android.Support.V7.App;
 
 namespace Craft_dish.Views
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/AppTheme", MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "@string/edit_dish", Theme = "@style/AppTheme", MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
     public class Dish7View : AppCompatActivity
     {
 
@@ -14,6 +14,7 @@ namespace Craft_dish.Views
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.activity_dish7);
+            SupportActionBar.SetDisplayHomeAsUpEnabled(true);
         }
 
     }

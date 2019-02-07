@@ -33,7 +33,7 @@
 				app:errorEnabled="true"
 				app:counterMaxLength="30">	
 
-					<EditText
+				<EditText
 					android:textColor="@color/white"
 					android:backgroundTint="@color/white"
 					android:textColorHint="@color/white"							
@@ -59,7 +59,7 @@
 				android:layout_below="@id/text_container_1"
 				app:counterMaxLength="120">	
 							
-					<EditText		
+				<EditText		
 					android:textColorHighlight="@color/white"
 					android:textColor="@color/white"
 					android:textColorHint="@color/white"
