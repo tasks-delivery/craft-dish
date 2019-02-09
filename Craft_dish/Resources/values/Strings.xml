@@ -22,4 +22,6 @@
     <string name="edit_dish">Edit Dish</string>
     <string name="delete">DELETE</string>
     <string name="make_photo">MAKE PHOTO</string>
+    <string name="done">Done</string>
+    <string name="dish8_text1">The dish was updated successfully.</string>
 </resources>
