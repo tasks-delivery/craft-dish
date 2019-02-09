@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Craft_dish.Models;
 using Realms;
@@ -41,9 +40,13 @@ namespace Craft_dish.Services
             });
         }
 
-        public void DeleteDish()
+        public void DeleteDish(Dish dish_name)
         {
-
+            using (var transaction = _realm.BeginWrite())
+            {
+                _realm.Remove(dish_name);
+                transaction.Commit();
+            }
         }
 
         public List<Dish> GetAllDishes()
