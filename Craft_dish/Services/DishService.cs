@@ -24,11 +24,20 @@ namespace Craft_dish.Services
             });
         }
 
-        public void UpdateDish(Dish dish, string photo_path)
+        public void UpdateDishPhoto(Dish dish, string photo_path)
         {
             _realm.Write(() =>
             {
                 dish.PhotoPath = photo_path;
+            });
+        }
+
+        public void UpdateDish(Dish dish, string name, string description)
+        {
+            _realm.Write(() =>
+            {
+                dish.Name = name;
+                dish.Description = description;
             });
         }
 

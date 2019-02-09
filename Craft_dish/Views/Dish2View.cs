@@ -71,7 +71,7 @@ namespace Craft_dish.Views
         {
             if(dish2ViewModel.dishIsExists(field_name.Text) == true)
             {
-                ShowError();
+                field_name.Error = GetString(Resource.String.dish_warning1);
             }
             else
             {
@@ -84,10 +84,6 @@ namespace Craft_dish.Views
                            
         }
 
-        private void ShowError()
-        {            
-            field_name.Error = GetString(Resource.String.dish_warning1);
-        }
-
     }
+
 }

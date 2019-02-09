@@ -5,7 +5,7 @@ using Java.IO;
 
 namespace Craft_dish.ViewModels
 {
-    public class Dish6ViewModel : BaseDishViewModel
+    public class Dish7ViewModel : BaseDishViewModel
     {
 
         private DishService dishService;
@@ -14,11 +14,29 @@ namespace Craft_dish.ViewModels
 
         private Context mContext;
 
-        public Dish6ViewModel(string dish_name, Context context)
+        public Dish7ViewModel(string dish_name, Context context)
         {
             dishService = new DishService();
             dish = dishService.GetDishByName(dish_name);
             mContext = context;
+        }
+
+        public void saveDish(string old_dish_name, string dish_name, string dish_description)
+        {
+            Dish dish = dishService.GetDishByName(old_dish_name);
+            dishService.UpdateDish(dish, dish_name, dish_description);
+        }
+
+        public bool dishIsExists(string dish_name)
+        {
+            if (dish_name == dishService.GetDishByName(dish_name).Name)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public string FindDishName()
@@ -32,7 +50,7 @@ namespace Craft_dish.ViewModels
         }
 
         public File getDishPhoto()
-        {      
+        {
             return FindDishPhoto(dish.PhotoPath);
         }
 

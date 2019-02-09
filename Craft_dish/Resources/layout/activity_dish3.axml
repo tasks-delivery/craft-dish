@@ -10,8 +10,7 @@
 		android:layout_centerInParent="true"
 		android:background="@drawable/success"
 		android:layout_width="600px"
-		android:layout_height="700px"/>
-	
+		android:layout_height="700px"/>	
 	
 	<TextView	
 		android:layout_marginLeft="100px"
