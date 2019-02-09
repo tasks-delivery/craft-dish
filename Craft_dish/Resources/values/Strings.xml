@@ -11,6 +11,7 @@
     <string name="save">SAVE</string>
     <string name="new_dish">New Dish</string>
     <string name="dish_warning1">Dish with that name already exists</string>
+    <string name="dish_warning2">Dish name cannot be empty or contain only spaces</string>
     <string name="skip">Skip</string>
     <string name="attach">Attach</string>
     <string name="success">Success</string>

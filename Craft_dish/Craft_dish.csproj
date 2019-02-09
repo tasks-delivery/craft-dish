@@ -71,20 +71,22 @@
     <Compile Include="Models\Dish.cs" />
     <Compile Include="Models\Ingredient.cs" />
     <Compile Include="Services\DishService.cs" />
+    <Compile Include="ViewModels\BaseDishViewModel.cs" />
     <Compile Include="ViewModels\Dish2ViewModel.cs" />
     <Compile Include="ViewModels\Dish4ViewModel.cs" />
     <Compile Include="ViewModels\Dish5ViewModel.cs" />
+    <Compile Include="ViewModels\Dish7ViewModel.cs" />
     <Compile Include="ViewModels\Dish6ViewModel.cs" />
     <Compile Include="Views\Dish1View.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\Dish1ViewModel.cs" />
     <Compile Include="Views\Dish3View.cs" />
     <Compile Include="Views\Dish4View.cs" />
     <Compile Include="Views\Dish2View.cs" />
     <Compile Include="Views\Dish5View.cs" />
     <Compile Include="Views\Dish7View.cs" />
     <Compile Include="Views\Dish6View.cs" />
+    <Compile Include="Views\Dish8View.cs" />
     <Compile Include="Views\Ingredient1View.cs" />
     <Compile Include="Views\SplashScreenView.cs" />
   </ItemGroup>
@@ -266,6 +268,12 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\dish7_font.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\layout\activity_dish8.axml">
+      <Generator>MSBuild:UpdateGeneratedFiles</Generator>
+      <SubType>Designer</SubType>
+    </AndroidResource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
