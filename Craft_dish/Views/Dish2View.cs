@@ -69,13 +69,13 @@ namespace Craft_dish.Views
         [Java.Interop.Export("openDish3")]
         public void ButtonSaveDish(View v)
         {
-            if(dish2ViewModel.dishIsExists(field_name.Text) == true)
+            if(dish2ViewModel.DishIsExists(field_name.Text) == true)
             {
                 field_name.Error = GetString(Resource.String.dish_warning1);
             }
             else
             {
-                dish2ViewModel.saveDish(field_name.Text, field_description.Text);
+                dish2ViewModel.SaveDish(field_name.Text, field_description.Text);
                 Intent intent = new Intent(Application.Context, typeof(Dish3View));
                 intent.PutExtra("dish_name", field_name.Text);
                 StartActivity(intent);

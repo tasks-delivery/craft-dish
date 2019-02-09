@@ -39,7 +39,7 @@ namespace Craft_dish.Views
         [Java.Interop.Export("openDish8")]
         public void ButtonSaveDish(View v)
         {
-            if (dish7ViewModel.dishIsExists(field_name.Text) == true)
+            if (dish7ViewModel.DishIsExists(field_name.Text) == true)
             {
                 field_name.Error = GetString(Resource.String.dish_warning1);
             }
@@ -51,7 +51,7 @@ namespace Craft_dish.Views
                 }
                 else
                 {
-                    dish7ViewModel.saveDish(dish_name, field_name.Text, field_description.Text);
+                    dish7ViewModel.SaveDish(dish_name, field_name.Text, field_description.Text);
                     Intent intent = new Intent(Application.Context, typeof(Dish8View));
                     StartActivity(intent);
                     Finish();
@@ -85,9 +85,7 @@ namespace Craft_dish.Views
             intent.PutExtra("navigation", "Dish7");
             StartActivity(intent);
         }
-
-       
-
+      
         [Java.Interop.Export("openDishWarning1")]
         public void goToDishWarning1(View v)
         {
@@ -95,11 +93,13 @@ namespace Craft_dish.Views
             alert.SetTitle("Confirm delete");
             alert.SetMessage("Are you sure you want to remove this dish?");
             alert.SetPositiveButton("Delete", (senderAlert, args) => {
-                Toast.MakeText(this, "Deleted!", ToastLength.Short).Show();
+                dish7ViewModel.RemoveDish(dish_name);
+                StartActivity(new Intent(Application.Context, typeof(Dish4View)));
+                Finish();
             });
 
             alert.SetNegativeButton("Cancel", (senderAlert, args) => {
-                Toast.MakeText(this, "Cancelled!", ToastLength.Short).Show();
+
             });
 
             Dialog dialog = alert.Create();
