@@ -86,25 +86,24 @@ namespace Craft_dish.Views
             StartActivity(intent);
         }
 
+       
+
         [Java.Interop.Export("openDishWarning1")]
         public void goToDishWarning1(View v)
         {
-            new Android.App.AlertDialog.Builder(this)
-                .SetPositiveButton("btn1", (sender, args) =>
-                {
-                    // User pressed yes
-                })
-                .SetNegativeButton("btn2", (sender, args) =>
-                {
-                    // User pressed no 
-                })
-                .SetMessage("Dish warning 1")
-                .SetTitle("Error")
-                .Show();
-            //Intent intent = new Intent(Application.Context, typeof(Dish5View));
-            //intent.PutExtra("dish_name", dish_name);
-            //intent.PutExtra("navigation", "Dish7");
-            //StartActivity(intent);
+            Android.App.AlertDialog.Builder alert = new Android.App.AlertDialog.Builder(this);
+            alert.SetTitle("Confirm delete");
+            alert.SetMessage("Are you sure you want to remove this dish?");
+            alert.SetPositiveButton("Delete", (senderAlert, args) => {
+                Toast.MakeText(this, "Deleted!", ToastLength.Short).Show();
+            });
+
+            alert.SetNegativeButton("Cancel", (senderAlert, args) => {
+                Toast.MakeText(this, "Cancelled!", ToastLength.Short).Show();
+            });
+
+            Dialog dialog = alert.Create();
+            dialog.Show();
         }
 
     }
