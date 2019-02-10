@@ -49,7 +49,6 @@ namespace Craft_dish.Views
         public void ButtonSaveDish(View v)
         {
             
-
             if(dish_name == field_name.Text)
             {
                 SaveDish();
