@@ -138,7 +138,7 @@ namespace Craft_dish.Views
      
         private void MAdapter_ItemClick(object sender, int e)
         {
-            var item = dish4ViewModel.LoadDishes()[e];
+            var item = dish4ViewModel.SearchDishByName(search_field.Text)[e];
             Intent intent = new Intent(Application.Context, typeof(Dish6View));
             intent.PutExtra("dish_name", item.Name);
             StartActivity(intent);
