@@ -36,29 +36,60 @@ namespace Craft_dish.Views
             field_name.Text = dish7ViewModel.FindDishName();
         }
 
+        private void SaveDish()
+        {
+            dish7ViewModel.SaveDish(dish_name, field_name.Text, field_description.Text);
+            Intent intent = new Intent(Application.Context, typeof(Dish8View));
+            intent.PutExtra("dish_name", field_name.Text);
+            StartActivity(intent);
+            Finish();
+        }
+
         [Java.Interop.Export("openDish8")]
         public void ButtonSaveDish(View v)
         {
-            if (dish7ViewModel.DishIsExists(field_name.Text) == true)
+            
+
+            if(dish_name == field_name.Text)
             {
-                field_name.Error = GetString(Resource.String.dish_warning1);
+                SaveDish();
             }
             else
             {
-                if (field_name.Text.Length <= 0 || field_name.Text.Trim() == "")
+                if (dish7ViewModel.DishIsExists(field_name.Text) == true)
                 {
-                    field_name.Error = GetString(Resource.String.dish_warning2);
+                    field_name.Error = GetString(Resource.String.dish_warning1);
                 }
                 else
                 {
-                    dish7ViewModel.SaveDish(dish_name, field_name.Text, field_description.Text);
-                    Intent intent = new Intent(Application.Context, typeof(Dish8View));
-                    intent.PutExtra("dish_name", field_name.Text);
-                    StartActivity(intent);
-                    Finish();
+                    if (field_name.Text.Length <= 0 || field_name.Text.Trim() == "")
+                    {
+                        field_name.Error = GetString(Resource.String.dish_warning2);
+                    }
+                    else
+                    {
+                        SaveDish();
+                    }
                 }
-               
             }
+
+
+           // else
+           // {
+           //     if (field_name.Text.Length <= 0 || field_name.Text.Trim() == "")
+           //     {
+           //         field_name.Error = GetString(Resource.String.dish_warning2);
+           //     }
+           //     else
+           //     {
+           //         dish7ViewModel.SaveDish(dish_name, field_name.Text, field_description.Text);
+           //         Intent intent = new Intent(Application.Context, typeof(Dish8View));
+           //         intent.PutExtra("dish_name", field_name.Text);
+           //         StartActivity(intent);
+           //         Finish();
+           //     }
+           //    
+           // }
 
         }
 
