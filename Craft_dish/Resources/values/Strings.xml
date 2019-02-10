@@ -8,9 +8,10 @@
     <string name="text_welcome_to_craft_dish">Welcome to Craft dish</string>
     <string name="placeholder_dish_name">Dish name</string>
     <string name="description">Dish description</string>
-    <string name="save">Save</string>
+    <string name="save">SAVE</string>
     <string name="new_dish">New Dish</string>
     <string name="dish_warning1">Dish with that name already exists</string>
+    <string name="dish_warning2">Dish name cannot be empty or contain only spaces</string>
     <string name="skip">Skip</string>
     <string name="attach">Attach</string>
     <string name="success">Success</string>
@@ -18,4 +19,9 @@
     <string name="dish_photo">Dish photo</string>
     <string name="search">Search...</string>
     <string name="preview_photo">Preview photo</string>
+    <string name="edit_dish">Edit Dish</string>
+    <string name="delete">DELETE</string>
+    <string name="make_photo">MAKE PHOTO</string>
+    <string name="done">Done</string>
+    <string name="dish8_text1">The dish was updated successfully.</string>
 </resources>

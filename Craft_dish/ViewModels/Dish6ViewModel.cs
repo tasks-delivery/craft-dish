@@ -5,7 +5,7 @@ using Java.IO;
 
 namespace Craft_dish.ViewModels
 {
-    public class Dish6ViewModel
+    public class Dish6ViewModel : BaseDishViewModel
     {
 
         private DishService dishService;
@@ -31,29 +31,11 @@ namespace Craft_dish.ViewModels
             return dish.Description;
         }
 
-        public File FindDishPhoto()
-        {
-
-            if (dish.PhotoPath != null && dish.PhotoPath != "")
-            {
-                File imgFile = new File(dish.PhotoPath);
-                if (imgFile.Exists())
-                {
-                    return imgFile;
-                }
-                else
-                {
-                    return null;
-                }
-
-            }
-            else
-            {
-                return null;
-            }
-           
+        public File getDishPhoto()
+        {      
+            return FindDishPhoto(dish.PhotoPath);
         }
-        
+
     }
 
 }

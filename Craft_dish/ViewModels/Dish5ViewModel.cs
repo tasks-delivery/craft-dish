@@ -27,7 +27,7 @@ namespace Craft_dish.ViewModels
         public void SetDishPhoto(string dish_name, string dish_photo_path)
         {
             Dish dish = dishService.GetDishByName(dish_name);
-            dishService.UpdateDish(dish, dish_photo_path);
+            dishService.UpdateDishPhoto(dish, dish_photo_path);
         }
 
     }

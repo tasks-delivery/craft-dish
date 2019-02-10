@@ -46,12 +46,12 @@ namespace Craft_dish.Views
             var btn_share = (RelativeLayout)FindViewById(Resource.Id.dish5_share_icon);
             btn_camera = (RelativeLayout)FindViewById(Resource.Id.dish5_photo_icon);
             icon_area = FindViewById<ImageView>(Resource.Id.dish5_icon_area);
-            dish5ViewModel = new Dish5ViewModel();
-            dish_name = Intent.GetStringExtra("dish_name");
+            dish5ViewModel = new Dish5ViewModel();         
             btn_camera.Click += BtnCamera_Click;
             btn_share.Click += OpenGallery;
+            dish_name = Intent.GetStringExtra("dish_name");
             navigation = Intent.GetStringExtra("navigation");
-        }
+        }  
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {
@@ -71,6 +71,7 @@ namespace Craft_dish.Views
             else
             {
                 intent = new Intent(Application.Context, typeof(Dish7View));
+                intent.PutExtra("dish_name", dish_name);
             }               
             StartActivity(intent);
             Finish();
@@ -137,7 +138,7 @@ namespace Craft_dish.Views
 
         protected override void OnStart()
         {
-            base.OnStart();             
+            base.OnStart();         
         }
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
@@ -183,8 +184,9 @@ namespace Craft_dish.Views
 
         public Bitmap ExportBitmapAsPNG(Bitmap bitmap, string dish_name)
         {
+            string timeStamp = string.Format("{0:HH:mm:ss tt}", DateTime.Now);
             var path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData);
-            var filePath = System.IO.Path.Combine(path,  dish_name + ".png");
+            var filePath = System.IO.Path.Combine(path,  dish_name + timeStamp + ".png");
             Log.Info(tag, filePath);
             photo_path = filePath;
             var stream = new FileStream(filePath, FileMode.Create);

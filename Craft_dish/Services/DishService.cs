@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Craft_dish.Models;
 using Realms;
@@ -24,7 +23,7 @@ namespace Craft_dish.Services
             });
         }
 
-        public void UpdateDish(Dish dish, string photo_path)
+        public void UpdateDishPhoto(Dish dish, string photo_path)
         {
             _realm.Write(() =>
             {
@@ -32,9 +31,22 @@ namespace Craft_dish.Services
             });
         }
 
-        public void DeleteDish()
+        public void UpdateDish(Dish dish, string name, string description)
         {
+            _realm.Write(() =>
+            {
+                dish.Name = name;
+                dish.Description = description;
+            });
+        }
 
+        public void DeleteDish(Dish dish_name)
+        {
+            using (var transaction = _realm.BeginWrite())
+            {
+                _realm.Remove(dish_name);
+                transaction.Commit();
+            }
         }
 
         public List<Dish> GetAllDishes()
