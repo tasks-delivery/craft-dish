@@ -24,7 +24,13 @@ namespace Craft_dish
         public void GoToDish4(View v)
         {
             StartActivity(new Intent(Application.Context, typeof(Dish4View)));
-        }      
+        }
+
+        [Java.Interop.Export("openIngredient1")]
+        public void GoToIngredient1(View v)
+        {
+            StartActivity(new Intent(Application.Context, typeof(Ingredient1View)));
+        }
 
         public override void OnBackPressed()
         {
