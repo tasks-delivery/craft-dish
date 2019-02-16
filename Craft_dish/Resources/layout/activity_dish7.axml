@@ -77,9 +77,8 @@
 		android:background="@color/colorPrimaryDark"
 		android:layout_height="1000px">
 
-		<RelativeLayout
-			android:layout_marginLeft="50px"
-		    android:layout_marginRight="50px"
+		<RelativeLayout			
+			android:layout_margin="40px"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent">
 
@@ -123,15 +122,14 @@
 					android:textColorHighlight="@color/white"
 					android:textColor="@color/white"
 					android:textColorHint="@color/white"
-					android:backgroundTint="@color/white"
-					android:layout_marginTop="30dp"
+					android:backgroundTint="@color/white"			
 					android:id="@+id/dish_7_field_dish_description"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"					
 					android:ems="5"
 					android:hint="@string/description"
-					android:imeOptions="actionNext"
-					android:inputType="textMultiLine"
+					android:imeOptions="actionDone"
+					android:inputType="text"
 					android:maxLength="120"
 					android:maxLines="5"
 					android:singleLine="true" />

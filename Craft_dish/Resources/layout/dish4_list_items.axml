@@ -28,6 +28,8 @@
 				android:textAppearance="?android:attr/textAppearanceMedium"  
 				android:textColor="@color/colorBlack"  
 				android:text="Name"  
+				android:singleLine="true"
+				android:ellipsize="end"
 				android:id="@+id/dish4_dish_name"  
 				android:layout_toRightOf="@id/dish4_dish_image"
 				android:layout_marginLeft="4dp"/>  
@@ -38,7 +40,9 @@
 				android:layout_height="wrap_content"  
 				android:textAppearance="?android:attr/textAppearanceMedium"  
 				android:textColor="#FF8492A6"  
-				android:text="Description"  
+				android:text="Description"  								
+				android:maxLines="2"
+				android:ellipsize="end"
 				android:layout_toRightOf="@id/dish4_dish_image"
 				android:id="@+id/dish4_dish_description"  
 				
