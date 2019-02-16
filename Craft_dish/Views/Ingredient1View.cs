@@ -1,5 +1,6 @@
 ﻿
 using Android.App;
+using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 using Android.Support.V7.App;
@@ -71,6 +72,13 @@ namespace Craft_dish.Views
             HideKeyboard(this, search_field);
         }
 
+        [Java.Interop.Export("openIngredient2")]
+        public void GoToDish2(View v)
+        {
+            StartActivity(new Intent(Application.Context, typeof(Ingredient2View)));
+            Finish();
+        }
+
         private void SearchIngredient(object sender, TextChangedEventArgs e)
         {
            
@@ -80,6 +88,13 @@ namespace Craft_dish.Views
         public void Back(View v)
         {
             OnBackPressed();
+        }
+
+        public override void OnBackPressed()
+        {
+            base.OnBackPressed();
+            StartActivity(new Intent(Application.Context, typeof(Dish1View)));
+            Finish();
         }
 
     }
