@@ -100,6 +100,7 @@
 		app:backgroundTint="@color/colorPrimaryDark"
         android:layout_width="wrap_content"
 		android:tint="@color/white"    
+		android:onClick="openIngredient2"
         android:layout_height="wrap_content"  
 		android:src="@android:drawable/ic_input_add"
         android:layout_margin="16dp" />
