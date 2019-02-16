@@ -7,6 +7,7 @@ using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Text;
 using Android.Views;
+using Android.Views.InputMethods;
 using Android.Widget;
 using Craft_dish.ViewModels;
 
@@ -26,7 +27,7 @@ namespace Craft_dish.Views
         private Dish2ViewModel dish2ViewModel;
 
         private Button btn_save;
-
+   
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -37,12 +38,21 @@ namespace Craft_dish.Views
             field_description = (EditText)FindViewById(Resource.Id.dish_2_field_dish_description);
             btn_save = (Button)FindViewById(Resource.Id.dish_2_btn_save);
             dish2ViewModel = new Dish2ViewModel();
-            btn_save.Enabled = false;
+            btn_save.Enabled = false;    
             field_name.TextChanged += OnTextChanged;
+        }       
+
+        protected override void OnStart()
+        {
+            base.OnStart();
+            field_description.SetHorizontallyScrolling(false);
+            field_description.SetMaxLines(5);
+            field_description.ImeOptions = ImeAction.Done;
         }
 
         private void OnTextChanged(object sender, TextChangedEventArgs e)
         {
+            
             if (field_name.Text.Length <= 0 || field_name.Text.Trim() == "")
             {
                 btn_save.Enabled = false;
