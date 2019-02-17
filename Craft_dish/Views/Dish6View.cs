@@ -7,6 +7,7 @@ using Android.Graphics.Drawables;
 using Android.OS;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
+using Android.Util;
 using Android.Views;
 using Android.Widget;
 using Craft_dish.Adapters;
@@ -15,12 +16,17 @@ using Craft_dish.ViewModels;
 using JP.Wasabeef.PicassoTransformations;
 using Square.Picasso;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Craft_dish.Views
 {
     [Activity(Label = "@string/app_name", Theme = "@style/NoActionBar", MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
     public class Dish6View : AppCompatActivity
     {
+
+        private string tag = "CRAST DISH";
 
         private string dish_name;
 
@@ -44,7 +50,15 @@ namespace Craft_dish.Views
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.activity_dish6);
-      
+            SetDefaultDishIcon();
+        }
+
+        private string FieldDecorator(string field)
+        {
+           // string dish_name = dish6ViewModel.FindDishName();
+            field = Regex.Replace(field, @"\n", " ");
+            Log.Info(tag, field);
+            return field;
         }
 
         protected override void OnStart()
@@ -57,9 +71,11 @@ namespace Craft_dish.Views
             dish_description = (TextView)FindViewById(Resource.Id.dish6_dish_description_text);
             dish_photo = (ImageView)FindViewById(Resource.Id.dish6_photo_image);
             dish_icon_container = (RelativeLayout)FindViewById(Resource.Id.dish6_photo_icon);
-            toolbar_dish_name.Text = dish6ViewModel.FindDishName();
-            dish_description.Text = dish6ViewModel.FindDishDescription();
+            // toolbar_dish_name.Text = dish6ViewModel.FindDishName();
 
+            toolbar_dish_name.Text = FieldDecorator(dish_name);
+
+            dish_description.Text = FieldDecorator(dish6ViewModel.FindDishDescription());
             if (dish6ViewModel.getDishPhoto() != null)
             {
                 dish_photo.Background = null;
@@ -69,12 +85,17 @@ namespace Craft_dish.Views
                 Picasso.With(this)
                        .Load(dish6ViewModel.getDishPhoto()).CenterCrop().Resize(500, 500)
                        .Transform(new RoundedCornersTransformation(350, 0)).Into(dish_photo);
+                dish_photo.Click += OpenDishPhotoPreview;
             }
-            else
-            {
-                SetDefaultDishIcon();
-            }
-        
+
+        }
+
+        private void OpenDishPhotoPreview(object sender, System.EventArgs e)
+        {
+            Intent intent = new Intent(Application.Context, typeof(DishPhotoPreviewView));
+            intent.PutExtra("dish_name", dish_name);
+            StartActivity(intent);
+            Finish();
         }
 
         [Java.Interop.Export("back")]
@@ -99,7 +120,7 @@ namespace Craft_dish.Views
         public void OpenEditDish(View v)
         {
             Intent intent = new Intent(Application.Context, typeof(Dish7View));
-            intent.PutExtra("dish_name", toolbar_dish_name.Text);
+            intent.PutExtra("dish_name", dish_name);
             StartActivity(intent);
             Finish();
         }

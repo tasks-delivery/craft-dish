@@ -6,6 +6,7 @@ using Android.OS;
 using Android.Support.V7.App;
 using Android.Text;
 using Android.Views;
+using Android.Views.InputMethods;
 using Android.Widget;
 using Craft_dish.ViewModels;
 
@@ -34,6 +35,14 @@ namespace Craft_dish.Views
             field_name = (EditText)FindViewById(Resource.Id.dish_7_field_dish_name);
             field_description.Text = dish7ViewModel.FindDishDescription();
             field_name.Text = dish7ViewModel.FindDishName();
+        }
+
+        protected override void OnStart()
+        {
+            base.OnStart();
+            field_description.SetHorizontallyScrolling(false);
+            field_description.SetMaxLines(5);
+            field_description.ImeOptions = ImeAction.Done;
         }
 
         private void SaveDish()
@@ -71,24 +80,6 @@ namespace Craft_dish.Views
                     }
                 }
             }
-
-
-           // else
-           // {
-           //     if (field_name.Text.Length <= 0 || field_name.Text.Trim() == "")
-           //     {
-           //         field_name.Error = GetString(Resource.String.dish_warning2);
-           //     }
-           //     else
-           //     {
-           //         dish7ViewModel.SaveDish(dish_name, field_name.Text, field_description.Text);
-           //         Intent intent = new Intent(Application.Context, typeof(Dish8View));
-           //         intent.PutExtra("dish_name", field_name.Text);
-           //         StartActivity(intent);
-           //         Finish();
-           //     }
-           //    
-           // }
 
         }
 

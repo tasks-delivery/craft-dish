@@ -119,7 +119,7 @@ namespace Craft_dish.Views
                     Bitmap bitmap = (Bitmap)data.Extras.Get("data");
                     icon_area.SetImageBitmap(ExportBitmapAsPNG(bitmap, dish_name));
                 }
-                catch(NullReferenceException e)
+                catch(NullReferenceException)
                 {
                     OnStart();
                 }

@@ -15,11 +15,10 @@
 		android:layout_marginLeft="30px"
 		android:layout_marginRight="30px"
 		android:background="@color/colorPrimaryDark"
-		android:layout_height="1000px">
+		android:layout_height="1100px">
 
 		<RelativeLayout
-			android:layout_marginLeft="50px"
-		    android:layout_marginRight="50px"
+			android:layout_margin="40px"
 			android:layout_width="match_parent"
 			android:layout_height="match_parent">
 
@@ -49,7 +48,7 @@
 					android:singleLine="true" />
 
 			</android.support.design.widget.TextInputLayout>
-			
+		
 			<android.support.design.widget.TextInputLayout
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
@@ -64,18 +63,17 @@
 					android:textColor="@color/white"
 					android:textColorHint="@color/white"
 					android:backgroundTint="@color/white"
-					android:layout_marginTop="30dp"
 					android:id="@+id/dish_2_field_dish_description"
 					android:layout_width="match_parent"
 					android:layout_height="wrap_content"					
-					android:ems="5"
+			        android:singleLine="true"
 					android:hint="@string/description"
-					android:imeOptions="actionNext"
-					android:inputType="textMultiLine"
+					android:imeOptions="actionDone"
+					android:inputType="text"
 					android:maxLength="120"
 					android:maxLines="5"
-					android:singleLine="true" />
-
+					android:ems="5" />
+					
 			</android.support.design.widget.TextInputLayout>			
 
 			<Button     
@@ -87,7 +85,6 @@
 				android:layout_height="wrap_content"
 				android:layout_alignParentBottom="true"
 				android:layout_centerHorizontal="true"
-				android:layout_marginBottom="40px"
 				android:text="@string/save" />
 			
 		</RelativeLayout>
