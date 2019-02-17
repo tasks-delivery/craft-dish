@@ -7,7 +7,6 @@ using Android.Widget;
 using Square.Picasso;
 using Android.Content;
 using Craft_dish.Views;
-using Android.Views;
 
 namespace Craft_dish
 {
@@ -21,14 +20,10 @@ namespace Craft_dish
 
         private string dish_name;
 
-        private TextView text_photo_not_found;
-
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.activity_dish_photo_preview);
-            text_photo_not_found = (TextView)FindViewById(Resource.Id.dish_preview_text1);
-            text_photo_not_found.Visibility = ViewStates.Invisible;
         }
 
         public override void OnBackPressed()
@@ -52,11 +47,7 @@ namespace Craft_dish
                 Picasso.With(this)
                         .Load(dishPhotoPreviewViewModel.getDishPhoto()).Into(dish_photo);
             }
-            else
-            {
-                text_photo_not_found.Visibility = ViewStates.Visible;
-            }
-
+         
         }
 
     }
