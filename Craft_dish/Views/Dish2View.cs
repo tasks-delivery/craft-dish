@@ -38,8 +38,8 @@ namespace Craft_dish.Views
             field_description = (EditText)FindViewById(Resource.Id.dish_2_field_dish_description);
             btn_save = (Button)FindViewById(Resource.Id.dish_2_btn_save);
             dish2ViewModel = new Dish2ViewModel();
-            btn_save.Enabled = false;    
-            field_name.TextChanged += OnTextChanged;
+          //  btn_save.Enabled = false;    
+        //    field_name.TextChanged += OnTextChanged;
         }       
 
         protected override void OnStart()
@@ -50,18 +50,19 @@ namespace Craft_dish.Views
             field_description.ImeOptions = ImeAction.Done;
         }
 
-        private void OnTextChanged(object sender, TextChangedEventArgs e)
-        {
-            
-            if (field_name.Text.Length <= 0 || field_name.Text.Trim() == "")
-            {
-                btn_save.Enabled = false;
-            }
-            else
-            {
-                btn_save.Enabled = true;
-            }
-        }
+      //  private void OnTextChanged(object sender, TextChangedEventArgs e)
+      //  {
+      //      
+      //      if (field_name.Text.Length <= 0 || field_name.Text.Trim() == "")
+      //      {
+      //          //btn_save.Enabled = false;
+      //          field_name.Error = GetString(Resource.String.dish_warning2);
+      //      }
+      //      else
+      //      {
+      //         // btn_save.Enabled = true;
+      //      }
+      //  }
 
         public override void OnBackPressed()
         {
@@ -85,11 +86,20 @@ namespace Craft_dish.Views
             }
             else
             {
-                dish2ViewModel.SaveDish(field_name.Text, field_description.Text);
-                Intent intent = new Intent(Application.Context, typeof(Dish3View));
-                intent.PutExtra("dish_name", field_name.Text);
-                StartActivity(intent);
-                Finish();
+
+                if (field_name.Text.Length <= 0 || field_name.Text.Trim() == "")
+                {
+                    field_name.Error = GetString(Resource.String.dish_warning2);
+                }
+                else
+                {
+                    dish2ViewModel.SaveDish(field_name.Text, field_description.Text);
+                    Intent intent = new Intent(Application.Context, typeof(Dish3View));
+                    intent.PutExtra("dish_name", field_name.Text);
+                    StartActivity(intent);
+                    Finish();
+                }
+          
             }
                            
         }
