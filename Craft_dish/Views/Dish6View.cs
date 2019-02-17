@@ -44,7 +44,7 @@ namespace Craft_dish.Views
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.activity_dish6);
-      
+            SetDefaultDishIcon();
         }
 
         protected override void OnStart()
@@ -59,7 +59,6 @@ namespace Craft_dish.Views
             dish_icon_container = (RelativeLayout)FindViewById(Resource.Id.dish6_photo_icon);
             toolbar_dish_name.Text = dish6ViewModel.FindDishName();
             dish_description.Text = dish6ViewModel.FindDishDescription();
-
             if (dish6ViewModel.getDishPhoto() != null)
             {
                 dish_photo.Background = null;
@@ -69,12 +68,17 @@ namespace Craft_dish.Views
                 Picasso.With(this)
                        .Load(dish6ViewModel.getDishPhoto()).CenterCrop().Resize(500, 500)
                        .Transform(new RoundedCornersTransformation(350, 0)).Into(dish_photo);
+                dish_photo.Click += OpenDishPhotoPreview;
             }
-            else
-            {
-                SetDefaultDishIcon();
-            }
-        
+
+        }
+
+        private void OpenDishPhotoPreview(object sender, System.EventArgs e)
+        {
+            Intent intent = new Intent(Application.Context, typeof(DishPhotoPreviewView));
+            intent.PutExtra("dish_name", toolbar_dish_name.Text);
+            StartActivity(intent);
+            Finish();
         }
 
         [Java.Interop.Export("back")]
