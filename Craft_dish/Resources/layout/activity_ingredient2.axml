@@ -1,13 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:alpha="0.8"
+	android:background="@drawable/ingredient2_font"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-	<TextView
-		android:layout_centerInParent="true"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="Ingredient 2"/>
-		
+	<RelativeLayout
+		android:layout_centerVertical="true"
+		android:alpha="0.95"
+		android:layout_width="match_parent"
+		android:layout_marginLeft="30px"
+		android:layout_marginRight="30px"
+		android:background="@color/colorPrimaryDark"
+		android:layout_height="1100px">
+
+		<RelativeLayout
+			android:layout_margin="40px"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+			<android.support.design.widget.TextInputLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				app:counterTextAppearance="@style/CounterStyle"
+				android:textColorHint="#c1c2c4"
+				app:counterEnabled="true"									
+				android:id="@+id/text_container_1"
+				app:errorEnabled="true"
+				app:counterMaxLength="30">	
+
+				<EditText
+					android:textColor="@color/white"
+					android:backgroundTint="@color/white"
+					android:textColorHint="@color/white"							
+					android:id="@+id/ingredient2_field_ingredient_name"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:hint="@string/ingredient_name"
+					android:imeOptions="actionNext"
+					android:maxLength="30"
+					android:maxLines="1"
+					android:inputType=""
+					android:textColorHighlight="@color/white"
+					android:singleLine="true" />
+
+			</android.support.design.widget.TextInputLayout>
+
+			<RelativeLayout
+				android:layout_below="@id/text_container_1"		
+				android:layout_centerHorizontal="true"			
+				android:id="@+id/ingredient2_separator"
+				android:layout_width="0px"	
+				android:layout_height="0px" >
+
+				<View 		
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content" />
+					
+			</RelativeLayout>
+
+			<RelativeLayout							
+				android:id="@+id/ingredient2_text1"
+				android:layout_toRightOf="@+id/ingredient2_separator"
+				android:layout_below="@id/text_container_1"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+				
+				<TextView	
+					android:textSize="11.5sp"
+					android:layout_centerInParent="true"					
+					android:text="@string/weight_unit"
+					android:textColor="@color/white"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"/>
+			
+			</RelativeLayout>	
+
+			<RelativeLayout			
+				android:layout_toRightOf="@+id/ingredient2_separator"
+				android:layout_below="@id/ingredient2_text1"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content">
+
+				<android.support.v7.widget.AppCompatSpinner
+					android:layout_centerInParent="true"
+                    android:id="@+id/ingredient2_weight_unit_spinner"
+                    style="@style/Widget.AppCompat.Spinner.Underlined"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"                    
+                    android:theme="@style/Spinner"
+                    android:entries="@array/weight_unit_array">
+				
+				</android.support.v7.widget.AppCompatSpinner>
+						
+			</RelativeLayout>
+				
+			<RelativeLayout					
+				android:layout_below="@id/text_container_1"
+				android:layout_toLeftOf="@+id/ingredient2_separator"
+				android:layout_width="match_parent"		
+				android:layout_height="wrap_content">
+			
+				<android.support.design.widget.TextInputLayout
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					app:counterEnabled="true"	
+					android:textColorHint="#c1c2c4"
+					app:counterTextAppearance="@style/CounterStyle"
+					app:counterMaxLength="15">	
+							
+				<EditText
+					android:textColor="@color/white"
+					android:backgroundTint="@color/white"
+					android:textColorHint="@color/white"							
+					android:id="@+id/ingredient2_field_ingredient_weight"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:hint="@string/ingredient_weight"
+					android:imeOptions="actionDone"
+					android:maxLength="15"
+					android:maxLines="1"
+					android:inputType="number"
+					android:textColorHighlight="@color/white"
+					android:singleLine="true" />
+					
+			</android.support.design.widget.TextInputLayout>
+			
+			</RelativeLayout>
+
+			<Button     
+				android:id="@+id/ingredient2_btn_save"
+				android:background="@color/colorGrey"			
+				android:textColor="@color/white"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentBottom="true"
+				android:layout_centerHorizontal="true"
+				android:text="@string/save" />
+			
+		</RelativeLayout>
+
+	</RelativeLayout>
+
 </RelativeLayout>
