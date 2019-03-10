@@ -24,4 +24,13 @@
     <string name="make_photo">MAKE PHOTO</string>
     <string name="done">Done</string>
     <string name="dish8_text1">The dish was updated successfully.</string>
+    <string name="ingredient_name">Ingredient name</string>
+    <string name="ingredient_weight">Ingredient weight</string>
+    <string name="new_ingredient">New ingredient</string>
+    <string name="weight_unit">Weight unit</string>
+    <string-array name="weight_unit_array">
+      <item>Gram</item>
+      <item>Kg</item>
+      <item>Liter</item>
+    </string-array>
 </resources>
