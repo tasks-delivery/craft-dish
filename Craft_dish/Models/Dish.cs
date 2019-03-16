@@ -3,6 +3,7 @@ using Android.Views;
 using Android.Widget;
 using Realms;
 using System;
+using System.Collections.Generic;
 
 namespace Craft_dish.Models
 {
@@ -13,6 +14,7 @@ namespace Craft_dish.Models
         public string Name { get; set; }
         public string Description { get; set; }
         public string PhotoPath { get; set; }
+        public IList<Ingredient> Ingredients { get; }
 
     }
 
@@ -27,7 +29,7 @@ namespace Craft_dish.Models
             DishPhoto = itemview.FindViewById<ImageView>(Resource.Id.dish4_dish_image);
             DishName = itemview.FindViewById<TextView>(Resource.Id.dish4_dish_name);
             DishDescription = itemview.FindViewById<TextView>(Resource.Id.dish4_dish_description);
-            itemview.Click += (sender, e) => listener(base.Position);
+            itemview.Click += (sender, e) => listener(base.LayoutPosition);
         }
     }
 
