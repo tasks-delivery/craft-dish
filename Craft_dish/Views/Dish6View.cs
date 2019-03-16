@@ -55,7 +55,6 @@ namespace Craft_dish.Views
 
         private string FieldDecorator(string field)
         {
-           // string dish_name = dish6ViewModel.FindDishName();
             field = Regex.Replace(field, @"\n", " ");
             Log.Info(tag, field);
             return field;
@@ -64,17 +63,17 @@ namespace Craft_dish.Views
         protected override void OnStart()
         {
             base.OnStart();
-            SetUpAdapter(LoadIngredients());
+           
             dish_name = Intent.GetStringExtra("dish_name");
+            SetUpAdapter(LoadIngredients());
             dish6ViewModel = new Dish6ViewModel(dish_name, this);
             toolbar_dish_name = (TextView)FindViewById(Resource.Id.dish6_dish_name_text);
             dish_description = (TextView)FindViewById(Resource.Id.dish6_dish_description_text);
             dish_photo = (ImageView)FindViewById(Resource.Id.dish6_photo_image);
             dish_icon_container = (RelativeLayout)FindViewById(Resource.Id.dish6_photo_icon);
-            // toolbar_dish_name.Text = dish6ViewModel.FindDishName();
+
 
             toolbar_dish_name.Text = FieldDecorator(dish_name);
-
             dish_description.Text = FieldDecorator(dish6ViewModel.FindDishDescription());
             if (dish6ViewModel.getDishPhoto() != null)
             {
@@ -107,13 +106,19 @@ namespace Craft_dish.Views
         [Java.Interop.Export("openIngredient1Add")]
         public void OpenIngredientListFromAdd(View v)
         {
-            StartActivity(new Intent(Application.Context, typeof(Ingredient1View)));
+            Intent intent = new Intent(Application.Context, typeof(Ingredient1View));
+            intent.PutExtra("navigateFrom", "Dish6Add");
+            intent.PutExtra("dish_name", dish_name);
+            StartActivity(intent);
         }
 
         [Java.Interop.Export("openIngredient1Remove")]
         public void OpenIngredientListFromRemove(View v)
         {
-            StartActivity(new Intent(Application.Context, typeof(Ingredient1View)));
+            Intent intent = new Intent(Application.Context, typeof(Ingredient1View));
+            intent.PutExtra("navigateFrom", "Dish6Remove");
+            intent.PutExtra("dish_name", dish_name);
+            StartActivity(intent);
         }
 
         [Java.Interop.Export("openDish7")]
@@ -132,33 +137,19 @@ namespace Craft_dish.Views
             Finish();
         }
 
-        private void SetUpAdapter(List<Ingredient> ingredients)
+        private void SetUpAdapter(IList<Ingredient> ingredients)
         {
-            ingredientAdapater = new IngredientAdapter(ingredients, this);
+            ingredientAdapater = new IngredientAdapter(ingredients, this, false);
             mRecycleView = FindViewById<RecyclerView>(Resource.Id.dish6_recyclerView);
             mLayoutManager = new LinearLayoutManager(this);
             mRecycleView.SetLayoutManager(mLayoutManager);
             mRecycleView.SetAdapter(ingredientAdapater);
         }
 
-        public List<Ingredient> LoadIngredients()
+        public IList<Ingredient> LoadIngredients()
         {
-            List<Ingredient> ingredientList = new List<Ingredient>();
-            ingredientList.Add(new Ingredient(){ Name = "Ingredient 1", Weight = "200 grams" });
-            ingredientList.Add(new Ingredient(){ Name = "Ingredient 2", Weight = "200 grams" });
-            ingredientList.Add(new Ingredient(){ Name = "Ingredient 3", Weight = "200 grams" });
-            ingredientList.Add(new Ingredient(){ Name = "Ingredient 4", Weight = "200 grams" });
-            ingredientList.Add(new Ingredient(){ Name = "Ingredient 5", Weight = "200 grams" });
-            ingredientList.Add(new Ingredient(){ Name = "Ingredient 6", Weight = "200 grams" });
-            ingredientList.Add(new Ingredient(){ Name = "Ingredient 7", Weight = "200 grams" });
-            ingredientList.Add(new Ingredient(){ Name = "Ingredient 8", Weight = "200 grams" });
-            ingredientList.Add(new Ingredient(){ Name = "Ingredient 9", Weight = "200 grams" });
-            ingredientList.Add(new Ingredient(){ Name = "Ingredient 10", Weight = "200 grams" });
-            ingredientList.Add(new Ingredient(){ Name = "Ingredient 11", Weight = "200 grams" });
-            ingredientList.Add(new Ingredient(){ Name = "Ingredient 12", Weight = "200 grams" });
-            ingredientList.Add(new Ingredient(){ Name = "Ingredient 13", Weight = "200 grams" });
-            ingredientList.Add(new Ingredient(){ Name = "Ingredient 14", Weight = "200 grams" });
-            ingredientList.Add(new Ingredient(){ Name = "Ingredient 15", Weight = "200 grams" });
+            dish6ViewModel = new Dish6ViewModel(dish_name, this);
+            IList<Ingredient> ingredientList = dish6ViewModel.LoadDishIngredients(dish_name);
             return ingredientList;
         }
       

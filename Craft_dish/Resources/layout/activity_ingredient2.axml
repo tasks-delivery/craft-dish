@@ -131,7 +131,8 @@
 			
 			</RelativeLayout>
 
-			<Button     
+			<Button   			
+				android:onClick="openIngredient1"
 				android:id="@+id/ingredient2_btn_save"
 				android:background="@color/colorGrey"			
 				android:textColor="@color/white"
