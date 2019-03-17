@@ -10,7 +10,7 @@ using Craft_dish.Views;
 
 namespace Craft_dish
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/NoActionBar", MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "@string/app_name", Theme = "@style/NoActionBar", ConfigurationChanges = ConfigChanges.Locale, MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
     public class DishPhotoPreviewView : AppCompatActivity
     {
 

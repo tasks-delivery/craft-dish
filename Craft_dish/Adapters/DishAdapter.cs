@@ -38,20 +38,24 @@ namespace Craft_dish.Adapters
             {
                 File imgFile = new File(path);
                 if (imgFile.Exists())
-                {
+                {       
                     Picasso.With(mContext)
                            .Load(imgFile).CenterCrop().Resize(130, 130)
                            .Transform(new RoundedCornersTransformation(100, 0)).Into(vh.DishPhoto);
                 }
                 else
                 {
-                    vh.DishPhoto.SetImageResource(Resource.Drawable.icon_not_found);
+                    Picasso.With(mContext)
+                             .Load(Resource.Drawable.icon_not_found).CenterCrop().Resize(130, 130)
+                             .Transform(new RoundedCornersTransformation(100, 0)).Into(vh.DishPhoto);
                 }
                 
             }
             else
-            {
-                vh.DishPhoto.SetImageResource(Resource.Drawable.icon_not_found);
+            {             
+                Picasso.With(mContext)
+                               .Load(Resource.Drawable.icon_not_found).CenterCrop().Resize(130, 130)
+                               .Transform(new RoundedCornersTransformation(100, 0)).Into(vh.DishPhoto);
             }
             vh.DishName.Text = mDishes[position].Name;
             vh.DishDescription.Text = mDishes[position].Description;

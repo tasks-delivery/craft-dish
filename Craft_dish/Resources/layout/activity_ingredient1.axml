@@ -87,14 +87,15 @@
 
 	 <android.support.v7.widget.RecyclerView  
 		android:layout_below="@id/ingredient1_toolbar"
+		android:layout_above="@+id/ingredient1_checkbox_menu"
 		android:id="@+id/recyclerView"  
 		android:scrollbars="vertical"  
 		android:layout_width="fill_parent"  
 		android:layout_height="fill_parent"/> 
 
 	<android.support.design.widget.FloatingActionButton	
-		app:fabSize="normal"			
-		android:layout_alignParentBottom="true"
+		app:fabSize="normal"
+		android:layout_alignBottom="@id/recyclerView"
 		android:layout_alignParentRight="true"
         android:id="@+id/fab"
 		app:backgroundTint="@color/colorPrimaryDark"
@@ -104,5 +105,63 @@
         android:layout_height="wrap_content"  
 		android:src="@android:drawable/ic_input_add"
         android:layout_margin="16dp" />
-	
+
+	<RelativeLayout
+		android:id="@+id/ingredient1_checkbox_menu"
+		android:layout_alignParentBottom="true"	
+		android:layout_width="match_parent"
+		android:layout_height="150px">
+
+		<RelativeLayout		
+			android:alpha="0.5"
+			android:background="@color/colorBlack"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+		</RelativeLayout>
+
+		<Button	
+			android:id="@+id/ingredient1_delete_button"
+			android:onClick="removeIngredients"
+			android:background="@drawable/button_border"
+			style="@style/ButtonStyle2"
+			android:layout_marginLeft="80px"
+			android:layout_centerVertical="true"
+			android:text="@string/delete"
+			android:layout_width="wrap_content"
+			android:layout_height="80px" />
+
+		<Button	
+			android:id="@+id/ingredient1_add_button"
+			android:onClick="addIngredients"
+			android:background="@drawable/button_border"
+			style="@style/ButtonStyle2"
+			android:layout_marginLeft="80px"
+			android:layout_centerVertical="true"
+			android:text="@string/add"
+			android:layout_width="wrap_content"
+			android:layout_height="80px" />
+
+		<Button
+			android:id="@+id/ingredient1_select_all_btn"		
+		    android:background="@drawable/button_border"
+			style="@style/ButtonStyle2"
+			android:layout_centerInParent="true"
+			android:text="@string/select_all"
+			android:layout_width="wrap_content"
+			android:layout_height="80px" />	
+
+		<Button
+			android:id="@+id/ingredient1_cancel_btn"		
+			android:background="@drawable/button_border"
+			style="@style/ButtonStyle2"
+			android:layout_marginRight="80px"
+			android:layout_centerVertical="true"
+			android:layout_alignParentRight="true"		
+			android:text="@string/cancel"
+			android:layout_width="wrap_content"
+			android:layout_height="80px" />				
+
+	</RelativeLayout>
+
 </RelativeLayout>

@@ -12,7 +12,7 @@ using Craft_dish.ViewModels;
 
 namespace Craft_dish.Views
 {
-    [Activity(Label = "@string/edit_dish", Theme = "@style/AppTheme", MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "@string/edit_dish", Theme = "@style/AppTheme", ConfigurationChanges = ConfigChanges.Locale, MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
     public class Dish7View : AppCompatActivity
     {
 
@@ -111,16 +111,21 @@ namespace Craft_dish.Views
         [Java.Interop.Export("openDishWarning1")]
         public void goToDishWarning1(View v)
         {
+            var comfirmTitle = Resources.GetText(Resource.String.dish_warning1_confirm_delete);
+            var deleteBtnText = Resources.GetText(Resource.String.delete);
+            var comfirmMessage = Resources.GetText(Resource.String.dish_warning1_are_you_sure_that_you_want_to_remove_this_dish);
+            var cancelBtnText = Resources.GetText(Resource.String.cancel);
+
             Android.App.AlertDialog.Builder alert = new Android.App.AlertDialog.Builder(this);
-            alert.SetTitle("Confirm delete");
-            alert.SetMessage("Are you sure you want to remove this dish?");
-            alert.SetPositiveButton("Delete", (senderAlert, args) => {
+            alert.SetTitle(comfirmTitle);
+            alert.SetMessage(comfirmMessage);
+            alert.SetPositiveButton(deleteBtnText, (senderAlert, args) => {
                 dish7ViewModel.RemoveDish(dish_name);
                 StartActivity(new Intent(Application.Context, typeof(Dish4View)));
                 Finish();
             });
 
-            alert.SetNegativeButton("Cancel", (senderAlert, args) => {
+            alert.SetNegativeButton(cancelBtnText, (senderAlert, args) => {
 
             });
 

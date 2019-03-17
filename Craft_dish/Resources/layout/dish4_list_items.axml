@@ -39,7 +39,7 @@
 				android:layout_width="wrap_content"  
 				android:layout_height="wrap_content"  
 				android:textAppearance="?android:attr/textAppearanceMedium"  
-				android:textColor="#FF8492A6"  
+				android:textColor="@color/colorGreyLight"  
 				android:text="Description"  								
 				android:maxLines="2"
 				android:ellipsize="end"

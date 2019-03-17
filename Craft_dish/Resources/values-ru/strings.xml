@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">Craft dish</string>
+    <string name="text_ingredients">Ингридиенты</string>
+    <string name="text_dishes">Блюда</string>
+    <string name="text_contacts">Контакты</string>
+    <string name="text_send_feedback">Оставить отзыв</string>
+    <string name="text_welcome_to_craft_dish">Добро пожаловать в Craft dish</string>
+    <string name="placeholder_dish_name">Название блюда</string>
+    <string name="description">Описание блюда</string>
+    <string name="save">СОХРАНИТЬ</string>
+    <string name="new_dish">Новое блюдо</string>
+    <string name="dish_warning1">Блюдо с таким названием уже существует</string>
+    <string name="dish_warning2">Название блюда не может быть пустым или состоять только из пробелов</string>
+    <string name="ingredient_warning1">Название ингридиента не может быть пустым или состоять только из пробелов</string>
+    <string name="skip">Пропустить</string>
+    <string name="attach">Прикрепить</string>
+    <string name="success">Успешно</string>
+    <string name="dish3_text1">Блюдо было успешно создано. Хотите прикрепить фото для этого блюда?</string>
+    <string name="dish_photo">Фото блюда</string>
+    <string name="search">Поиск...</string>
+    <string name="preview_photo">Предпросмотр фото</string>
+    <string name="edit_dish">Редактировать блюдо</string>
+    <string name="delete">УДАЛИТЬ</string>
+    <string name="make_photo">СДЕЛАТЬ ФОТО</string>
+    <string name="done">Готово</string>
+    <string name="dish8_text1">Блюдо было успешно обновлено</string>
+    <string name="ingredient_name">Название ингридиента</string>
+    <string name="ingredient_weight">Вес ингридиента</string>
+    <string name="new_ingredient">Новый игридиент</string>
+    <string name="weight_unit">Единица веса</string>
+    <string name="select_all">Выбрать все</string>
+    <string name="cancel">Отменить</string>
+    <string name="add">Добавить</string>
+    <string name="dish_warning1_are_you_sure_that_you_want_to_remove_this_dish">Вы уверены, что хотите удалить это блюдо?</string>
+    <string name="dish_warning1_confirm_delete">Подтвердите удаление</string>
+    <string-array name="weight_unit_array">
+      <item>Грамм</item>
+      <item>Кг</item>
+      <item>Литр</item>
+    </string-array>
+</resources>

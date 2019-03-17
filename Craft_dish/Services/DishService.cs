@@ -1,12 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Android.Util;
 using Craft_dish.Models;
 using Realms;
 
 namespace Craft_dish.Services
 {
-    class DishService
+    public class DishService
     {
+        private string tag = "CRAFT DISH";
 
         private readonly Realm _realm;
 
@@ -73,6 +75,36 @@ namespace Craft_dish.Services
                 
             }
             return resultDish;
+        }
+
+        public void AddIngredientToDish(string dish_name, Ingredient ingredient)
+        {
+            Dish dish = GetDishByName(dish_name);
+            _realm.Write(() =>
+            {
+                dish.Ingredients.Add(ingredient);
+            });
+           
+        }
+
+        public void RemoveIngredientFromDish(string dish_name, Ingredient ingredient)
+        {
+            Log.Info(tag, "DISH SERVICE INGREDIENT IS -->> {0}  " + ingredient.Name);
+            IngredientService ingredientService = new IngredientService();
+            Dish dish = GetDishByName(dish_name);
+            Log.Info(tag, "DISH SERVICE DISH IS -->> {0}  " + dish.Name);
+            _realm.Write(() =>
+            {
+                dish.Ingredients.Remove(ingredient);
+            });
+
+            Log.Info(tag, "DISH SERVICE INGREDIENT IS -->> {0}  " + ingredient.Name);
+        }
+
+        public IList<Ingredient> GetAllDishIngredients(string dish_name)
+        {
+            Dish dish = GetDishByName(dish_name);
+            return dish.Ingredients;
         }
 
     }
