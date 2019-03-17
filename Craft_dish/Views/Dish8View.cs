@@ -9,7 +9,7 @@ using Android.Views;
 namespace Craft_dish.Views
 {
 
-    [Activity(Label = "@string/new_dish", Theme = "@style/NoActionBar", MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "@string/new_dish", Theme = "@style/NoActionBar", ConfigurationChanges = ConfigChanges.Locale, MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
     public class Dish8View : AppCompatActivity
     {
 

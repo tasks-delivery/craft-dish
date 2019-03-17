@@ -13,7 +13,7 @@ using Craft_dish.ViewModels;
 namespace Craft_dish.Views
 {
 
-    [Activity(Label = "@string/new_dish", Theme = "@style/AppTheme", MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "@string/new_dish", Theme = "@style/AppTheme", ConfigurationChanges = ConfigChanges.Locale, MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
     public class Dish2View : AppCompatActivity
     {
 

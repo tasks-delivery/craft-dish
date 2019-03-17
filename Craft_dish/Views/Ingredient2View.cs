@@ -12,7 +12,7 @@ using Android.Util;
 
 namespace Craft_dish
 {
-    [Activity(Label = "@string/new_ingredient", Theme = "@style/AppTheme", MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "@string/new_ingredient", Theme = "@style/AppTheme", ConfigurationChanges = ConfigChanges.Locale, MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
     public class Ingredient2View : AppCompatActivity
     {
 

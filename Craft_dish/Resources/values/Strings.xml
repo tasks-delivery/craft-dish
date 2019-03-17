@@ -31,6 +31,8 @@
     <string name="select_all">Select all</string>
     <string name="cancel">Cancel</string>
     <string name="add">Add</string>
+    <string name="dish_warning1_are_you_sure_that_you_want_to_remove_this_dish">Are you sure that you want to remove this dish?</string>
+    <string name="dish_warning1_confirm_delete">Confirm delete</string>
     <string-array name="weight_unit_array">
       <item>Gram</item>
       <item>Kg</item>

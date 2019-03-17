@@ -10,7 +10,7 @@ using Android.Support.V7.App;
 
 namespace Craft_dish.Views
 {
-    [Activity(Theme = "@style/MyTheme.Splash", MainLauncher = true, NoHistory = true, ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Theme = "@style/MyTheme.Splash", MainLauncher = true, ConfigurationChanges = ConfigChanges.Locale, NoHistory = true, ScreenOrientation = ScreenOrientation.Portrait)]
     public class SplashScreenView : AppCompatActivity
     {
 
@@ -46,7 +46,7 @@ namespace Craft_dish.Views
             Task startLoading = new Task(async () =>
            {
                cancellationToken.ThrowIfCancellationRequested();
-               RunOnUiThread(() => SetContentView(Resource.Layout.activity_splash_screen));
+               RunOnUiThread(() => SetContentView(Resource.Layout.activity_splash_screen));     
                await Task.Delay(4000);
                if (Back == false)
                {

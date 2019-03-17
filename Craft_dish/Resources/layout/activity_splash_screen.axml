@@ -11,14 +11,18 @@
 	android:background="#F3E7D3">
 
 	<RelativeLayout
+		android:layout_marginLeft="50px"
+		android:layout_marginRight="50px"
 		android:id="@+id/splash_screen_img_container1"
 		android:layout_width="match_parent"
 		android:layout_height="match_parent"			
 		android:layout_above="@+id/splash_screen_progress_bar_container"
 		android:gravity="center">
-		
-		<TextView
+
+		<TextView	
+			android:id="@+id/splash_screen_welcome_text"
 			android:text="@string/text_welcome_to_craft_dish"	
+			android:textSize="20sp"
 			android:textColor="@color/colorBlack"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
