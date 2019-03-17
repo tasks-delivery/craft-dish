@@ -267,16 +267,6 @@ namespace Craft_dish.Views
             else
             {
                 SearchResolver();
-                //if (navigateFrom == "Dish6Remove")
-                //{
-                //    ingredients = ingredient1ViewModel.SearchDishIngredientByName(dish_name, search_field.Text);
-                //    ingredientAdapter = new IngredientAdapter(ingredients, this, false);
-                //}
-                //else
-                //{
-                //    ingredients = ingredient1ViewModel.SearchIngredientByName(search_field.Text);
-                //    ingredientAdapter = new IngredientAdapter(ingredients, this, false);
-                //}
                 SetUpAdapter(ingredientAdapter);
             }
         }
