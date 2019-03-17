@@ -90,7 +90,7 @@ namespace Craft_dish.Views
             string path = null;
 
             // The projection contains the columns we want to return in our query.
-            string selection = Android.Provider.MediaStore.Images.Media.InterfaceConsts.Id + " =? ";
+            string selection = MediaStore.Images.Media.InterfaceConsts.Id + " =? ";
             using (var cursor = ManagedQuery(MediaStore.Images.Media.ExternalContentUri, null, selection, new string[] { doc_id }, null))
             {
                 if (cursor == null) return path;

@@ -21,25 +21,6 @@ namespace Craft_dish.ViewModels
             dishService = new DishService();
         }
 
-    //  public bool IngredientsAreExist()
-    //  {
-    //
-    //      if (LoadIngredients().Count != 0)
-    //      {
-    //          return true;
-    //      }
-    //      else
-    //      {
-    //          return false;
-    //      }
-    //
-    //  }
-
-     //  public void SetCheckedState(string ingredient_name, bool state)
-     //  {
-     //      ingredientService.SetCheckState(ingredient_name, state);
-     //  }
-
         public IList<Ingredient> LoadDishIngredients(string dish_name)
         {
             Log.Info(tag, "Dish found ---->> {0}  " + dish_name);
