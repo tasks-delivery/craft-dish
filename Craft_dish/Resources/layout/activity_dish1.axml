@@ -25,11 +25,11 @@
 			android:id="@+id/dish1_container2">
 
 			<View android:id="@+id/dish1_separator"
-			android:layout_width="10px"
-			android:layout_height="60dp" 
-			android:alpha="0.4"
-			android:background="@color/colorBlack"
-			android:layout_centerHorizontal="true"/>
+				android:layout_width="10px"
+				android:layout_height="60dp" 
+				android:alpha="0.4"
+				android:background="@color/colorBlack"
+				android:layout_centerHorizontal="true"/>
 
 			<RelativeLayout
 				android:id="@+id/dish1_container3"
