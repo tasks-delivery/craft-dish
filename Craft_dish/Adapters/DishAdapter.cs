@@ -52,8 +52,7 @@ namespace Craft_dish.Adapters
                 
             }
             else
-            {
-                
+            {             
                 Picasso.With(mContext)
                                .Load(Resource.Drawable.icon_not_found).CenterCrop().Resize(130, 130)
                                .Transform(new RoundedCornersTransformation(100, 0)).Into(vh.DishPhoto);
