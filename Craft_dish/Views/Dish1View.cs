@@ -5,12 +5,15 @@ using Android.Views;
 using Android.Content;
 using Android.Content.PM;
 using Craft_dish.Views;
+using Android.Widget;
 
 namespace Craft_dish
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/NoActionBar", MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "@string/app_name", Theme = "@style/NoActionBar", MainLauncher = false, ConfigurationChanges = ConfigChanges.Locale, ScreenOrientation = ScreenOrientation.Portrait)]
     public class Dish1View : AppCompatActivity
-    {        
+    {
+
+        private TextView ingredients_btn; 
 
         [Java.Interop.Export("openGitHub")]
         public void Button_OnClick(View v)
@@ -43,6 +46,35 @@ namespace Craft_dish
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.activity_dish1);
+            ingredients_btn = (TextView)FindViewById(Resource.Id.dish1_ingredients_btn);
+
+             
         }
+
+     //  public void LangResolver(string text)
+     //  {
+     //    
+     //  }
+     //
+     //  protected override void OnStart()
+     //  {
+     //      base.OnStart();
+     //
+     //     // var lang = Resources.Configuration.Locale;
+     //     // if (lang.Language == "ru")
+     //     // {
+     //     //
+     //     //     string text = Resources.GetText(Resource.String.text_ingredients);
+     //     //     ingredients_btn.Text = text;
+     //     //
+     //     // }
+     //     // else
+     //     // {
+     //     //     string text = Resources.GetText(Resource.String.text_ingredients);
+     //     //     ingredients_btn.Text = text;
+     //     //
+     //     // }
+     //
+     //  }
     }
 }

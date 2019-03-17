@@ -22,7 +22,7 @@ using System.Text.RegularExpressions;
 
 namespace Craft_dish.Views
 {
-    [Activity(Label = "@string/app_name", Theme = "@style/NoActionBar", MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "@string/app_name", Theme = "@style/NoActionBar", ConfigurationChanges = ConfigChanges.Locale, MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
     public class Dish6View : AppCompatActivity
     {
 

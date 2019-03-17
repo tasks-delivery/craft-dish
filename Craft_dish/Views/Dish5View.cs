@@ -17,7 +17,7 @@ using System;
 
 namespace Craft_dish.Views
 {
-    [Activity(Label = "@string/dish_photo", Theme = "@style/AppTheme", MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "@string/dish_photo", Theme = "@style/AppTheme", ConfigurationChanges = ConfigChanges.Locale, MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
     public class Dish5View : AppCompatActivity
     {
         private string tag = "CRAFT DISH";

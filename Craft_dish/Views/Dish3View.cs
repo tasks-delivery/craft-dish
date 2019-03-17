@@ -9,7 +9,7 @@ using Android.Widget;
 
 namespace Craft_dish.Views
 {
-    [Activity(Label = "@string/new_dish", Theme = "@style/NoActionBar", MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
+    [Activity(Label = "@string/new_dish", Theme = "@style/NoActionBar", ConfigurationChanges = ConfigChanges.Locale, MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
     class Dish3View : AppCompatActivity
     {
 
@@ -24,8 +24,18 @@ namespace Craft_dish.Views
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.activity_dish3);
             btn_attach = (Button)FindViewById(Resource.Id.dish3_btn_attach);
-            btn_skip = (Button)FindViewById(Resource.Id.dish3_btn_skip);
+            btn_skip = (Button)FindViewById(Resource.Id.dish3_btn_skip);            
             dish_name = Intent.GetStringExtra("dish_name");
+        }
+
+        protected override void OnStart()
+        {
+            base.OnStart();
+            if(Resources.Configuration.Locale.Language == "ru")
+            {
+                btn_skip.Visibility = ViewStates.Gone;
+                btn_attach.Visibility = ViewStates.Gone;
+            }          
         }
 
         [Java.Interop.Export("openDish4")]
