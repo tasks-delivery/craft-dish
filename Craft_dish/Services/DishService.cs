@@ -6,7 +6,7 @@ using Realms;
 
 namespace Craft_dish.Services
 {
-    public class DishService
+    public class DishService : BaseService
     {
         private string tag = "CRAFT DISH";
 
@@ -14,7 +14,7 @@ namespace Craft_dish.Services
 
         public DishService()
         {
-            _realm = Realm.GetInstance();
+            _realm = getDbInstance();
         }
 
         public void CreateDish(string dish_name, string dish_description)

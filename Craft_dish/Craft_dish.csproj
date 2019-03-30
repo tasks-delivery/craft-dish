@@ -70,6 +70,7 @@
     <Compile Include="Adapters\IngredientAdapter.cs" />
     <Compile Include="Models\Dish.cs" />
     <Compile Include="Models\Ingredient.cs" />
+    <Compile Include="Services\BaseService.cs" />
     <Compile Include="Services\DishService.cs" />
     <Compile Include="Services\IngredientService.cs" />
     <Compile Include="ViewModels\BaseDishViewModel.cs" />
