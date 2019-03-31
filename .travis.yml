@@ -45,7 +45,8 @@ before_install:
 
     - curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
     - chmod +x ./download_apk.sh
-    - curl -sL https://ci.appveyor.com/api/projects/ordeh/craft-dish/artifacts/Craft_dish/bin/Release/Craft_dish.Craft_dish-Signed.apk | sudo -E bash -
+    
+#    - curl -sL https://ci.appveyor.com/api/projects/ordeh/craft-dish/artifacts/Craft_dish/bin/Release/Craft_dish.Craft_dish-Signed.apk | sudo -E bash -
     - ./download_apk.sh
     - sudo apt-get install nodejs
     - sudo apt-get install build-essential
