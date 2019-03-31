@@ -24,6 +24,7 @@ cache:
   - deps
 
 before_install:
+    - cd craft-dish-automation
     - mvn -N io.takari:maven:wrapper
     - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
     - sudo apt-get update
