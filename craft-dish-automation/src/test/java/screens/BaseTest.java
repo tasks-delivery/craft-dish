@@ -21,12 +21,10 @@ public class BaseTest extends BaseConfig {
                 case "en":
                     fileInputStream = new FileInputStream("src/main/resources/language_en.xml");
                     property.loadFromXML(fileInputStream);
-                    log.info("Language is english");
                     break;
                 case "ru":
                     fileInputStream = new FileInputStream("src/main/resources/language_ru.xml");
                     property.loadFromXML(fileInputStream);
-                    log.info("Language is russian");
                     break;
                 case "null":
                     log.warn("Invalid language");

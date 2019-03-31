@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.page;
 
 public class Dish1Screen extends BaseScreen {
 
@@ -34,6 +35,11 @@ public class Dish1Screen extends BaseScreen {
         btnDishes().waitUntil(visible, waitForLoadScreen());
         textContacts().waitUntil(visible, waitForLoadScreen());
         textSendFeedback().waitUntil(visible, waitForLoadScreen());
+    }
+
+    public Dish4Screen navigateToDish4(){
+        btnDishes().click();
+        return page(Dish4Screen.class);
     }
 
 }
