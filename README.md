@@ -11,7 +11,5 @@ https://marvelapp.com/aaiee8h
 
 # Code analyzer
 
-<a href="https://scan.coverity.com/projects/craft-dish">
-  <img alt="Coverity Scan Build Status"
-       src="https://scan.coverity.com/projects/18051/badge.svg"/>
-</a>
+# Code analyzer
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6379dc03bab24d7b8f2c0af5b1cbb27e)](https://app.codacy.com/app/ordeh/craft-dish?utm_source=github.com&utm_medium=referral&utm_content=tasks-delivery/craft-dish&utm_campaign=Badge_Grade_Settings)
