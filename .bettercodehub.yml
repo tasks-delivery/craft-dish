@@ -1,3 +1,8 @@
 component_depth: 1
 languages:
   - csharp
+  
+  - name: csharp
+  production:
+    include:
+      - .*/
