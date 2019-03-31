@@ -25,6 +25,7 @@ cache:
 
 before_install:
     - cd craft-dish-automation
+    - chmod +x ./download_apk.sh
     - ./download_apk.sh
     - mvn -N io.takari:maven:wrapper
     - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
