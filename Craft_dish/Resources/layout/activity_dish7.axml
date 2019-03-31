@@ -70,7 +70,7 @@
 		android:layout_marginLeft="30px"
 		android:layout_marginRight="30px"
 		android:background="@color/colorPrimaryDark"
-		android:layout_height="1000px">
+		android:layout_height="1100px">
 
 		<RelativeLayout			
 			android:layout_margin="40px"
