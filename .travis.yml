@@ -65,7 +65,7 @@ before_install:
    # - "./node_modules/.bin/appium-doctor"
     - "./node_modules/.bin/appium -a localhost -p 4800 --relaxed-securit --log-level info > appium_log.txt &"
 before_script:
-    - echo no | android create avd --force -n test -t android-25 --abi armeabi-v7a
+    - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
     - emulator -avd test -no-skin -no-window &
     - android-wait-for-emulator
     - adb shell input keyevent 82 &
