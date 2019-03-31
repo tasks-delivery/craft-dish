@@ -60,11 +60,11 @@ public class BaseConfig {
         DesiredCapabilities cap = new DesiredCapabilities();
         cap.setCapability(MobileCapabilityType.VERSION, "7.1");
         cap.setCapability("platformName", "Android");
-        cap.setCapability("deviceName", "Emulator");
+        cap.setCapability("deviceName", "emulator-5554");
         cap.setCapability("clearSystemFiles",true);
         cap.setCapability("autoGrantPermissions", true);
         cap.setCapability("noSign", true);
-        cap.setCapability("app", currentDir + "\\Craft_dish.Craft_dish-Signed.apk");
+        cap.setCapability("app", currentDir + "/Craft_dish.Craft_dish-Signed.apk");
         cap.setCapability("language",getLang());
         cap.setCapability("locale",getLang());
         return cap;
