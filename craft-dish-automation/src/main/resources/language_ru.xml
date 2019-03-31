@@ -6,4 +6,10 @@
     <!--Splash screen texts-->
     <entry key="welcome_text">Добро пожаловать в Craft dish</entry>
 
+    <!--Dish 1 texts-->
+    <entry key="ingredients_text">Ингредиенты</entry>
+    <entry key="dishes_text">Блюда</entry>
+    <entry key="contacts_text">Контакты</entry>
+    <entry key="send_feedback_text">Оставить отзыв</entry>
+
 </properties>

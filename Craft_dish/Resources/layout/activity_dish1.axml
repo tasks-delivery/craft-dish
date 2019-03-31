@@ -123,7 +123,7 @@
 			android:layout_height="wrap_content"
 			android:layout_toRightOf="@id/dish1_text_feedback"
 			android:layout_below="@id/dish1_text_contacts"
-			android:id="@+id/imageButton1" />
+			android:id="@+id/imageGithub" />
 		</RelativeLayout>
 	
 </RelativeLayout>
