@@ -24,8 +24,8 @@ cache:
   - deps
 
 before_install:
-	- mvn -N io.takari:maven:wrapper
-	- ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+    - mvn -N io.takari:maven:wrapper
+    - ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
     - sudo apt-get update
     - sudo apt-get install -y make build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev
       libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev xz-utils tk-dev
@@ -56,7 +56,7 @@ before_script:
     - android-wait-for-emulator
     - adb shell input keyevent 82 &
 script:
-	- "./gradlew assemble"
+    - "./gradlew assemble"
     - mvn clean test -Dlang=en
 after_script:
     - cat ./appium_log.txt
