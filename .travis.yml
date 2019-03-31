@@ -49,9 +49,9 @@ before_install:
     - PATH=$PATH:$JAVA_HOME/bin
     - npm install appium
     - npm install appium-doctor
-    - "./node_modules/.bin/appium -a localhost -p 4800 --relaxed-security"
+   # - "./node_modules/.bin/appium -a localhost -p 4800 --relaxed-security"
    # - "./node_modules/.bin/appium-doctor"
-   # - "./node_modules/.bin/appium --log-level info > appium_log.txt &"
+    - "./node_modules/.bin/appium -a localhost -p 4800 --relaxed-securit --log-level info > appium_log.txt &"
 before_script:
     - echo no | android create avd --force -n test -t android-22 --abi armeabi-v7a
     - emulator -avd test -no-skin -no-window &
@@ -61,4 +61,4 @@ script:
 #    - "./gradlew assemble"
     - mvn clean test -Dlang=en
 after_script:
-   # - cat ./appium_log.txt
+    - cat ./appium_log.txt
