@@ -7,3 +7,6 @@ Mobile project on Xamarin
 # Project design
 
 https://marvelapp.com/aaiee8h
+
+# Code analyzer
+https://app.codacy.com/project/ordeh/craft-dish/dashboard
