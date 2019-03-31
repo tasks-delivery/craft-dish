@@ -70,7 +70,7 @@ public class BaseConfig {
     public void setUp() throws MalformedURLException {
         androidDriver = new AndroidDriver(new URL("http://localhost:4800/wd/hub"), setUpCaps());
         setWebDriver(androidDriver);
-        Configuration.timeout = 10000;
+        Configuration.timeout = 1000;
     }
 
     public int waitForLoadScreen(){

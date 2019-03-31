@@ -6,4 +6,10 @@
     <!--Splash screen texts-->
     <entry key="welcome_text">Welcome to Craft dish</entry>
 
+    <!--Dish 1 texts-->
+    <entry key="ingredients_text">Ingredients</entry>
+    <entry key="dishes_text">Dishes</entry>
+    <entry key="contacts_text">Contacts</entry>
+    <entry key="send_feedback_text">Send feedback</entry>
+
 </properties>
