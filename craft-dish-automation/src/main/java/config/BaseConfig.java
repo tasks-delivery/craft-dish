@@ -11,6 +11,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.BeforeSuite;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -39,9 +40,11 @@ public class BaseConfig {
     private static String lang = System.getProperty("lang");
 
     @BeforeSuite
-    public void SetUpEnvironment(){
+    public void SetUpEnvironment() throws IOException {
         setLogger();
         if (lang != null) {
+            DownloadService downloadService = new DownloadService();
+            downloadService.downloadApk();
             log.info("Tests are started on CI");
         }else {
             lang = System.setProperty("lang", "en");
