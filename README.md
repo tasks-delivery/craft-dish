@@ -8,5 +8,10 @@ Mobile project on Xamarin
 
 https://marvelapp.com/aaiee8h
 
+
 # Code analyzer
-https://app.codacy.com/project/ordeh/craft-dish/dashboard
+
+<a href="https://scan.coverity.com/projects/craft-dish">
+  <img alt="Coverity Scan Build Status"
+       src="https://scan.coverity.com/projects/18051/badge.svg"/>
+</a>
