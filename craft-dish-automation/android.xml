@@ -4,6 +4,7 @@
     <test name="Android smoke tests">
         <classes>
             <class name="screens.SplashScreenTest"/>
+            <class name="screens.Dish1Test"/>
         </classes>
     </test>
 </suite>

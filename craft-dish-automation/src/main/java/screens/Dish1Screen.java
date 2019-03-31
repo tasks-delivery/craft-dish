@@ -1,9 +1,9 @@
 package screens;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
 public class Dish1Screen extends BaseScreen {
@@ -29,11 +29,11 @@ public class Dish1Screen extends BaseScreen {
     }
 
     public Dish1Screen(){
-        btnIngredients().waitUntil(Condition.visible, waitForLoadScreen());
-        linkGitHub().waitUntil(Condition.visible, waitForLoadScreen());
-        btnDishes().waitUntil(Condition.visible, waitForLoadScreen());
-        textContacts().waitUntil(Condition.visible, waitForLoadScreen());
-        textSendFeedback().waitUntil(Condition.visible, waitForLoadScreen());
+        btnIngredients().waitUntil(visible, waitForLoadScreen());
+        linkGitHub().waitUntil(visible, waitForLoadScreen());
+        btnDishes().waitUntil(visible, waitForLoadScreen());
+        textContacts().waitUntil(visible, waitForLoadScreen());
+        textSendFeedback().waitUntil(visible, waitForLoadScreen());
     }
 
 }

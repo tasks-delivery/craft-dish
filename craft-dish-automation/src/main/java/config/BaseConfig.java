@@ -20,7 +20,7 @@ public class BaseConfig {
 
     private static final Logger log = LogManager.getLogger(BaseConfig.class.getName());
 
-    public String appName = "";
+    public String appName = "Craft_dish.Craft_dish";
 
     public AndroidDriver androidDriver;
 
