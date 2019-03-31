@@ -9,12 +9,16 @@ android:
         - android-26
         - android-22
         - android-24
+        - android-25
+        - addon-google_apis-google-25
         - extra-google-google_play_services
         - extra-google-m2repository
         - extra-android-m2repository
         - addon-google_apis-google-26
         - sys-img-armeabi-v7a-android-22
         - sys-img-armeabi-v7a-android-24
+        - sys-img-armeabi-v7a-android-25
+        - sys-img-armeabi-v7a-android-26
         - sys-img-x86-android-26
         - sys-img-armeabi-v7a-android-17
 
@@ -61,7 +65,7 @@ before_install:
    # - "./node_modules/.bin/appium-doctor"
     - "./node_modules/.bin/appium -a localhost -p 4800 --relaxed-securit --log-level info > appium_log.txt &"
 before_script:
-    - echo no | android create avd --force -n test -t android-26 --abi armeabi-v7a
+    - echo no | android create avd --force -n test -t android-26 --abi google_apis/armeabi-v7a
     - emulator -avd test -no-skin -no-window &
     - android-wait-for-emulator
     - adb shell input keyevent 82 &
