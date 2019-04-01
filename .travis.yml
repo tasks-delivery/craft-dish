@@ -83,7 +83,7 @@ before_install:
   - "./node_modules/.bin/appium -a localhost -p 4800 --relaxed-securit --log-level info > appium_log.txt &"
 before_script:
   # Wait for emulator to startup.
-  - android-wait-for-emulator
+  - ./android-wait-for-emulator.sh
   - adb shell input keyevent 82 
 script:
   - mvn clean test -Dlang=en
