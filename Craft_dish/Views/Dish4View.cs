@@ -131,12 +131,12 @@ namespace Craft_dish.Views
             }
         }
 
-        private void SearchDish(object sender)
+        private void SearchDish(object sender, TextChangedEventArgs e)
         {
             SetUpAdapter(dish4ViewModel.SearchDishByName(search_field.Text));
         }
      
-        private void MAdapter_ItemClick(int e)
+        private void MAdapter_ItemClick(object sender, int e)
         {
             var item = dish4ViewModel.SearchDishByName(search_field.Text)[e];
             Intent intent = new Intent(Application.Context, typeof(Dish6View));

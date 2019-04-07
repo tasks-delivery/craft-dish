@@ -114,8 +114,7 @@ namespace Craft_dish.Views
             Log.Info(tag, "Navigate from -->> {0}  " + navigateFrom);
             Log.Info(tag, "Dish is -->> {0}  " + dish_name);
             switch (navigateFrom)
-            {
-             
+            {            
                 case "Dish1" :
                     LoadIngredients();
                     ingredientsAddList = new List<Ingredient>();                    
@@ -213,7 +212,7 @@ namespace Craft_dish.Views
             }
         }
 
-        private void SearchIngredient(object sender)
+        private void SearchIngredient(object sender, TextChangedEventArgs e)
         {
             SearchResolver();
             searchState = true;
@@ -340,7 +339,7 @@ namespace Craft_dish.Views
             CancelBtnListener();
         }
 
-        void OnItemRemove(int position)
+        void OnItemRemove(object sender, int position)
         {
             if (navigateFrom == "Dish6Remove")
             {
@@ -357,7 +356,7 @@ namespace Craft_dish.Views
             }
         }
 
-        void OnItemClick(int position)
+        void OnItemClick(object sender, int position)
         {
             checkbox_menu.Visibility = ViewStates.Visible;
             if (navigateFrom == "Dish6Remove")
