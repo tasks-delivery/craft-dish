@@ -19,4 +19,7 @@
     <entry key="success">Успешно</entry>
     <entry key="text_dish_was_created_successfully">Блюдо было успешно создано. Хотите прикрепить фото для этого блюда?</entry>
 
+    <!--Dish 5 texts-->
+    <entry key="text_preview_photo">Предпросмотр фото</entry>
+
 </properties>

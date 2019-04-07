@@ -21,7 +21,7 @@ public class Dish3Screen extends BaseScreen {
     }
 
     public SelenideElement btnSkip(){
-        if(driverProvider().getCapabilities().getCapability("locale").toString().contains("ru") == true){
+        if(driverProvider().getCapabilities().getCapability("locale").toString().contains("ru")){
             return $(By.id("dish3_ru_btn_skip"));
         }else {
             return $(By.id("dish3_btn_skip"));
@@ -29,7 +29,7 @@ public class Dish3Screen extends BaseScreen {
     }
 
     public SelenideElement btnAttach(){
-        if(driverProvider().getCapabilities().getCapability("locale").toString().contains("ru") == true){
+        if(driverProvider().getCapabilities().getCapability("locale").toString().contains("ru")){
             return $(By.id("dish3_ru_btn_attach"));
         }else {
             return $(By.id("dish3_btn_attach"));

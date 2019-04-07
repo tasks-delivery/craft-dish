@@ -4,15 +4,16 @@ import config.DataGenerator;
 import config.DriverActions;
 import models.Dish;
 import org.openqa.selenium.ScreenOrientation;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
 
-import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.close;
+import static com.codeborne.selenide.Selenide.page;
 import static org.testng.Assert.assertEquals;
 
 public class Dish4Test extends BaseTest implements DriverActions {
@@ -20,8 +21,6 @@ public class Dish4Test extends BaseTest implements DriverActions {
     private Dish1Screen dish1Screen;
 
     private Dish4Screen dish4Screen;
-
-    private Dish2Screen dish2Screen;
 
     private Dish dish1, dish2, dish3;
 
@@ -47,7 +46,7 @@ public class Dish4Test extends BaseTest implements DriverActions {
         dish1Screen = page(Dish1Screen.class);
         dish4Screen = dish1Screen.clickDishesBtn();
         createDish(dish1);
-        Assert.assertEquals(dish4Screen.dishNamesList().shouldHaveSize(1).first().getText().length(), 30);
+        assertEquals(dish4Screen.dishNamesList().shouldHaveSize(1).first().getText().length(), 30);
     }
 
     @Test
@@ -103,7 +102,7 @@ public class Dish4Test extends BaseTest implements DriverActions {
     }
 
     private void createDish(Dish dish){
-        dish2Screen = dish4Screen.clickPlusBtn();
+        Dish2Screen dish2Screen = dish4Screen.clickPlusBtn();
         dish2Screen.inputData(dish.getName(), dish.getDescription());
         Dish3Screen dish3Screen = dish2Screen.clickSaveBtn();
         dish3Screen.clickSkipBtn();
