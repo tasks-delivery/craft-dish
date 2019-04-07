@@ -8,6 +8,7 @@
             <class name="screens.Dish2Test"/>
             <class name="screens.Dish3Test"/>
             <class name="screens.Dish4Test"/>
+            <class name="screens.Dish5Test"/>
         </classes>
     </test>
 </suite>

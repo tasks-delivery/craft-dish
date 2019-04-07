@@ -16,41 +16,34 @@ import static com.codeborne.selenide.Selenide.close;
 import static com.codeborne.selenide.Selenide.page;
 import static org.testng.Assert.assertEquals;
 
-public class Dish3Test extends BaseTest implements DriverActions {
+public class Dish5Test extends BaseTest implements DriverActions {
 
-    private Dish2Screen dish2Screen;
+    private Dish3Screen dish3Screen;
 
     public void preconditions(){
         Dish dish = new Dish("testName", "testDescr");
         dish = new DataGenerator().dish(dish);
         Dish1Screen dish1Screen = page(Dish1Screen.class);
         Dish4Screen dish4Screen = dish1Screen.clickDishesBtn();
-        dish2Screen = dish4Screen.clickPlusBtn();
+        Dish2Screen dish2Screen = dish4Screen.clickPlusBtn();
         dish2Screen.inputData(dish.getName(), dish.getDescription());
+        dish3Screen = dish2Screen.clickSaveBtn();
     }
 
-    /*
-    TODO: Defect https://github.com/tasks-delivery/craft-dish/issues/163
-     */
-    @Test(enabled = false)
+    @Test
     public void backNavigation(){
         preconditions();
-        Dish3Screen dish3Screen = dish2Screen.clickSaveBtn();
-        dish3Screen.btnSkip().shouldHave(text(getText("skip")));
-        dish3Screen.btnAttach().shouldHave(text(getText("attach")));
-        dish3Screen.textSuccessCreated().shouldHave(text(getText("text_dish_was_created_successfully")));
-        dish3Screen.textSuccess().shouldHave(text(getText("success")));
-        dish3Screen.backNavigation();
-        dish3Screen.btnSkip().shouldNotBe(visible);
-        dish3Screen.btnAttach().shouldNotBe(visible);
-        dish3Screen.textSuccessCreated().shouldNotBe(visible);
-        dish3Screen.textSuccess().shouldNotBe(visible);
+        Dish5Screen dish5Screen = dish3Screen.clickAttachBtn();
+        dish5Screen.btnSave().shouldHave(text(getText("save")));
+        dish5Screen.textPreviewPhoto().shouldHave(text(getText("text_preview_photo")));
+        dish5Screen.backNavigation();
+        dish5Screen.textPreviewPhoto().shouldNotBe(visible);
     }
 
     @Test
     public void landscapeMode(){
         preconditions();
-        dish2Screen.clickSaveBtn();
+        dish3Screen.clickAttachBtn();
         assertEquals(changeRotate(ScreenOrientation.LANDSCAPE), ScreenOrientation.PORTRAIT);
     }
 
@@ -65,4 +58,5 @@ public class Dish3Test extends BaseTest implements DriverActions {
     public void closeDriver() {
         close();
     }
+
 }

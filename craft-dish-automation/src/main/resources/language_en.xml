@@ -19,4 +19,7 @@
     <entry key="success">Success</entry>
     <entry key="text_dish_was_created_successfully">The dish was created successfully. Do you want to attach a photo for the dish?</entry>
 
+    <!--Dish 5 texts-->
+    <entry key="text_preview_photo">Preview photo</entry>
+
 </properties>
