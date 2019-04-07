@@ -37,7 +37,7 @@ public class Dish1Screen extends BaseScreen {
         textSendFeedback().waitUntil(visible, waitForLoadScreen());
     }
 
-    public Dish4Screen navigateToDish4(){
+    public Dish4Screen clickDishesBtn(){
         btnDishes().click();
         return page(Dish4Screen.class);
     }

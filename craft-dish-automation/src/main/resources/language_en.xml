@@ -13,4 +13,10 @@
     <entry key="contacts_text">Contacts</entry>
     <entry key="send_feedback_text">Send feedback</entry>
 
+    <!--Dish 3 texts-->
+    <entry key="skip">Skip</entry>
+    <entry key="attach">Attach</entry>
+    <entry key="success">Success</entry>
+    <entry key="text_dish_was_created_successfully">The dish was created successfully. Do you want to attach a photo for the dish?</entry>
+
 </properties>
