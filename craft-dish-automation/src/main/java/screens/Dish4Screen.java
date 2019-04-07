@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.page;
 
 public class Dish4Screen extends BaseScreen {
 
@@ -33,6 +34,11 @@ public class Dish4Screen extends BaseScreen {
     public void searchDish(String dishName){
         iconOpenSearch.click();
         fieldSearch.val(dishName);
+    }
+
+    public Dish2Screen navigateToDish2(){
+        floadBtnPlus().click();
+        return  page(Dish2Screen.class);
     }
 
 }

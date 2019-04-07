@@ -6,6 +6,7 @@
             <class name="screens.SplashScreenTest"/>
             <class name="screens.Dish1Test"/>
             <class name="screens.Dish4Test"/>
+            <class name="screens.Dish2Test"/>
         </classes>
     </test>
 </suite>

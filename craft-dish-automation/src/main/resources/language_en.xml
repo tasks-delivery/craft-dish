@@ -5,6 +5,7 @@
 
     <!--Splash screen texts-->
     <entry key="welcome_text">Welcome to Craft dish</entry>
+    <entry key="save">Save</entry>
 
     <!--Dish 1 texts-->
     <entry key="ingredients_text">Ingredients</entry>
