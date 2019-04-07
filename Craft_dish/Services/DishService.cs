@@ -6,7 +6,7 @@ using Realms;
 
 namespace Craft_dish.Services
 {
-    public class DishService
+    public class DishService : BaseService
     {
         private string tag = "CRAFT DISH";
 
@@ -14,7 +14,7 @@ namespace Craft_dish.Services
 
         public DishService()
         {
-            _realm = Realm.GetInstance();
+            _realm = getDbInstance();
         }
 
         public void CreateDish(string dish_name, string dish_description)
@@ -83,21 +83,18 @@ namespace Craft_dish.Services
             _realm.Write(() =>
             {
                 dish.Ingredients.Add(ingredient);
-            });
-           
+            });           
         }
 
         public void RemoveIngredientFromDish(string dish_name, Ingredient ingredient)
         {
             Log.Info(tag, "DISH SERVICE INGREDIENT IS -->> {0}  " + ingredient.Name);
-            IngredientService ingredientService = new IngredientService();
             Dish dish = GetDishByName(dish_name);
             Log.Info(tag, "DISH SERVICE DISH IS -->> {0}  " + dish.Name);
             _realm.Write(() =>
             {
                 dish.Ingredients.Remove(ingredient);
             });
-
             Log.Info(tag, "DISH SERVICE INGREDIENT IS -->> {0}  " + ingredient.Name);
         }
 

@@ -38,14 +38,20 @@ namespace Craft_dish.Views
             }          
         }
 
+        public override void OnBackPressed()
+        {
+            base.OnBackPressed();
+            StartActivity(new Intent(Application.Context, typeof(Dish4View)));
+        }
+
         [Java.Interop.Export("openDish4")]
-        public void goToDish4(View v)
+        public void GoToDish4(View v)
         {
             StartActivity(new Intent(Application.Context, typeof(Dish4View)));
         }
 
         [Java.Interop.Export("openDish5")]
-        public void goToDish5(View v)
+        public void GoToDish5(View v)
         {
             Intent intent = new Intent(Application.Context, typeof(Dish5View));
             intent.PutExtra("dish_name", dish_name);

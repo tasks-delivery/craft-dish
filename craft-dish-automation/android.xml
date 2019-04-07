@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Android tests">
+    <test name="Android smoke tests">
+        <classes>
+            <class name="screens.SplashScreenTest"/>
+            <class name="screens.Dish1Test"/>
+            <class name="screens.Dish2Test"/>
+            <class name="screens.Dish3Test"/>
+            <class name="screens.Dish4Test"/>
+            <class name="screens.Dish5Test"/>
+        </classes>
+    </test>
+</suite>

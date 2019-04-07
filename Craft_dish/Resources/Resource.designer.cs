@@ -3088,7 +3088,7 @@ namespace Craft_dish
 			public const int image = 2131230830;
 			
 			// aapt resource value: 0x7f0800a4
-			public const int imageButton1 = 2131230884;
+			public const int imageGithub = 2131230884;
 			
 			// aapt resource value: 0x7f08010e
 			public const int info = 2131230990;

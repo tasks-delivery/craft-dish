@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <comment>English texts</comment>
+
+    <!--Splash screen texts-->
+    <entry key="welcome_text">Welcome to Craft dish</entry>
+    <entry key="save">Save</entry>
+
+    <!--Dish 1 texts-->
+    <entry key="ingredients_text">Ingredients</entry>
+    <entry key="dishes_text">Dishes</entry>
+    <entry key="contacts_text">Contacts</entry>
+    <entry key="send_feedback_text">Send feedback</entry>
+
+    <!--Dish 3 texts-->
+    <entry key="skip">Skip</entry>
+    <entry key="attach">Attach</entry>
+    <entry key="success">Success</entry>
+    <entry key="text_dish_was_created_successfully">The dish was created successfully. Do you want to attach a photo for the dish?</entry>
+
+    <!--Dish 5 texts-->
+    <entry key="text_preview_photo">Preview photo</entry>
+
+</properties>

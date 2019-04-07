@@ -5,14 +5,14 @@ using Realms;
 
 namespace Craft_dish.Services
 {
-    class IngredientService
+    class IngredientService : BaseService
     {
 
         private readonly Realm _realm;
 
         public IngredientService()
         {
-            _realm = Realm.GetInstance();
+            _realm = getDbInstance();
         }
 
         public void CreateIngredient(string ingredient_name, string ingredient_weight, string weight_unit)

@@ -14,6 +14,7 @@ using Android.Widget;
 using Craft_dish.Adapters;
 using Craft_dish.Models;
 using Craft_dish.ViewModels;
+using System;
 using System.Collections.Generic;
 
 namespace Craft_dish.Views
@@ -113,8 +114,7 @@ namespace Craft_dish.Views
             Log.Info(tag, "Navigate from -->> {0}  " + navigateFrom);
             Log.Info(tag, "Dish is -->> {0}  " + dish_name);
             switch (navigateFrom)
-            {
-             
+            {            
                 case "Dish1" :
                     LoadIngredients();
                     ingredientsAddList = new List<Ingredient>();                    
@@ -159,6 +159,8 @@ namespace Craft_dish.Views
                     navigateToIngredient2.PutExtra("navigateFrom", "Ingredient1Add");
                     navigateToIngredient2.PutExtra("dish_name", dish_name);
                     break;
+                default:
+                    throw new InvalidOperationException("Unexpected value = " + navigateFrom);
             }
      
         }
@@ -271,21 +273,21 @@ namespace Craft_dish.Views
             }
         }
 
+        private void NavigateToDish6()
+        {
+            Intent intent = new Intent(Application.Context, typeof(Dish6View));
+            intent.PutExtra("dish_name", dish_name);
+            StartActivity(intent);
+        }
+
         [Java.Interop.Export("addIngredients")]
         public void AddIngredient(View v)
         {
             ingredient1ViewModel.AddIngredients(dish_name, ingredientsAddList);
             checkbox_menu.Visibility = ViewStates.Gone;
-            if (searchState == false)
-            {
-                NavigateResolver();
-            }
-            else
-            {             
-                ingredients = ingredient1ViewModel.SearchIngredientByName(search_field.Text);
-                ingredientAdapter = new IngredientAdapter(ingredients, this, false);             
-                SetUpAdapter(ingredientAdapter);
-            }
+            Intent intent = new Intent(Application.Context, typeof(Dish6View));
+            intent.PutExtra("dish_name", dish_name);
+            StartActivity(intent);
         }
 
         private void SelectAllBtnListener()
