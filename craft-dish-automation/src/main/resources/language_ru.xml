@@ -13,4 +13,10 @@
     <entry key="contacts_text">Контакты</entry>
     <entry key="send_feedback_text">Оставить отзыв</entry>
 
+    <!--Dish 3 texts-->
+    <entry key="skip">Пропустить</entry>
+    <entry key="attach">Прикрепить</entry>
+    <entry key="success">Успешно</entry>
+    <entry key="text_dish_was_created_successfully">Блюдо было успешно создано. Хотите прикрепить фото для этого блюда?</entry>
+
 </properties>

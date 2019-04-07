@@ -21,6 +21,10 @@ public class BaseConfig {
 
     private static final Logger log = LogManager.getLogger(BaseConfig.class.getName());
 
+    private String currentDir = System.getProperty("user.dir");
+
+    private static String lang = System.getProperty("lang");
+
     public String appName = "Craft_dish.Craft_dish";
 
     public AndroidDriver androidDriver;
@@ -29,18 +33,14 @@ public class BaseConfig {
         return (AndroidDriver) WebDriverRunner.getWebDriver();
     }
 
-    private String currentDir = System.getProperty("user.dir");
-
     private void setLogger(){
-        LoggerContext context = (org.apache.logging.log4j.core.LoggerContext) LogManager.getContext(false);
+        LoggerContext context = (LoggerContext) LogManager.getContext(false);
         File file = new File("src/main/Resources/Log4j2.xml");
         context.setConfigLocation(file.toURI());
     }
 
-    private static String lang = System.getProperty("lang");
-
     @BeforeSuite
-    public void SetUpEnvironment() throws IOException {
+    public void setUpEnvironment() throws IOException {
         setLogger();
         if (lang != null) {
             DownloadService downloadService = new DownloadService();

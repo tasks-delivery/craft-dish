@@ -1,11 +1,11 @@
 package screens;
 
+import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.page;
+import static com.codeborne.selenide.Selenide.*;
 
 public class Dish4Screen extends BaseScreen {
 
@@ -13,7 +13,7 @@ public class Dish4Screen extends BaseScreen {
 
     private SelenideElement iconOpenSearch = $(By.id("dish4_search_icon"));
 
-    public SelenideElement floadBtnPlus(){
+    public SelenideElement floatBtnPlus(){
         return $(By.id("fab"));
     }
 
@@ -28,7 +28,25 @@ public class Dish4Screen extends BaseScreen {
     public Dish4Screen(){
         arrowBack().waitUntil(visible, waitForLoadScreen());
         iconOpenSearch.waitUntil(visible, waitForLoadScreen());
-        floadBtnPlus().waitUntil(visible, waitForLoadScreen());
+        floatBtnPlus().waitUntil(visible, waitForLoadScreen());
+    }
+
+    public ElementsCollection dishNamesList(){
+        return $$(By.id("dish4_dish_name"));
+    }
+
+    public ElementsCollection dishDescriptionsList(){
+        return $$(By.id("dish4_dish_description"));
+    }
+
+    public Dish1Screen androidBackNavigation(){
+        back();
+        return page(Dish1Screen.class);
+    }
+
+    public Dish1Screen backNavigation(){
+        arrowBack().click();
+        return page(Dish1Screen.class);
     }
 
     public void searchDish(String dishName){
@@ -36,8 +54,8 @@ public class Dish4Screen extends BaseScreen {
         fieldSearch.val(dishName);
     }
 
-    public Dish2Screen navigateToDish2(){
-        floadBtnPlus().click();
+    public Dish2Screen clickPlusBtn(){
+        floatBtnPlus().click();
         return  page(Dish2Screen.class);
     }
 

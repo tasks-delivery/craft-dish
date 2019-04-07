@@ -28,7 +28,7 @@ public class Dish2Screen extends BaseScreen{
         driverProvider().hideKeyboard();
     }
 
-    public Dish3Screen navigateToDish3(){
+    public Dish3Screen clickSaveBtn(){
         btnSave().click();
         return page(Dish3Screen.class);
     }
@@ -37,7 +37,5 @@ public class Dish2Screen extends BaseScreen{
         back();
         return page(Dish4Screen.class);
     }
-
-
 
 }
