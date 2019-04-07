@@ -273,21 +273,30 @@ namespace Craft_dish.Views
             }
         }
 
+        private void NavigateToDish6()
+        {
+            Intent intent = new Intent(Application.Context, typeof(Dish6View));
+            intent.PutExtra("dish_name", dish_name);
+            StartActivity(intent);
+        }
+
         [Java.Interop.Export("addIngredients")]
         public void AddIngredient(View v)
         {
             ingredient1ViewModel.AddIngredients(dish_name, ingredientsAddList);
             checkbox_menu.Visibility = ViewStates.Gone;
-            if (searchState == false)
-            {
-                NavigateResolver();
-            }
-            else
-            {             
-                ingredients = ingredient1ViewModel.SearchIngredientByName(search_field.Text);
-                ingredientAdapter = new IngredientAdapter(ingredients, this, false);             
-                SetUpAdapter(ingredientAdapter);
-            }
+            //if (searchState == false)
+            //{
+            //    NavigateResolver();
+            //}
+            //else
+            //{
+            //    ingredients = ingredient1ViewModel.SearchIngredientByName(search_field.Text);
+            //    ingredientAdapter = new IngredientAdapter(ingredients, this, false);
+            //    SetUpAdapter(ingredientAdapter);
+            //}    
+
+            NavigateToDish6();
         }
 
         private void SelectAllBtnListener()
