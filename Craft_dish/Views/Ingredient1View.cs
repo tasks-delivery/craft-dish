@@ -14,6 +14,7 @@ using Android.Widget;
 using Craft_dish.Adapters;
 using Craft_dish.Models;
 using Craft_dish.ViewModels;
+using System;
 using System.Collections.Generic;
 
 namespace Craft_dish.Views
@@ -159,6 +160,8 @@ namespace Craft_dish.Views
                     navigateToIngredient2.PutExtra("navigateFrom", "Ingredient1Add");
                     navigateToIngredient2.PutExtra("dish_name", dish_name);
                     break;
+                default:
+                    throw new InvalidOperationException("Unexpected value = " + navigateFrom);
             }
      
         }
@@ -210,7 +213,7 @@ namespace Craft_dish.Views
             }
         }
 
-        private void SearchIngredient(object sender, TextChangedEventArgs e)
+        private void SearchIngredient(object sender)
         {
             SearchResolver();
             searchState = true;
@@ -337,7 +340,7 @@ namespace Craft_dish.Views
             CancelBtnListener();
         }
 
-        void OnItemRemove(object sender, int position)
+        void OnItemRemove(int position)
         {
             if (navigateFrom == "Dish6Remove")
             {
@@ -354,7 +357,7 @@ namespace Craft_dish.Views
             }
         }
 
-        void OnItemClick(object sender, int position)
+        void OnItemClick(int position)
         {
             checkbox_menu.Visibility = ViewStates.Visible;
             if (navigateFrom == "Dish6Remove")
