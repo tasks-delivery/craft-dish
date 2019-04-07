@@ -66,6 +66,8 @@ namespace Craft_dish
                     navigateToIngredient1.PutExtra("navigateFrom", "Ingredient2Add");
                     navigateToIngredient1.PutExtra("dish_name", dish_name);
                     break;
+                default:
+                    throw new InvalidOperationException("Unexpected value = " + navigateFrom);
             }
 
         }

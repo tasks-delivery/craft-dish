@@ -46,35 +46,8 @@ namespace Craft_dish
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.activity_dish1);
-            ingredients_btn = (TextView)FindViewById(Resource.Id.dish1_ingredients_btn);
-
-             
+            ingredients_btn = (TextView)FindViewById(Resource.Id.dish1_ingredients_btn);         
         }
 
-     //  public void LangResolver(string text)
-     //  {
-     //    
-     //  }
-     //
-     //  protected override void OnStart()
-     //  {
-     //      base.OnStart();
-     //
-     //     // var lang = Resources.Configuration.Locale;
-     //     // if (lang.Language == "ru")
-     //     // {
-     //     //
-     //     //     string text = Resources.GetText(Resource.String.text_ingredients);
-     //     //     ingredients_btn.Text = text;
-     //     //
-     //     // }
-     //     // else
-     //     // {
-     //     //     string text = Resources.GetText(Resource.String.text_ingredients);
-     //     //     ingredients_btn.Text = text;
-     //     //
-     //     // }
-     //
-     //  }
     }
 }
