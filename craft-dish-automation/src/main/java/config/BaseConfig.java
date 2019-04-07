@@ -11,6 +11,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.BeforeSuite;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -39,9 +40,11 @@ public class BaseConfig {
     private static String lang = System.getProperty("lang");
 
     @BeforeSuite
-    public void SetUpEnvironment(){
+    public void SetUpEnvironment() throws IOException {
         setLogger();
         if (lang != null) {
+            DownloadService downloadService = new DownloadService();
+            downloadService.downloadApk();
             log.info("Tests are started on CI");
         }else {
             lang = System.setProperty("lang", "en");
@@ -57,11 +60,11 @@ public class BaseConfig {
         DesiredCapabilities cap = new DesiredCapabilities();
         cap.setCapability(MobileCapabilityType.VERSION, "7.1");
         cap.setCapability("platformName", "Android");
-        cap.setCapability("deviceName", "Emulator");
+        cap.setCapability("deviceName", "emulator-5554");
         cap.setCapability("clearSystemFiles",true);
         cap.setCapability("autoGrantPermissions", true);
         cap.setCapability("noSign", true);
-        cap.setCapability("app", currentDir + "\\Craft_dish.Craft_dish-Signed.apk");
+        cap.setCapability("app", currentDir + "/Craft_dish.Craft_dish-Signed.apk");
         cap.setCapability("language",getLang());
         cap.setCapability("locale",getLang());
         return cap;
