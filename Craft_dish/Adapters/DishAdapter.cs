@@ -30,6 +30,13 @@ namespace Craft_dish.Adapters
             get { return mDishes.Count; }
         }
 
+        private void SetNotFoundIcon(DishViewHolder vh)
+        {
+            Picasso.With(mContext)
+                            .Load(Resource.Drawable.icon_not_found).CenterCrop().Resize(130, 130)
+                            .Transform(new RoundedCornersTransformation(100, 0)).Into(vh.DishPhoto);
+        }
+
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
             DishViewHolder vh = holder as DishViewHolder;           
@@ -45,17 +52,13 @@ namespace Craft_dish.Adapters
                 }
                 else
                 {
-                    Picasso.With(mContext)
-                             .Load(Resource.Drawable.icon_not_found).CenterCrop().Resize(130, 130)
-                             .Transform(new RoundedCornersTransformation(100, 0)).Into(vh.DishPhoto);
+                    SetNotFoundIcon(vh);
                 }
                 
             }
             else
-            {             
-                Picasso.With(mContext)
-                               .Load(Resource.Drawable.icon_not_found).CenterCrop().Resize(130, 130)
-                               .Transform(new RoundedCornersTransformation(100, 0)).Into(vh.DishPhoto);
+            {
+                SetNotFoundIcon(vh);
             }
             vh.DishName.Text = mDishes[position].Name;
             vh.DishDescription.Text = mDishes[position].Description;

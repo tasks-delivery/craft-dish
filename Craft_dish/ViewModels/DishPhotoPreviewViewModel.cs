@@ -7,13 +7,11 @@ namespace Craft_dish.ViewModels
     public class DishPhotoPreviewViewModel : BaseDishViewModel
     {
 
-        private DishService dishService;
-
         private readonly Dish dish;
 
         public DishPhotoPreviewViewModel(string dish_name)
         {
-            dishService = new DishService();
+            DishService dishService = new DishService();
             dish = dishService.GetDishByName(dish_name);
         }
 

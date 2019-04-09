@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Android.Util;
 using Craft_dish.Models;
 using Realms;
 
@@ -8,7 +7,6 @@ namespace Craft_dish.Services
 {
     public class DishService : BaseService
     {
-        private readonly string tag = "CRAFT DISH";
 
         private readonly Realm _realm;
 
@@ -88,14 +86,11 @@ namespace Craft_dish.Services
 
         public void RemoveIngredientFromDish(string dish_name, Ingredient ingredient)
         {
-            Log.Info(tag, "DISH SERVICE INGREDIENT IS -->> {0}  " + ingredient.Name);
             Dish dish = GetDishByName(dish_name);
-            Log.Info(tag, "DISH SERVICE DISH IS -->> {0}  " + dish.Name);
             _realm.Write(() =>
             {
                 dish.Ingredients.Remove(ingredient);
             });
-            Log.Info(tag, "DISH SERVICE INGREDIENT IS -->> {0}  " + ingredient.Name);
         }
 
         public IList<Ingredient> GetAllDishIngredients(string dish_name)

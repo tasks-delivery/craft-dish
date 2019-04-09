@@ -10,7 +10,6 @@ using Android.Support.V7.App;
 using Android.Content.PM;
 using Craft_dish.ViewModels;
 using Android.Views;
-using Android.Util;
 using Android.Support.V4.Content;
 using Android;
 using System;
@@ -20,7 +19,6 @@ namespace Craft_dish.Views
     [Activity(Label = "@string/dish_photo", Theme = "@style/AppTheme", ConfigurationChanges = ConfigChanges.Locale, MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
     public class Dish5View : AppCompatActivity
     {
-        private readonly string tag = "CRAFT DISH";
 
         private ImageView icon_area;
 
@@ -107,7 +105,6 @@ namespace Craft_dish.Views
             if ((requestCode == PickImageId) && (resultCode == Result.Ok) && (data != null))
             {
                 Android.Net.Uri uri = data.Data;               
-                Log.Info(tag, GetPathToImage(uri));
                 icon_area.SetImageURI(uri);
                 photo_path = GetPathToImage(uri);            
             }
@@ -186,7 +183,6 @@ namespace Craft_dish.Views
             string timeStamp = string.Format("{0:HH:mm:ss tt}", DateTime.Now);
             var path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData);
             var filePath = System.IO.Path.Combine(path,  dish_name + timeStamp + ".png");
-            Log.Info(tag, filePath);
             photo_path = filePath;
             var stream = new FileStream(filePath, FileMode.Create);
             bitmap.Compress(Bitmap.CompressFormat.Png, 100, stream);

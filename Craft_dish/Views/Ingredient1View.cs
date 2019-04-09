@@ -7,7 +7,6 @@ using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using Android.Text;
-using Android.Util;
 using Android.Views;
 using Android.Views.InputMethods;
 using Android.Widget;
@@ -55,8 +54,6 @@ namespace Craft_dish.Views
         private Intent navigateToIngredient2;
 
         private string dish_name;
-
-        private readonly string tag = "CRAFT DISH";
 
         private bool searchState;
 
@@ -126,8 +123,6 @@ namespace Craft_dish.Views
         private void NavigateResolver()
         {
             navigateFrom = Intent.GetStringExtra("navigateFrom");
-            Log.Info(tag, "Navigate from -->> {0}  " + navigateFrom);
-            Log.Info(tag, "Dish is -->> {0}  " + dish_name);
             switch (navigateFrom)
             {            
                 case "Dish1" :
@@ -286,13 +281,13 @@ namespace Craft_dish.Views
             select_all_button.Click += (sender, e) => {
                 if (navigateFrom == "Dish6Remove")
                 {
-                    IList<Ingredient> ingredients = ingredient1ViewModel.LoadDishIngredients(dish_name);
+                    IList<Ingredient> dishIngredients = ingredient1ViewModel.LoadDishIngredients(dish_name);
                     ingredientsRemovedList.Clear();
-                    for (int i = 0; i < ingredients.Count; i++)
+                    for (int i = 0; i < dishIngredients.Count; i++)
                     {
                         OnItemClick(sender, i);
                     }
-                    ingredientAdapter = new IngredientAdapter(ingredients, this, true);
+                    ingredientAdapter = new IngredientAdapter(dishIngredients, this, true);
                     SetUpAdapter(ingredientAdapter);
                 }
                 else
@@ -337,13 +332,11 @@ namespace Craft_dish.Views
                 IList<Ingredient> dishIngredients = ingredient1ViewModel.LoadDishIngredients(dish_name);
                 Ingredient ingredient = dishIngredients[position];
                 ingredientsRemovedList.Remove(ingredient);
-                Log.Info(tag, "Ingredient selected by removed method -->> {0}  " + ingredient.Name);
             }
             else
             {
                 Ingredient ingredient = ingredient1ViewModel.SearchIngredientByName(search_field.Text)[position];
                 ingredientsAddList.Remove(ingredient);
-                Log.Info(tag, "Ingredient selected by removed method -->> {0}  " + ingredient.Name);
             }
         }
 
@@ -355,13 +348,11 @@ namespace Craft_dish.Views
                 IList<Ingredient> dishIngredients = ingredient1ViewModel.LoadDishIngredients(dish_name);
                 Ingredient ingredient = dishIngredients[position];        
                 ingredientsRemovedList.Add(ingredient);
-                Log.Info(tag, "Ingredient selected by add method -->> {0}  " + ingredient.Name);
             }
             else
             {
                 Ingredient ingredient = ingredient1ViewModel.SearchIngredientByName(search_field.Text)[position];
-                ingredientsAddList.Add(ingredient);
-                Log.Info(tag, "Ingredient selected by add method -->> {0}  " + ingredient.Name);              
+                ingredientsAddList.Add(ingredient);           
             }
 
         }

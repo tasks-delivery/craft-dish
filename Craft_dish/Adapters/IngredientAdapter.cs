@@ -43,63 +43,70 @@ namespace Craft_dish.Adapters
                 Ingredient1ViewHolder vh = new Ingredient1ViewHolder(itemView, OnClick);               
                 return vh;
             }
-
         }
-
+     
         private readonly Dictionary<int, bool> map = new Dictionary<int, bool>();
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
            if (mContext.ToString().Contains("Dish6View") == true)
            {
-               IngredientViewHolder vh = holder as IngredientViewHolder;
-               vh.IngredientName.Text = mIngredients[position].Name;
-
-                if (mIngredients[position].Weight.Length == 0)
-                {
-                    vh.IngredientWeight.Text = "";
-                    vh.WeightUnit.Text = "";
-                }
-                else
-                {
-                    vh.IngredientWeight.Text = mIngredients[position].Weight;
-                    vh.WeightUnit.Text = mIngredients[position].Unit;
-                }
-              
+                SetDish6IngredientViewHolder(holder, position);              
            }
            else
            {
-                Ingredient1ViewHolder vh = holder as Ingredient1ViewHolder;
-                vh.IngredientName.Text = mIngredients[position].Name;
-                vh.CheckboxItem.SetOnCheckedChangeListener(new CheckboxListener(map, position));
-                vh.CheckboxItem.Checked = state;
-                vh.CheckboxItem.Click += delegate
-                {    
-                    if (vh.CheckboxItem.Checked == true)
-                    {                     
-                        OnClick(position);                 
-                    }
-                    else
-                    {                       
-                        OnRemove(position);                    
-                    }
-                };
-
-                if (mIngredients[position].Weight.Length == 0)
-               {
-                   vh.IngredientWeight.Text = "";
-                   vh.WeightUnit.Text = "";
-               }
-               else
-               {
-                    vh.IngredientWeight.Text = mIngredients[position].Weight;
-                    vh.WeightUnit.Text = mIngredients[position].Unit;
-               }
-
-            }
+                SetIngredient1ViewHolder(holder, position);
+           }
 
         }
 
+        private void SetDish6IngredientViewHolder(RecyclerView.ViewHolder holder, int position)
+        {
+            IngredientViewHolder vh = holder as IngredientViewHolder;
+            vh.IngredientName.Text = mIngredients[position].Name;
+
+            if (mIngredients[position].Weight.Length == 0)
+            {
+                vh.IngredientWeight.Text = "";
+                vh.WeightUnit.Text = "";
+            }
+            else
+            {
+                vh.IngredientWeight.Text = mIngredients[position].Weight;
+                vh.WeightUnit.Text = mIngredients[position].Unit;
+            }
+        }
+
+        private void SetIngredient1ViewHolder(RecyclerView.ViewHolder holder, int position)
+        {
+            Ingredient1ViewHolder vh = holder as Ingredient1ViewHolder;
+            vh.IngredientName.Text = mIngredients[position].Name;
+            vh.CheckboxItem.SetOnCheckedChangeListener(new CheckboxListener(map, position));
+            vh.CheckboxItem.Checked = state;
+            vh.CheckboxItem.Click += delegate
+            {
+                if (vh.CheckboxItem.Checked == true)
+                {
+                    OnClick(position);
+                }
+                else
+                {
+                    OnRemove(position);
+                }
+            };
+
+            if (mIngredients[position].Weight.Length == 0)
+            {
+                vh.IngredientWeight.Text = "";
+                vh.WeightUnit.Text = "";
+            }
+            else
+            {
+                vh.IngredientWeight.Text = mIngredients[position].Weight;
+                vh.WeightUnit.Text = mIngredients[position].Unit;
+            }
+        }
+      
         public class CheckboxListener : Java.Lang.Object, CompoundButton.IOnCheckedChangeListener
         {
             private readonly Dictionary<int, bool> map;

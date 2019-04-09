@@ -7,7 +7,6 @@ using Android.Graphics.Drawables;
 using Android.OS;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
-using Android.Util;
 using Android.Views;
 using Android.Widget;
 using Craft_dish.Adapters;
@@ -24,8 +23,6 @@ namespace Craft_dish.Views
     public class Dish6View : AppCompatActivity
     {
 
-        private readonly string tag = "CRAST DISH";
-
         private string dish_name;
 
         protected override void OnCreate(Bundle bundle)
@@ -38,7 +35,6 @@ namespace Craft_dish.Views
         private string FieldDecorator(string field)
         {
             string fieldValue = Regex.Replace(field, @"\n", " ");
-            Log.Info(tag, fieldValue);
             return fieldValue;
         }
 

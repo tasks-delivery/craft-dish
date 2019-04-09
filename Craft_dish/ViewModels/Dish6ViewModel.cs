@@ -1,5 +1,4 @@
-﻿using Android.Util;
-using Craft_dish.Models;
+﻿using Craft_dish.Models;
 using Craft_dish.Services;
 using Java.IO;
 using System.Collections.Generic;
@@ -8,8 +7,6 @@ namespace Craft_dish.ViewModels
 {
     public class Dish6ViewModel : BaseDishViewModel
     {
-
-        private readonly string tag = "CRAFT DISH";
 
         private readonly DishService dishService;
 
@@ -23,13 +20,7 @@ namespace Craft_dish.ViewModels
 
         public IList<Ingredient> LoadDishIngredients(string dish_name)
         {
-            IList<Ingredient> ingDish = dishService.GetAllDishIngredients(dish_name);
-            Log.Info(tag, "DISH 6 Ingredients {0} " + ingDish.Count);
-            for (int z = 0; z < ingDish.Count; z++)
-            {
-                Log.Info(tag, "DISH 6 Ingredient is added to {0} " + dish_name + " -->> " + ingDish[z].Name);
-
-            }
+            IList<Ingredient> ingDish = dishService.GetAllDishIngredients(dish_name);     
             return ingDish;
         }
 

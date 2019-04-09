@@ -8,7 +8,6 @@ using System;
 using Craft_dish.ViewModels;
 using Android.Content;
 using Craft_dish.Views;
-using Android.Util;
 
 namespace Craft_dish
 {
@@ -27,8 +26,6 @@ namespace Craft_dish
         private Spinner weight_unit_spinner;
 
         private Intent navigateToIngredient1;
-
-        private readonly string tag = "CRAFT DISH";
 
         private string dish_name;
 
@@ -49,8 +46,6 @@ namespace Craft_dish
         private void NavigateResolver()
         {
             string navigateFrom = Intent.GetStringExtra("navigateFrom");
-            Log.Info(tag, "Navigate from " + navigateFrom);
-            Log.Info(tag, "Dish is " + dish_name);
             navigateToIngredient1 = new Intent(Application.Context, typeof(Ingredient1View));
             switch (navigateFrom)
             {
