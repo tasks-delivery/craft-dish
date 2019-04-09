@@ -16,8 +16,6 @@ namespace Craft_dish
     public class Ingredient2View : AppCompatActivity
     {
 
-        private Spinner weight_unit_spinner;
-
         private EditText field_name;
 
         private EditText field_weight;
@@ -26,11 +24,11 @@ namespace Craft_dish
 
         private string weight_unit;
 
-        private string navigateFrom;
+        private Spinner weight_unit_spinner;
 
         private Intent navigateToIngredient1;
 
-        private string tag = "CRAFT DISH";
+        private readonly string tag = "CRAFT DISH";
 
         private string dish_name;
 
@@ -43,26 +41,24 @@ namespace Craft_dish
             field_name = (EditText)FindViewById(Resource.Id.ingredient2_field_ingredient_name);
             field_weight = (EditText)FindViewById(Resource.Id.ingredient2_field_ingredient_weight);
             weight_unit_spinner = FindViewById<Spinner>(Resource.Id.ingredient2_weight_unit_spinner);
-            weight_unit_spinner.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_ItemSelected);
+            weight_unit_spinner.ItemSelected += spinner_ItemSelected;
             ingredient2ViewModel = new Ingredient2ViewModel();
             NavigateResolver();
         }
 
         private void NavigateResolver()
         {
-            navigateFrom = Intent.GetStringExtra("navigateFrom");
+            string navigateFrom = Intent.GetStringExtra("navigateFrom");
             Log.Info(tag, "Navigate from " + navigateFrom);
             Log.Info(tag, "Dish is " + dish_name);
+            navigateToIngredient1 = new Intent(Application.Context, typeof(Ingredient1View));
             switch (navigateFrom)
             {
-
-                case "Ingredient1":
-                    navigateToIngredient1 = new Intent(Application.Context, typeof(Ingredient1View));
+                case "Ingredient1":                  
                     navigateToIngredient1.PutExtra("navigateFrom", "Ingredient2");                
                     break;
      
                 case "Ingredient1Add":
-                    navigateToIngredient1 = new Intent(Application.Context, typeof(Ingredient1View));
                     navigateToIngredient1.PutExtra("navigateFrom", "Ingredient2Add");
                     navigateToIngredient1.PutExtra("dish_name", dish_name);
                     break;

@@ -8,7 +8,7 @@ namespace Craft_dish.Services
 {
     public class DishService : BaseService
     {
-        private string tag = "CRAFT DISH";
+        private readonly string tag = "CRAFT DISH";
 
         private readonly Realm _realm;
 

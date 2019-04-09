@@ -5,7 +5,6 @@ using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
 using Craft_dish.Models;
-using Craft_dish.Services;
 
 namespace Craft_dish.Adapters
 {
@@ -19,8 +18,6 @@ namespace Craft_dish.Adapters
 
         private Context mContext;
 
-        private IngredientService ingredientService;
-
         private bool state;
 
         public IList<Ingredient> ingredients { get; set; }
@@ -29,7 +26,6 @@ namespace Craft_dish.Adapters
         {
             mIngredients = ingredients;
             mContext = context;
-            ingredientService = new IngredientService();
             state = checkedState;
         } 
 
@@ -81,9 +77,7 @@ namespace Craft_dish.Adapters
                 {    
                     if (vh.CheckboxItem.Checked == true)
                     {                     
-                        OnClick(position);
-                    
-
+                        OnClick(position);                 
                     }
                     else
                     {                       
@@ -108,7 +102,7 @@ namespace Craft_dish.Adapters
 
         public class CheckboxListener : Java.Lang.Object, CompoundButton.IOnCheckedChangeListener
         {
-            private Dictionary<int, bool> map;
+            private readonly Dictionary<int, bool> map;
             private int mPosotion;
 
             public CheckboxListener(Dictionary<int, bool> map, int position)
@@ -141,14 +135,12 @@ namespace Craft_dish.Adapters
 
         void OnRemove(int position)
         {
-            if (ItemUnClick != null)
-                ItemUnClick(this, position);
+            ItemUnClick?.Invoke(this, position);
         }
 
         void OnClick(int position)
         {
-            if (ItemClick != null)
-                ItemClick(this, position);         
+            ItemClick?.Invoke(this, position);
         }
 
     }

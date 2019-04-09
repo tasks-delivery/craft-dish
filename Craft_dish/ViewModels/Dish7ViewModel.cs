@@ -1,5 +1,4 @@
-﻿using Android.Content;
-using Craft_dish.Models;
+﻿using Craft_dish.Models;
 using Craft_dish.Services;
 using Java.IO;
 
@@ -8,17 +7,14 @@ namespace Craft_dish.ViewModels
     public class Dish7ViewModel : BaseDishViewModel
     {
 
-        private DishService dishService;
+        private readonly DishService dishService;
 
-        private Dish dish;
+        private readonly Dish dish;
 
-        private Context mContext;
-
-        public Dish7ViewModel(string dish_name, Context context)
+        public Dish7ViewModel(string dish_name)
         {
             dishService = new DishService();
             dish = dishService.GetDishByName(dish_name);
-            mContext = context;
         }
 
         public void SaveDish(string old_dish_name, string dish_name, string dish_description)

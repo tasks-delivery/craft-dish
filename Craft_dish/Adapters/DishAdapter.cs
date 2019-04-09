@@ -70,8 +70,7 @@ namespace Craft_dish.Adapters
 
         private void OnClick(int obj)
         {
-            if (ItemClick != null)
-                ItemClick(this, obj);            
+            ItemClick?.Invoke(this, obj);
         }     
 
     }

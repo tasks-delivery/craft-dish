@@ -39,7 +39,7 @@ namespace Craft_dish
         {
             base.OnStart();
             dish_name = Intent.GetStringExtra("dish_name");
-            dishPhotoPreviewViewModel = new DishPhotoPreviewViewModel(dish_name, this);
+            dishPhotoPreviewViewModel = new DishPhotoPreviewViewModel(dish_name);
             dish_photo = (ImageView)FindViewById(Resource.Id.dish_preview_icon);
             if (dishPhotoPreviewViewModel.getDishPhoto() != null)
             {

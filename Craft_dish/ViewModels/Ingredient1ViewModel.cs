@@ -9,7 +9,7 @@ namespace Craft_dish.ViewModels
     public class Ingredient1ViewModel
     {
 
-        private string tag = "CRAFT DISH";
+        private readonly string tag = "CRAFT DISH";
 
         private IngredientService ingredientService;
 

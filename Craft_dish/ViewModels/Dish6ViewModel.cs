@@ -1,5 +1,4 @@
-﻿using Android.Content;
-using Android.Util;
+﻿using Android.Util;
 using Craft_dish.Models;
 using Craft_dish.Services;
 using Java.IO;
@@ -10,19 +9,16 @@ namespace Craft_dish.ViewModels
     public class Dish6ViewModel : BaseDishViewModel
     {
 
-        private string tag = "CRAFT DISH";
+        private readonly string tag = "CRAFT DISH";
 
-        private DishService dishService;
+        private readonly DishService dishService;
 
         private Dish dish;
 
-        private Context mContext;
-
-        public Dish6ViewModel(string dish_name, Context context)
+        public Dish6ViewModel(string dish_name)
         {
             dishService = new DishService();
             dish = dishService.GetDishByName(dish_name);
-            mContext = context;
         }
 
         public IList<Ingredient> LoadDishIngredients(string dish_name)
