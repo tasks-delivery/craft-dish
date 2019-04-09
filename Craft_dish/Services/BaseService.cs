@@ -11,7 +11,7 @@ namespace Craft_dish.Services
 
         public BaseService()
         {
-            var config = new RealmConfiguration() { SchemaVersion = 10 };
+            var config = new RealmConfiguration { SchemaVersion = 10 };
             _realm = Realm.GetInstance(config);        
         }
 

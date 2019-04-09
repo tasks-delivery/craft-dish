@@ -12,29 +12,28 @@ namespace Craft_dish
     [Activity(Label = "@string/app_name", Theme = "@style/NoActionBar", MainLauncher = false, ConfigurationChanges = ConfigChanges.Locale, ScreenOrientation = ScreenOrientation.Portrait)]
     public class Dish1View : AppCompatActivity
     {
-
-        private TextView ingredients_btn; 
+        private static Context context;
 
         [Java.Interop.Export("openGitHub")]
-        public void Button_OnClick(View v)
+        public static void Button_OnClick(View v)
         {
             var uri = Android.Net.Uri.Parse("https://github.com/tasks-delivery/craft-dish/issues");
             var intent = new Intent(Intent.ActionView, uri);
-            StartActivity(intent);
+            context.StartActivity(intent);
         }
 
         [Java.Interop.Export("openDish4")]
-        public void GoToDish4(View v)
+        public static void GoToDish4(View v)
         {
-            StartActivity(new Intent(Application.Context, typeof(Dish4View)));
+            context.StartActivity(new Intent(context, typeof(Dish4View)));
         }
 
         [Java.Interop.Export("openIngredient1")]
-        public void GoToIngredient1(View v)
+        public static void GoToIngredient1(View v)
         {
             Intent intent = new Intent(Application.Context, typeof(Ingredient1View));
             intent.PutExtra("navigateFrom", "Dish1");
-            StartActivity(intent);
+            context.StartActivity(intent);
         }
 
         public override void OnBackPressed()
@@ -46,7 +45,8 @@ namespace Craft_dish
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.activity_dish1);
-            ingredients_btn = (TextView)FindViewById(Resource.Id.dish1_ingredients_btn);         
+            TextView ingredients_btn = (TextView)FindViewById(Resource.Id.dish1_ingredients_btn);
+            context = this;
         }
 
     }

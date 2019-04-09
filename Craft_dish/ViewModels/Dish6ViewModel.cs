@@ -13,7 +13,7 @@ namespace Craft_dish.ViewModels
 
         private readonly DishService dishService;
 
-        private Dish dish;
+        private readonly Dish dish;
 
         public Dish6ViewModel(string dish_name)
         {

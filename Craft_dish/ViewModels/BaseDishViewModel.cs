@@ -5,7 +5,7 @@ namespace Craft_dish.ViewModels
     public class BaseDishViewModel
     {
      
-        public File FindDishPhoto(string photo_path)
+        public static File FindDishPhoto(string photo_path)
         {
             if (photo_path != null && photo_path != "")
             {

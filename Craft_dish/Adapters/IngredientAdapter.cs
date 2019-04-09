@@ -16,7 +16,7 @@ namespace Craft_dish.Adapters
 
         private IList<Ingredient> mIngredients;
 
-        private Context mContext;
+        private readonly Context mContext;
 
         private bool state;
 

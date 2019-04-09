@@ -5,7 +5,7 @@ namespace Craft_dish.ViewModels
     public class Ingredient2ViewModel
     {
 
-        private IngredientService ingredientService;
+        private readonly IngredientService ingredientService;
 
         public Ingredient2ViewModel()
         {
