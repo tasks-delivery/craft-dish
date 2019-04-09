@@ -14,17 +14,15 @@ namespace Craft_dish.Views
     public class SplashScreenView : AppCompatActivity
     {
 
-        private CancellationTokenSource tokenSource;
-
         private CancellationToken cancellationToken;
 
         private bool back;
 
         public bool Back { get => back; set => back = value; }
 
-        public override void OnCreate(Bundle bundle, PersistableBundle persistentState)
+        protected override void OnCreate(Bundle bundle)
         {
-            base.OnCreate(bundle, persistentState);            
+            base.OnCreate(bundle);            
             SetPermissions();
         }
 
@@ -42,12 +40,12 @@ namespace Craft_dish.Views
         protected override void OnResume()
         {
             base.OnResume();
-            tokenSource = new CancellationTokenSource();
+            CancellationTokenSource tokenSource = new CancellationTokenSource();
             Task startLoading = new Task(async () =>
            {
                cancellationToken.ThrowIfCancellationRequested();
                RunOnUiThread(() => SetContentView(Resource.Layout.activity_splash_screen));     
-               await Task.Delay(4000);
+               await Task.Delay(4000).ConfigureAwait(false);
                if (Back == false)
                {
                     StartActivity(new Intent(Application.Context, typeof(Dish1View)));    
@@ -75,7 +73,6 @@ namespace Craft_dish.Views
         {            
             base.OnBackPressed();           
             Back = true;
-            Back.ToString();
             FinishAffinity();
         }
 

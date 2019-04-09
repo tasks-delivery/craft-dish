@@ -13,10 +13,8 @@ namespace Craft_dish
     public class Dish1View : AppCompatActivity
     {
 
-        private TextView ingredients_btn; 
-
         [Java.Interop.Export("openGitHub")]
-        public void Button_OnClick(View v)
+        public void NavigateToSupport(View v)
         {
             var uri = Android.Net.Uri.Parse("https://github.com/tasks-delivery/craft-dish/issues");
             var intent = new Intent(Intent.ActionView, uri);
@@ -24,13 +22,13 @@ namespace Craft_dish
         }
 
         [Java.Interop.Export("openDish4")]
-        public void GoToDish4(View v)
+        public void NavigateToDish4(View v)
         {
             StartActivity(new Intent(Application.Context, typeof(Dish4View)));
         }
 
         [Java.Interop.Export("openIngredient1")]
-        public void GoToIngredient1(View v)
+        public void NavigateToIngredient1(View v)
         {
             Intent intent = new Intent(Application.Context, typeof(Ingredient1View));
             intent.PutExtra("navigateFrom", "Dish1");
@@ -46,7 +44,6 @@ namespace Craft_dish
         {
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.activity_dish1);
-            ingredients_btn = (TextView)FindViewById(Resource.Id.dish1_ingredients_btn);         
         }
 
     }

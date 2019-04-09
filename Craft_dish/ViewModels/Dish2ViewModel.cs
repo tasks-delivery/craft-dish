@@ -1,12 +1,11 @@
-﻿using System;
-using Craft_dish.Services;
+﻿using Craft_dish.Services;
 
 namespace Craft_dish.ViewModels
 {
     public class Dish2ViewModel
     {
 
-        private DishService dishService;
+        private readonly DishService dishService;
     
         public Dish2ViewModel()
         {

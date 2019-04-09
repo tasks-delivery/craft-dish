@@ -7,7 +7,6 @@ using Android.Graphics.Drawables;
 using Android.OS;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
-using Android.Util;
 using Android.Views;
 using Android.Widget;
 using Craft_dish.Adapters;
@@ -16,8 +15,6 @@ using Craft_dish.ViewModels;
 using JP.Wasabeef.PicassoTransformations;
 using Square.Picasso;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Craft_dish.Views
@@ -26,26 +23,8 @@ namespace Craft_dish.Views
     public class Dish6View : AppCompatActivity
     {
 
-        private string tag = "CRAST DISH";
-
         private string dish_name;
 
-        private TextView toolbar_dish_name;
-
-        private TextView dish_description;
-
-        private ImageView dish_photo;
-
-        private RelativeLayout dish_icon_container;
-
-        private RecyclerView mRecycleView;
-
-        private RecyclerView.LayoutManager mLayoutManager;
-
-        private IngredientAdapter ingredientAdapater;
-
-        private Dish6ViewModel dish6ViewModel;
-       
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -55,9 +34,8 @@ namespace Craft_dish.Views
 
         private string FieldDecorator(string field)
         {
-            field = Regex.Replace(field, @"\n", " ");
-            Log.Info(tag, field);
-            return field;
+            string fieldValue = Regex.Replace(field, @"\n", " ");
+            return fieldValue;
         }
 
         protected override void OnStart()
@@ -66,12 +44,11 @@ namespace Craft_dish.Views
            
             dish_name = Intent.GetStringExtra("dish_name");
             SetUpAdapter(LoadIngredients());
-            dish6ViewModel = new Dish6ViewModel(dish_name, this);
-            toolbar_dish_name = (TextView)FindViewById(Resource.Id.dish6_dish_name_text);
-            dish_description = (TextView)FindViewById(Resource.Id.dish6_dish_description_text);
-            dish_photo = (ImageView)FindViewById(Resource.Id.dish6_photo_image);
-            dish_icon_container = (RelativeLayout)FindViewById(Resource.Id.dish6_photo_icon);
-
+            Dish6ViewModel dish6ViewModel = new Dish6ViewModel(dish_name);
+            TextView toolbar_dish_name = (TextView)FindViewById(Resource.Id.dish6_dish_name_text);
+            TextView dish_description = (TextView)FindViewById(Resource.Id.dish6_dish_description_text);
+            ImageView dish_photo = (ImageView)FindViewById(Resource.Id.dish6_photo_image);
+            RelativeLayout dish_icon_container = (RelativeLayout)FindViewById(Resource.Id.dish6_photo_icon);
 
             toolbar_dish_name.Text = FieldDecorator(dish_name);
             dish_description.Text = FieldDecorator(dish6ViewModel.FindDishDescription());
@@ -139,16 +116,16 @@ namespace Craft_dish.Views
 
         private void SetUpAdapter(IList<Ingredient> ingredients)
         {
-            ingredientAdapater = new IngredientAdapter(ingredients, this, false);
-            mRecycleView = FindViewById<RecyclerView>(Resource.Id.dish6_recyclerView);
-            mLayoutManager = new LinearLayoutManager(this);
+            IngredientAdapter ingredientAdapater = new IngredientAdapter(ingredients, this, false);
+            RecyclerView mRecycleView = FindViewById<RecyclerView>(Resource.Id.dish6_recyclerView);
+            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
             mRecycleView.SetLayoutManager(mLayoutManager);
             mRecycleView.SetAdapter(ingredientAdapater);
         }
 
         public IList<Ingredient> LoadIngredients()
         {
-            dish6ViewModel = new Dish6ViewModel(dish_name, this);
+            Dish6ViewModel dish6ViewModel = new Dish6ViewModel(dish_name);
             IList<Ingredient> ingredientList = dish6ViewModel.LoadDishIngredients(dish_name);
             return ingredientList;
         }
