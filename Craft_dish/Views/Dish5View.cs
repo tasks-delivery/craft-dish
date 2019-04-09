@@ -20,7 +20,7 @@ namespace Craft_dish.Views
     [Activity(Label = "@string/dish_photo", Theme = "@style/AppTheme", ConfigurationChanges = ConfigChanges.Locale, MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
     public class Dish5View : AppCompatActivity
     {
-        private string tag = "CRAFT DISH";
+        private readonly string tag = "CRAFT DISH";
 
         private ImageView icon_area;
 

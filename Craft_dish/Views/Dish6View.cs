@@ -24,15 +24,13 @@ namespace Craft_dish.Views
     public class Dish6View : AppCompatActivity
     {
 
-        private string tag = "CRAST DISH";
+        private readonly string tag = "CRAST DISH";
 
         private string dish_name;
 
         private ImageView dish_photo;
 
         private RecyclerView mRecycleView;
-
-        private RecyclerView.LayoutManager mLayoutManager;
 
         private IngredientAdapter ingredientAdapater;
        
@@ -130,7 +128,7 @@ namespace Craft_dish.Views
         {
             ingredientAdapater = new IngredientAdapter(ingredients, this, false);
             mRecycleView = FindViewById<RecyclerView>(Resource.Id.dish6_recyclerView);
-            mLayoutManager = new LinearLayoutManager(this);
+            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
             mRecycleView.SetLayoutManager(mLayoutManager);
             mRecycleView.SetAdapter(ingredientAdapater);
         }

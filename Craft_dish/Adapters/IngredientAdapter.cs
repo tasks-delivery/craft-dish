@@ -14,11 +14,11 @@ namespace Craft_dish.Adapters
 
         public event EventHandler<int> ItemUnClick;
 
-        private IList<Ingredient> mIngredients;
+        private readonly IList<Ingredient> mIngredients;
 
         private readonly Context mContext;
 
-        private bool state;
+        private readonly bool state;
 
         public IList<Ingredient> ingredients { get; set; }
 
@@ -46,7 +46,7 @@ namespace Craft_dish.Adapters
 
         }
 
-        private Dictionary<int, bool> map = new Dictionary<int, bool>();
+        private readonly Dictionary<int, bool> map = new Dictionary<int, bool>();
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {

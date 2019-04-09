@@ -58,7 +58,7 @@ namespace Craft_dish.Views
 
         private string dish_name;
 
-        private string tag = "CRAFT DISH";
+        private readonly string tag = "CRAFT DISH";
 
         private bool searchState;
 
@@ -273,13 +273,6 @@ namespace Craft_dish.Views
                 SearchResolver();
                 SetUpAdapter(ingredientAdapter);
             }
-        }
-
-        private void NavigateToDish6()
-        {
-            Intent intent = new Intent(Application.Context, typeof(Dish6View));
-            intent.PutExtra("dish_name", dish_name);
-            StartActivity(intent);
         }
 
         [Java.Interop.Export("addIngredients")]
