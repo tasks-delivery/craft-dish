@@ -146,8 +146,8 @@ namespace Craft_dish.Views
                     navigateToIngredient2 = new Intent(Application.Context, typeof(Ingredient2View));
                     add_ingredient_button.Visibility = ViewStates.Gone;
                     floating_add_ingredient_button.Visibility = ViewStates.Gone;
-                    IList<Ingredient> ingredients = ingredient1ViewModel.LoadDishIngredients(dish_name);
-                    ingredientAdapter = new IngredientAdapter(ingredients, this, false);
+                    IList<Ingredient> dishIngredients = ingredient1ViewModel.LoadDishIngredients(dish_name);
+                    ingredientAdapter = new IngredientAdapter(dishIngredients, this, false);
                     SetUpAdapter(ingredientAdapter);
                     navigateToIngredient2.PutExtra("navigateFrom", "Ingredient1Remove");
                     break;
