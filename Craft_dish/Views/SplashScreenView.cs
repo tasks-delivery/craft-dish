@@ -20,9 +20,9 @@ namespace Craft_dish.Views
 
         public bool Back { get => back; set => back = value; }
 
-        public override void OnCreate(Bundle bundle, PersistableBundle persistentState)
+        protected override void OnCreate(Bundle bundle)
         {
-            base.OnCreate(bundle, persistentState);            
+            base.OnCreate(bundle);            
             SetPermissions();
         }
 
@@ -73,7 +73,6 @@ namespace Craft_dish.Views
         {            
             base.OnBackPressed();           
             Back = true;
-            Back.ToString();
             FinishAffinity();
         }
 

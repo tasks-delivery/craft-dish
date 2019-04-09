@@ -15,9 +15,9 @@ namespace Craft_dish.Adapters
 
         public event EventHandler<int> ItemClick;
 
-        private List<Dish> mDishes;
+        private readonly List<Dish> mDishes;
 
-        private Context mContext;
+        private readonly Context mContext;
 
         public DishAdapter(List<Dish> dishes, Context context)
         {

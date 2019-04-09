@@ -19,8 +19,8 @@ namespace Craft_dish.ViewModels
 
         public void SaveDish(string old_dish_name, string dish_name, string dish_description)
         {
-            Dish dish = dishService.GetDishByName(old_dish_name);
-            dishService.UpdateDish(dish, dish_name, dish_description);
+            Dish oldDish = dishService.GetDishByName(old_dish_name);
+            dishService.UpdateDish(oldDish, dish_name, dish_description);
         }
 
         public bool DishIsExists(string dish_name)
@@ -45,7 +45,7 @@ namespace Craft_dish.ViewModels
             return dish.Description;
         }
 
-        public File getDishPhoto()
+        public File GetDishPhoto()
         {
             return FindDishPhoto(dish.PhotoPath);
         }

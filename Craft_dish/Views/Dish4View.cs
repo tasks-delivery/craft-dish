@@ -27,10 +27,6 @@ namespace Craft_dish.Views
 
         private ImageView close_icon;
 
-        private RecyclerView mRecycleView;
-
-        private RecyclerView.LayoutManager mLayoutManager;
-
         private Dish4ViewModel dish4ViewModel;
 
         [Java.Interop.Export("openDish2")]
@@ -109,8 +105,8 @@ namespace Craft_dish.Views
         private void SetUpAdapter(List<Dish> dishes)
         {
             DishAdapter dishAdapter = new DishAdapter(dishes, this);
-            mRecycleView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
-            mLayoutManager = new LinearLayoutManager(this);
+            RecyclerView mRecycleView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
+            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
             mRecycleView.SetLayoutManager(mLayoutManager);
             dishAdapter.ItemClick += MAdapter_ItemClick;
             mRecycleView.SetAdapter(dishAdapter);

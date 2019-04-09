@@ -30,8 +30,6 @@ namespace Craft_dish.Views
 
         private ImageView close_icon;
 
-        private RecyclerView mRecycleView;
-
         private Ingredient1ViewModel ingredient1ViewModel;
 
         private IngredientAdapter ingredientAdapter;
@@ -93,7 +91,6 @@ namespace Craft_dish.Views
             close_icon = (ImageView)FindViewById(Resource.Id.ingredient1_close_search_icon);
             checkbox_menu = (RelativeLayout)FindViewById(Resource.Id.ingredient1_checkbox_menu);
             add_ingredient_button = (Button)FindViewById(Resource.Id.ingredient1_add_button);
-            Button delete_ingredient_button = (Button)FindViewById(Resource.Id.ingredient1_delete_button);
             floating_add_ingredient_button= (FloatingActionButton)FindViewById(Resource.Id.fab);
             select_all_button = (Button)FindViewById(Resource.Id.ingredient1_select_all_btn);
             cancel_button = (Button)FindViewById(Resource.Id.ingredient1_cancel_btn);
@@ -104,12 +101,11 @@ namespace Craft_dish.Views
             ingredients = new List<Ingredient>();         
         }
 
-        private Intent NavigateResolverForIngredient2()
+        private void NavigateResolverForIngredient2()
         {
             LoadIngredients();
             ingredientsAddList = new List<Ingredient>();
             navigateToIngredient2 = new Intent(Application.Context, typeof(Ingredient2View));
-            return navigateToIngredient2;
         }
 
         private void PutExtraForIngredient1()
@@ -222,13 +218,13 @@ namespace Craft_dish.Views
         }
 
         private void SetUpAdapter(IngredientAdapter ingredientAdapter)
-        {                   
-            mRecycleView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
+        {
+            RecyclerView recyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
             RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
-            mRecycleView.SetLayoutManager(mLayoutManager);
+            recyclerView.SetLayoutManager(mLayoutManager);
             ingredientAdapter.ItemClick += OnItemClick;
             ingredientAdapter.ItemUnClick += OnItemRemove;
-            mRecycleView.SetAdapter(ingredientAdapter);         
+            recyclerView.SetAdapter(ingredientAdapter);         
         }
 
         private void LoadIngredients()
@@ -356,8 +352,8 @@ namespace Craft_dish.Views
             checkbox_menu.Visibility = ViewStates.Visible;
             if (navigateFrom == "Dish6Remove")
             {
-                IList<Ingredient> ingredients = ingredient1ViewModel.LoadDishIngredients(dish_name);
-                Ingredient ingredient = ingredients[position];        
+                IList<Ingredient> dishIngredients = ingredient1ViewModel.LoadDishIngredients(dish_name);
+                Ingredient ingredient = dishIngredients[position];        
                 ingredientsRemovedList.Add(ingredient);
                 Log.Info(tag, "Ingredient selected by add method -->> {0}  " + ingredient.Name);
             }

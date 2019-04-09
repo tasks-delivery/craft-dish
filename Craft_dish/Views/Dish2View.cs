@@ -3,7 +3,6 @@ using Android.App;
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
-using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Views;
 using Android.Views.InputMethods;
@@ -28,7 +27,6 @@ namespace Craft_dish.Views
             base.OnCreate(bundle);
             SetContentView(Resource.Layout.activity_dish2);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
-            TextInputLayout text1_container = (TextInputLayout)FindViewById(Resource.Id.text_container_1);
             field_name = (EditText)FindViewById(Resource.Id.dish_2_field_dish_name);
             field_description = (EditText)FindViewById(Resource.Id.dish_2_field_dish_description);
             dish2ViewModel = new Dish2ViewModel();

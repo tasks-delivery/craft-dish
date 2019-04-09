@@ -11,9 +11,9 @@ namespace Craft_dish.ViewModels
 
         private readonly string tag = "CRAFT DISH";
 
-        private IngredientService ingredientService;
+        private readonly IngredientService ingredientService;
 
-        private DishService dishService;
+        private readonly DishService dishService;
 
         public Ingredient1ViewModel()
         {

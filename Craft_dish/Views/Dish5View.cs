@@ -89,7 +89,10 @@ namespace Craft_dish.Views
             string selection = MediaStore.Images.Media.InterfaceConsts.Id + " =? ";
             using (var cursor = ManagedQuery(MediaStore.Images.Media.ExternalContentUri, null, selection, new string[] { doc_id }, null))
             {
-                if (cursor == null) return path;
+                if (cursor == null)
+                {
+                    return path;
+                }
                 var columnIndex = cursor.GetColumnIndexOrThrow(MediaStore.Images.Media.InterfaceConsts.Data);
                 cursor.MoveToFirst();
                 path = cursor.GetString(columnIndex);

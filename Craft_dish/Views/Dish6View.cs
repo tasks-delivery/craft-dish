@@ -28,12 +28,6 @@ namespace Craft_dish.Views
 
         private string dish_name;
 
-        private ImageView dish_photo;
-
-        private RecyclerView mRecycleView;
-
-        private IngredientAdapter ingredientAdapater;
-       
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -57,7 +51,7 @@ namespace Craft_dish.Views
             Dish6ViewModel dish6ViewModel = new Dish6ViewModel(dish_name);
             TextView toolbar_dish_name = (TextView)FindViewById(Resource.Id.dish6_dish_name_text);
             TextView dish_description = (TextView)FindViewById(Resource.Id.dish6_dish_description_text);
-            dish_photo = (ImageView)FindViewById(Resource.Id.dish6_photo_image);
+            ImageView dish_photo = (ImageView)FindViewById(Resource.Id.dish6_photo_image);
             RelativeLayout dish_icon_container = (RelativeLayout)FindViewById(Resource.Id.dish6_photo_icon);
 
             toolbar_dish_name.Text = FieldDecorator(dish_name);
@@ -126,8 +120,8 @@ namespace Craft_dish.Views
 
         private void SetUpAdapter(IList<Ingredient> ingredients)
         {
-            ingredientAdapater = new IngredientAdapter(ingredients, this, false);
-            mRecycleView = FindViewById<RecyclerView>(Resource.Id.dish6_recyclerView);
+            IngredientAdapter ingredientAdapater = new IngredientAdapter(ingredients, this, false);
+            RecyclerView mRecycleView = FindViewById<RecyclerView>(Resource.Id.dish6_recyclerView);
             RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
             mRecycleView.SetLayoutManager(mLayoutManager);
             mRecycleView.SetAdapter(ingredientAdapater);

@@ -103,7 +103,7 @@ namespace Craft_dish.Adapters
         public class CheckboxListener : Java.Lang.Object, CompoundButton.IOnCheckedChangeListener
         {
             private readonly Dictionary<int, bool> map;
-            private int mPosotion;
+            private readonly int mPosotion;
 
             public CheckboxListener(Dictionary<int, bool> map, int position)
             {
