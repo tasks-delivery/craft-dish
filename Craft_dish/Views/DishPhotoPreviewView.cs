@@ -14,10 +14,6 @@ namespace Craft_dish
     public class DishPhotoPreviewView : AppCompatActivity
     {
 
-        private DishPhotoPreviewViewModel dishPhotoPreviewViewModel;
-
-        private ImageView dish_photo;
-
         private string dish_name;
 
         protected override void OnCreate(Bundle bundle)
@@ -39,8 +35,8 @@ namespace Craft_dish
         {
             base.OnStart();
             dish_name = Intent.GetStringExtra("dish_name");
-            dishPhotoPreviewViewModel = new DishPhotoPreviewViewModel(dish_name, this);
-            dish_photo = (ImageView)FindViewById(Resource.Id.dish_preview_icon);
+            DishPhotoPreviewViewModel dishPhotoPreviewViewModel = new DishPhotoPreviewViewModel(dish_name);
+            ImageView dish_photo = (ImageView)FindViewById(Resource.Id.dish_preview_icon);
             if (dishPhotoPreviewViewModel.getDishPhoto() != null)
             {
                 dish_photo.Background = null;

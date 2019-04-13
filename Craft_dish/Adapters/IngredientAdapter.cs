@@ -5,7 +5,6 @@ using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
 using Craft_dish.Models;
-using Craft_dish.Services;
 
 namespace Craft_dish.Adapters
 {
@@ -15,13 +14,11 @@ namespace Craft_dish.Adapters
 
         public event EventHandler<int> ItemUnClick;
 
-        private IList<Ingredient> mIngredients;
+        private readonly IList<Ingredient> mIngredients;
 
-        private Context mContext;
+        private readonly Context mContext;
 
-        private IngredientService ingredientService;
-
-        private bool state;
+        private readonly bool state;
 
         public IList<Ingredient> ingredients { get; set; }
 
@@ -29,7 +26,6 @@ namespace Craft_dish.Adapters
         {
             mIngredients = ingredients;
             mContext = context;
-            ingredientService = new IngredientService();
             state = checkedState;
         } 
 
@@ -47,69 +43,74 @@ namespace Craft_dish.Adapters
                 Ingredient1ViewHolder vh = new Ingredient1ViewHolder(itemView, OnClick);               
                 return vh;
             }
-
         }
-
-        private Dictionary<int, bool> map = new Dictionary<int, bool>();
+     
+        private readonly Dictionary<int, bool> map = new Dictionary<int, bool>();
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
         {
            if (mContext.ToString().Contains("Dish6View") == true)
            {
-               IngredientViewHolder vh = holder as IngredientViewHolder;
-               vh.IngredientName.Text = mIngredients[position].Name;
-
-                if (mIngredients[position].Weight.Length == 0)
-                {
-                    vh.IngredientWeight.Text = "";
-                    vh.WeightUnit.Text = "";
-                }
-                else
-                {
-                    vh.IngredientWeight.Text = mIngredients[position].Weight;
-                    vh.WeightUnit.Text = mIngredients[position].Unit;
-                }
-              
+                SetDish6IngredientViewHolder(holder, position);              
            }
            else
            {
-                Ingredient1ViewHolder vh = holder as Ingredient1ViewHolder;
-                vh.IngredientName.Text = mIngredients[position].Name;
-                vh.CheckboxItem.SetOnCheckedChangeListener(new CheckboxListener(map, position));
-                vh.CheckboxItem.Checked = state;
-                vh.CheckboxItem.Click += delegate
-                {    
-                    if (vh.CheckboxItem.Checked == true)
-                    {                     
-                        OnClick(position);
-                    
-
-                    }
-                    else
-                    {                       
-                        OnRemove(position);                    
-                    }
-                };
-
-                if (mIngredients[position].Weight.Length == 0)
-               {
-                   vh.IngredientWeight.Text = "";
-                   vh.WeightUnit.Text = "";
-               }
-               else
-               {
-                    vh.IngredientWeight.Text = mIngredients[position].Weight;
-                    vh.WeightUnit.Text = mIngredients[position].Unit;
-               }
-
-            }
+                SetIngredient1ViewHolder(holder, position);
+           }
 
         }
 
+        private void SetDish6IngredientViewHolder(RecyclerView.ViewHolder holder, int position)
+        {
+            IngredientViewHolder vh = holder as IngredientViewHolder;
+            vh.IngredientName.Text = mIngredients[position].Name;
+
+            if (mIngredients[position].Weight.Length == 0)
+            {
+                vh.IngredientWeight.Text = "";
+                vh.WeightUnit.Text = "";
+            }
+            else
+            {
+                vh.IngredientWeight.Text = mIngredients[position].Weight;
+                vh.WeightUnit.Text = mIngredients[position].Unit;
+            }
+        }
+
+        private void SetIngredient1ViewHolder(RecyclerView.ViewHolder holder, int position)
+        {
+            Ingredient1ViewHolder vh = holder as Ingredient1ViewHolder;
+            vh.IngredientName.Text = mIngredients[position].Name;
+            vh.CheckboxItem.SetOnCheckedChangeListener(new CheckboxListener(map, position));
+            vh.CheckboxItem.Checked = state;
+            vh.CheckboxItem.Click += delegate
+            {
+                if (vh.CheckboxItem.Checked == true)
+                {
+                    OnClick(position);
+                }
+                else
+                {
+                    OnRemove(position);
+                }
+            };
+
+            if (mIngredients[position].Weight.Length == 0)
+            {
+                vh.IngredientWeight.Text = "";
+                vh.WeightUnit.Text = "";
+            }
+            else
+            {
+                vh.IngredientWeight.Text = mIngredients[position].Weight;
+                vh.WeightUnit.Text = mIngredients[position].Unit;
+            }
+        }
+      
         public class CheckboxListener : Java.Lang.Object, CompoundButton.IOnCheckedChangeListener
         {
-            private Dictionary<int, bool> map;
-            private int mPosotion;
+            private readonly Dictionary<int, bool> map;
+            private readonly int mPosotion;
 
             public CheckboxListener(Dictionary<int, bool> map, int position)
             {
@@ -141,14 +142,12 @@ namespace Craft_dish.Adapters
 
         void OnRemove(int position)
         {
-            if (ItemUnClick != null)
-                ItemUnClick(this, position);
+            ItemUnClick?.Invoke(this, position);
         }
 
         void OnClick(int position)
         {
-            if (ItemClick != null)
-                ItemClick(this, position);         
+            ItemClick?.Invoke(this, position);
         }
 
     }

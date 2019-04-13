@@ -15,9 +15,9 @@ namespace Craft_dish.Adapters
 
         public event EventHandler<int> ItemClick;
 
-        private List<Dish> mDishes;
+        private readonly List<Dish> mDishes;
 
-        private Context mContext;
+        private readonly Context mContext;
 
         public DishAdapter(List<Dish> dishes, Context context)
         {
@@ -28,6 +28,13 @@ namespace Craft_dish.Adapters
         public override int ItemCount
         {
             get { return mDishes.Count; }
+        }
+
+        private void SetNotFoundIcon(DishViewHolder vh)
+        {
+            Picasso.With(mContext)
+                            .Load(Resource.Drawable.icon_not_found).CenterCrop().Resize(130, 130)
+                            .Transform(new RoundedCornersTransformation(100, 0)).Into(vh.DishPhoto);
         }
 
         public override void OnBindViewHolder(RecyclerView.ViewHolder holder, int position)
@@ -45,17 +52,13 @@ namespace Craft_dish.Adapters
                 }
                 else
                 {
-                    Picasso.With(mContext)
-                             .Load(Resource.Drawable.icon_not_found).CenterCrop().Resize(130, 130)
-                             .Transform(new RoundedCornersTransformation(100, 0)).Into(vh.DishPhoto);
+                    SetNotFoundIcon(vh);
                 }
                 
             }
             else
-            {             
-                Picasso.With(mContext)
-                               .Load(Resource.Drawable.icon_not_found).CenterCrop().Resize(130, 130)
-                               .Transform(new RoundedCornersTransformation(100, 0)).Into(vh.DishPhoto);
+            {
+                SetNotFoundIcon(vh);
             }
             vh.DishName.Text = mDishes[position].Name;
             vh.DishDescription.Text = mDishes[position].Description;
@@ -70,8 +73,7 @@ namespace Craft_dish.Adapters
 
         private void OnClick(int obj)
         {
-            if (ItemClick != null)
-                ItemClick(this, obj);            
+            ItemClick?.Invoke(this, obj);
         }     
 
     }

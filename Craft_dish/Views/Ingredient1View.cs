@@ -7,7 +7,6 @@ using Android.Support.Design.Widget;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using Android.Text;
-using Android.Util;
 using Android.Views;
 using Android.Views.InputMethods;
 using Android.Widget;
@@ -30,10 +29,6 @@ namespace Craft_dish.Views
 
         private ImageView close_icon;
 
-        private RecyclerView mRecycleView;
-
-        private RecyclerView.LayoutManager mLayoutManager;
-
         private Ingredient1ViewModel ingredient1ViewModel;
 
         private IngredientAdapter ingredientAdapter;
@@ -48,8 +43,6 @@ namespace Craft_dish.Views
 
         private Button add_ingredient_button;
 
-        private Button delete_ingredient_button;
-
         private Button select_all_button;
 
         private Button cancel_button;
@@ -61,8 +54,6 @@ namespace Craft_dish.Views
         private Intent navigateToIngredient2;
 
         private string dish_name;
-
-        private string tag = "CRAFT DISH";
 
         private bool searchState;
 
@@ -97,7 +88,6 @@ namespace Craft_dish.Views
             close_icon = (ImageView)FindViewById(Resource.Id.ingredient1_close_search_icon);
             checkbox_menu = (RelativeLayout)FindViewById(Resource.Id.ingredient1_checkbox_menu);
             add_ingredient_button = (Button)FindViewById(Resource.Id.ingredient1_add_button);
-            delete_ingredient_button = (Button)FindViewById(Resource.Id.ingredient1_delete_button);
             floating_add_ingredient_button= (FloatingActionButton)FindViewById(Resource.Id.fab);
             select_all_button = (Button)FindViewById(Resource.Id.ingredient1_select_all_btn);
             cancel_button = (Button)FindViewById(Resource.Id.ingredient1_cancel_btn);
@@ -108,27 +98,47 @@ namespace Craft_dish.Views
             ingredients = new List<Ingredient>();         
         }
 
+        private void NavigateResolverForIngredient2()
+        {
+            LoadIngredients();
+            ingredientsAddList = new List<Ingredient>();
+            navigateToIngredient2 = new Intent(Application.Context, typeof(Ingredient2View));
+        }
+
+        private void PutExtraForIngredient1()
+        {
+            NavigateResolverForIngredient2();
+            add_ingredient_button.Visibility = ViewStates.Gone;
+            navigateToIngredient2.PutExtra("navigateFrom", "Ingredient1");
+        }
+
+        private void PutExtraForIngredient1FromAddedScreen()
+        {
+            NavigateResolverForIngredient2();
+            add_ingredient_button.Visibility = ViewStates.Visible;
+            navigateToIngredient2.PutExtra("navigateFrom", "Ingredient1Add");
+            navigateToIngredient2.PutExtra("dish_name", dish_name);
+        }
+
         private void NavigateResolver()
         {
             navigateFrom = Intent.GetStringExtra("navigateFrom");
-            Log.Info(tag, "Navigate from -->> {0}  " + navigateFrom);
-            Log.Info(tag, "Dish is -->> {0}  " + dish_name);
             switch (navigateFrom)
             {            
                 case "Dish1" :
-                    LoadIngredients();
-                    ingredientsAddList = new List<Ingredient>();                    
-                    navigateToIngredient2 = new Intent(Application.Context, typeof(Ingredient2View));
-                    add_ingredient_button.Visibility = ViewStates.Gone;
-                    navigateToIngredient2.PutExtra("navigateFrom", "Ingredient1");
+                    PutExtraForIngredient1();
                     break;
 
                 case "Ingredient2":
-                    LoadIngredients();
-                    ingredientsAddList = new List<Ingredient>();
-                    navigateToIngredient2 = new Intent(Application.Context, typeof(Ingredient2View));
-                    add_ingredient_button.Visibility = ViewStates.Gone;
-                    navigateToIngredient2.PutExtra("navigateFrom", "Ingredient1");
+                    PutExtraForIngredient1();
+                    break;
+
+                case "Dish6Add":
+                    PutExtraForIngredient1FromAddedScreen();
+                    break;             
+
+                case "Ingredient2Add":             
+                    PutExtraForIngredient1FromAddedScreen();
                     break;
 
                 case "Dish6Remove":
@@ -136,29 +146,12 @@ namespace Craft_dish.Views
                     navigateToIngredient2 = new Intent(Application.Context, typeof(Ingredient2View));
                     add_ingredient_button.Visibility = ViewStates.Gone;
                     floating_add_ingredient_button.Visibility = ViewStates.Gone;
-                    IList<Ingredient> ingredients = ingredient1ViewModel.LoadDishIngredients(dish_name);                   
-                    ingredientAdapter = new IngredientAdapter(ingredients, this, false);
+                    IList<Ingredient> dishIngredients = ingredient1ViewModel.LoadDishIngredients(dish_name);
+                    ingredientAdapter = new IngredientAdapter(dishIngredients, this, false);
                     SetUpAdapter(ingredientAdapter);
                     navigateToIngredient2.PutExtra("navigateFrom", "Ingredient1Remove");
                     break;
 
-                case "Ingredient2Add":
-                    LoadIngredients();
-                    ingredientsAddList = new List<Ingredient>();
-                    navigateToIngredient2 = new Intent(Application.Context, typeof(Ingredient2View));
-                    add_ingredient_button.Visibility = ViewStates.Visible;
-                    navigateToIngredient2.PutExtra("navigateFrom", "Ingredient1Add");
-                    navigateToIngredient2.PutExtra("dish_name", dish_name);
-                    break;
-
-                case "Dish6Add":
-                    LoadIngredients();
-                    ingredientsAddList = new List<Ingredient>();
-                    navigateToIngredient2 = new Intent(Application.Context, typeof(Ingredient2View));
-                    add_ingredient_button.Visibility = ViewStates.Visible;
-                    navigateToIngredient2.PutExtra("navigateFrom", "Ingredient1Add");
-                    navigateToIngredient2.PutExtra("dish_name", dish_name);
-                    break;
                 default:
                     throw new InvalidOperationException("Unexpected value = " + navigateFrom);
             }
@@ -220,13 +213,13 @@ namespace Craft_dish.Views
         }
 
         private void SetUpAdapter(IngredientAdapter ingredientAdapter)
-        {                   
-            mRecycleView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
-            mLayoutManager = new LinearLayoutManager(this);
-            mRecycleView.SetLayoutManager(mLayoutManager);
+        {
+            RecyclerView recyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
+            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
+            recyclerView.SetLayoutManager(mLayoutManager);
             ingredientAdapter.ItemClick += OnItemClick;
             ingredientAdapter.ItemUnClick += OnItemRemove;
-            mRecycleView.SetAdapter(ingredientAdapter);         
+            recyclerView.SetAdapter(ingredientAdapter);         
         }
 
         private void LoadIngredients()
@@ -273,13 +266,6 @@ namespace Craft_dish.Views
             }
         }
 
-        private void NavigateToDish6()
-        {
-            Intent intent = new Intent(Application.Context, typeof(Dish6View));
-            intent.PutExtra("dish_name", dish_name);
-            StartActivity(intent);
-        }
-
         [Java.Interop.Export("addIngredients")]
         public void AddIngredient(View v)
         {
@@ -295,13 +281,13 @@ namespace Craft_dish.Views
             select_all_button.Click += (sender, e) => {
                 if (navigateFrom == "Dish6Remove")
                 {
-                    IList<Ingredient> ingredients = ingredient1ViewModel.LoadDishIngredients(dish_name);
+                    IList<Ingredient> dishIngredients = ingredient1ViewModel.LoadDishIngredients(dish_name);
                     ingredientsRemovedList.Clear();
-                    for (int i = 0; i < ingredients.Count; i++)
+                    for (int i = 0; i < dishIngredients.Count; i++)
                     {
                         OnItemClick(sender, i);
                     }
-                    ingredientAdapter = new IngredientAdapter(ingredients, this, true);
+                    ingredientAdapter = new IngredientAdapter(dishIngredients, this, true);
                     SetUpAdapter(ingredientAdapter);
                 }
                 else
@@ -343,16 +329,14 @@ namespace Craft_dish.Views
         {
             if (navigateFrom == "Dish6Remove")
             {
-                IList<Ingredient> ingredients = ingredient1ViewModel.LoadDishIngredients(dish_name);
-                Ingredient ingredient = ingredients[position];
+                IList<Ingredient> dishIngredients = ingredient1ViewModel.LoadDishIngredients(dish_name);
+                Ingredient ingredient = dishIngredients[position];
                 ingredientsRemovedList.Remove(ingredient);
-                Log.Info(tag, "Ingredient selected by removed method -->> {0}  " + ingredient.Name);
             }
             else
             {
                 Ingredient ingredient = ingredient1ViewModel.SearchIngredientByName(search_field.Text)[position];
                 ingredientsAddList.Remove(ingredient);
-                Log.Info(tag, "Ingredient selected by removed method -->> {0}  " + ingredient.Name);
             }
         }
 
@@ -361,16 +345,14 @@ namespace Craft_dish.Views
             checkbox_menu.Visibility = ViewStates.Visible;
             if (navigateFrom == "Dish6Remove")
             {
-                IList<Ingredient> ingredients = ingredient1ViewModel.LoadDishIngredients(dish_name);
-                Ingredient ingredient = ingredients[position];        
+                IList<Ingredient> dishIngredients = ingredient1ViewModel.LoadDishIngredients(dish_name);
+                Ingredient ingredient = dishIngredients[position];        
                 ingredientsRemovedList.Add(ingredient);
-                Log.Info(tag, "Ingredient selected by add method -->> {0}  " + ingredient.Name);
             }
             else
             {
                 Ingredient ingredient = ingredient1ViewModel.SearchIngredientByName(search_field.Text)[position];
-                ingredientsAddList.Add(ingredient);
-                Log.Info(tag, "Ingredient selected by add method -->> {0}  " + ingredient.Name);              
+                ingredientsAddList.Add(ingredient);           
             }
 
         }

@@ -30,7 +30,7 @@ namespace Craft_dish.Views
             SetContentView(Resource.Layout.activity_dish7);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);          
             dish_name = Intent.GetStringExtra("dish_name");
-            dish7ViewModel = new Dish7ViewModel(dish_name, this);
+            dish7ViewModel = new Dish7ViewModel(dish_name);
             field_description = (EditText)FindViewById(Resource.Id.dish_7_field_dish_description);
             field_name = (EditText)FindViewById(Resource.Id.dish_7_field_dish_name);
             field_description.Text = dish7ViewModel.FindDishDescription();

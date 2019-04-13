@@ -10,7 +10,6 @@ using Android.Support.V7.App;
 using Android.Content.PM;
 using Craft_dish.ViewModels;
 using Android.Views;
-using Android.Util;
 using Android.Support.V4.Content;
 using Android;
 using System;
@@ -20,7 +19,6 @@ namespace Craft_dish.Views
     [Activity(Label = "@string/dish_photo", Theme = "@style/AppTheme", ConfigurationChanges = ConfigChanges.Locale, MainLauncher = false, ScreenOrientation = ScreenOrientation.Portrait)]
     public class Dish5View : AppCompatActivity
     {
-        private string tag = "CRAFT DISH";
 
         private ImageView icon_area;
 
@@ -30,11 +28,7 @@ namespace Craft_dish.Views
 
         private Dish5ViewModel dish5ViewModel;
 
-        private Android.Net.Uri uri;
-
         private string photo_path;
-
-        private RelativeLayout btn_camera;
 
         public static readonly int PickImageId = 1000;
 
@@ -44,7 +38,7 @@ namespace Craft_dish.Views
             SetContentView(Resource.Layout.activity_dish5);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             var btn_share = (RelativeLayout)FindViewById(Resource.Id.dish5_share_icon);
-            btn_camera = (RelativeLayout)FindViewById(Resource.Id.dish5_photo_icon);
+            RelativeLayout btn_camera = (RelativeLayout)FindViewById(Resource.Id.dish5_photo_icon);
             icon_area = FindViewById<ImageView>(Resource.Id.dish5_icon_area);
             dish5ViewModel = new Dish5ViewModel();         
             btn_camera.Click += BtnCamera_Click;
@@ -93,7 +87,10 @@ namespace Craft_dish.Views
             string selection = MediaStore.Images.Media.InterfaceConsts.Id + " =? ";
             using (var cursor = ManagedQuery(MediaStore.Images.Media.ExternalContentUri, null, selection, new string[] { doc_id }, null))
             {
-                if (cursor == null) return path;
+                if (cursor == null)
+                {
+                    return path;
+                }
                 var columnIndex = cursor.GetColumnIndexOrThrow(MediaStore.Images.Media.InterfaceConsts.Data);
                 cursor.MoveToFirst();
                 path = cursor.GetString(columnIndex);
@@ -107,8 +104,7 @@ namespace Craft_dish.Views
           
             if ((requestCode == PickImageId) && (resultCode == Result.Ok) && (data != null))
             {
-                uri = data.Data;               
-                Log.Info(tag, GetPathToImage(uri));
+                Android.Net.Uri uri = data.Data;               
                 icon_area.SetImageURI(uri);
                 photo_path = GetPathToImage(uri);            
             }
@@ -167,7 +163,7 @@ namespace Craft_dish.Views
             RequestPermissions(permissions, 200);
         }
 
-        private void BtnCamera_Click(object sender, System.EventArgs e)
+        private void BtnCamera_Click(object sender, EventArgs e)
         {
             var cam = ContextCompat.CheckSelfPermission(Application.Context, Manifest.Permission.Camera);
             if (cam == Permission.Denied)
@@ -187,7 +183,6 @@ namespace Craft_dish.Views
             string timeStamp = string.Format("{0:HH:mm:ss tt}", DateTime.Now);
             var path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData);
             var filePath = System.IO.Path.Combine(path,  dish_name + timeStamp + ".png");
-            Log.Info(tag, filePath);
             photo_path = filePath;
             var stream = new FileStream(filePath, FileMode.Create);
             bitmap.Compress(Bitmap.CompressFormat.Png, 100, stream);

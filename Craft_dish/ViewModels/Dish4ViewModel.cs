@@ -8,7 +8,7 @@ namespace Craft_dish.ViewModels
     public class Dish4ViewModel
     {
 
-        private DishService dishService;
+        private readonly DishService dishService;
 
         public Dish4ViewModel()
         {
