@@ -1,5 +1,6 @@
+version: 1.0.{build}
 image: Visual Studio 2017
-  
+
 install: 
   - cmd: set PATH=C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin;%PATH%
   - ps: (new-object Net.WebClient).DownloadString("https://raw.github.com/madskristensen/ExtensionScripts/master/AppVeyor/vsix.ps1") | iex
@@ -10,3 +11,14 @@ build_script:
   - msbuild "/t:SignAndroidPackage" "/p:Configuration=Release" "Craft_dish\Craft_dish.csproj" "/p:SolutionDir=Tools/"
 artifacts:
   - path: Craft_dish\bin\Release\Craft_dish.Craft_dish-Signed.apk
+ 
+notifications:
+- provider: Email
+  to:
+  - fiodarmotin@gmail.com
+  - ordeh@mail.ru
+  subject: 'Build {{status}}: {{projectName}} {{buildVersion}}'
+  message: Build was finished
+  on_build_success: true
+  on_build_failure: true
+  on_build_status_changed: false 

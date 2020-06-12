@@ -12,7 +12,7 @@ namespace Craft_dish.Services
 
         public DishService()
         {
-            _realm = getDbInstance();
+            _realm = GetDbInstance();
         }
 
         public void CreateDish(string dish_name, string dish_description)
