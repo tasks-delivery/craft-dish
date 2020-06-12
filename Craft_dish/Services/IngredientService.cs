@@ -12,7 +12,7 @@ namespace Craft_dish.Services
 
         public IngredientService()
         {
-            _realm = getDbInstance();
+            _realm = GetDbInstance();
         }
 
         public void CreateIngredient(string ingredient_name, string ingredient_weight, string weight_unit)
