@@ -34,7 +34,7 @@
 
 				<EditText
 					android:textColor="@color/white"
-					android:backgroundTint="@color/white"
+					android:backgroundTint="@color/colorGreyLight"
 					android:textColorHint="@color/white"							
 					android:id="@+id/ingredient2_field_ingredient_name"
 					android:layout_width="match_parent"
@@ -114,7 +114,7 @@
 							
 				<EditText
 					android:textColor="@color/white"
-					android:backgroundTint="@color/white"
+					android:backgroundTint="@color/colorGreyLight"
 					android:textColorHint="@color/white"							
 					android:id="@+id/ingredient2_field_ingredient_weight"
 					android:layout_width="match_parent"
