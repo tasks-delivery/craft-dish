@@ -3,13 +3,14 @@ image: Visual Studio 2019
 
 environment:
   keystore-password:
-    secure: DSwAr4fYt3Q35Sjob5qAN5uj # YourPassword for keystore
+    secure: 1234-qwer # YourPassword for keystore
 
 before_build:
   - nuget restore
 build_script:
 #  - msbuild "/t:SignAndroidPackage" "/p:Configuration=Release" "Craft_dish\Craft_dish.csproj"
-  - msbuild "/t:SignAndroidPackage" "/p:Configuration=Release" "/p:AndroidKeyStore=true" "/p:AndroidSigningKeyAlias=%keystore-password%" "/p:AndroidSigningKeyPass=%keystore-password%" "/p:AndroidSigningKeyStore=%keystore-password%" "/p:AndroidSigningStorePass=%keystore-password%"  "Craft_dish\Craft_dish.csproj"
+  - msbuild /verbosity:quiet "/t:SignAndroidPackage" "/p:Configuration=Release" "/p:AndroidKeyStore=true" "/p:AndroidSigningKeyAlias=craftdishkey" "/p:AndroidSigningKeyPass=%keystore-password%" "/p:AndroidSigningKeyStore=craftdishkey.keystore" "/p:AndroidSigningStorePass=%keystore-password%"  "Craft_dish\Craft_dish.csproj"
+ # - msbuild "/t:SignAndroidPackage" "/p:Configuration=Release" "/p:AndroidKeyStore=true" "/p:AndroidSigningKeyAlias=%keystore-password%" "/p:AndroidSigningKeyPass=%keystore-password%" "/p:AndroidSigningKeyStore=%keystore-password%" "/p:AndroidSigningStorePass=%keystore-password%"  "Craft_dish\Craft_dish.csproj"
 artifacts:
   - path: Craft_dish\bin\Release\Craft_dish.Craft_dish-Signed.apk
  
