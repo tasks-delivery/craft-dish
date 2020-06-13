@@ -8,7 +8,7 @@ install:
 before_build:
   - nuget restore
 build_script:
-  - msbuild "/t:SignAndroidPackage" "/p:Configuration=Release" "Craft_dish\Craft_dish.csproj" "/p:EmbedAssembliesIntoApk=true" "/p:AndroidUseSharedRuntime=false"
+  - msbuild "/t:SignAndroidPackage" "/p:Configuration=Release" "Craft_dish\Craft_dish.csproj" "/p:SolutionDir=Tools/" "/p:EmbedAssembliesIntoApk=true" "/p:AndroidUseSharedRuntime=false"
 artifacts:
   - path: Craft_dish\bin\Release\Craft_dish.Craft_dish-Signed.apk
  
