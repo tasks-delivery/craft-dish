@@ -3,7 +3,7 @@ image: Visual Studio 2019
 
 environment:
   keystore-password:
-    secure: 1234-qwer # YourPassword for keystore
+    secure: /IzhyjaqKRZE+ub+WDWlng==
 
 before_build:
   - nuget restore
