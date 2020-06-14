@@ -14,11 +14,11 @@ namespace Craft_dish.Views
     public class SplashScreenView : AppCompatActivity
     {
 
-        private CancellationToken cancellationToken;
-
         private bool back;
 
-        public bool Back { get => back; set => back = value; }
+        private CancellationToken CancellationToken;
+
+        public bool Back { get => back; set => back = value; }     
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -43,7 +43,7 @@ namespace Craft_dish.Views
             CancellationTokenSource tokenSource = new CancellationTokenSource();
             Task startLoading = new Task(async () =>
            {
-               cancellationToken.ThrowIfCancellationRequested();
+               CancellationToken.ThrowIfCancellationRequested();
                RunOnUiThread(() => SetContentView(Resource.Layout.activity_splash_screen));     
                await Task.Delay(4000).ConfigureAwait(false);
                if (Back == false)
