@@ -1,25 +1,25 @@
-package config;
+package driver;
 
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.WebDriverRunner;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.remote.MobileCapabilityType;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.core.LoggerContext;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.annotations.BeforeSuite;
+import static com.codeborne.selenide.WebDriverRunner.setWebDriver;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-import static com.codeborne.selenide.WebDriverRunner.setWebDriver;
+import com.codeborne.selenide.Configuration;
 
-public class BaseConfig {
+import constants.Timeout;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.remote.MobileCapabilityType;
+import utils.DownloadUtil;
 
-    private static final Logger log = LogManager.getLogger(BaseConfig.class.getName());
+import org.apache.log4j.Logger;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.BeforeSuite;
+
+public class DriverConfig {
+
+    private static final Logger log = Logger.getLogger(DriverConfig.class.getName());
 
     private String currentDir = System.getProperty("user.dir");
 
@@ -27,24 +27,11 @@ public class BaseConfig {
 
     public String appName = "Craft_dish.Craft_dish";
 
-    protected AndroidDriver androidDriver;
-
-    protected AndroidDriver driverProvider(){
-        return (AndroidDriver) WebDriverRunner.getWebDriver();
-    }
-
-    private void setLogger(){
-        LoggerContext context = (LoggerContext) LogManager.getContext(false);
-        File file = new File("src/main/Resources/Log4j2.xml");
-        context.setConfigLocation(file.toURI());
-    }
-
     @BeforeSuite
     public void setUpEnvironment() throws IOException {
-        setLogger();
         if (lang != null) {
-            DownloadService downloadService = new DownloadService();
-            downloadService.downloadApk();
+            DownloadUtil downloadUtil = new DownloadUtil();
+            downloadUtil.downloadApk();
             log.info("Tests are started on CI");
         }else {
             lang = System.setProperty("lang", "en");
@@ -71,13 +58,8 @@ public class BaseConfig {
     }
 
     public void setUp() throws MalformedURLException {
-        androidDriver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"), setUpCaps());
+        AndroidDriver androidDriver = new AndroidDriver(new URL("http://localhost:4800/wd/hub"), setUpCaps());
         setWebDriver(androidDriver);
-        Configuration.timeout = 1000;
+        Configuration.timeout = Timeout.APP_TO_LOAD;
     }
-
-    public int waitForLoadScreen(){
-        return 10000;
-    }
-
 }

@@ -1,20 +1,19 @@
-package config;
+package utils;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import static io.restassured.RestAssured.given;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 
-import static io.restassured.RestAssured.given;
+import org.apache.log4j.Logger;
 
-class DownloadService {
+public class DownloadUtil {
 
-    private static final Logger log = LogManager.getLogger(DownloadService.class.getName());
+    private static final Logger log = Logger.getLogger(DownloadUtil.class.getName());
 
-    void downloadApk() throws IOException {
+    public void downloadApk() throws IOException {
         File outputApkFile = new File("Craft_dish.Craft_dish-Signed.apk");
         if (!outputApkFile.exists()) {
             log.info("Apk does not exist");
@@ -28,7 +27,7 @@ class DownloadService {
         checkApkFile(outputApkFile);
     }
 
-    private void checkApkFile(File outputApkFile){
+    public void checkApkFile(File outputApkFile){
         if (!outputApkFile.exists()) {
             log.info("Apk download completed successfully");
         }else {

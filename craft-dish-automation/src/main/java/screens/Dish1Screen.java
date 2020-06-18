@@ -1,13 +1,16 @@
 package screens;
 
-import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
-
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.page;
 
-public class Dish1Screen extends BaseScreen {
+import com.codeborne.selenide.SelenideElement;
+
+import constants.Timeout;
+
+import org.openqa.selenium.By;
+
+public class Dish1Screen {
 
     SelenideElement btnIngredients(){
         return $(By.id("dish1_ingredients_btn"));
@@ -30,11 +33,16 @@ public class Dish1Screen extends BaseScreen {
     }
 
     public Dish1Screen(){
-        btnIngredients().waitUntil(visible, waitForLoadScreen());
-        linkGitHub().waitUntil(visible, waitForLoadScreen());
-        btnDishes().waitUntil(visible, waitForLoadScreen());
-        textContacts().waitUntil(visible, waitForLoadScreen());
-        textSendFeedback().waitUntil(visible, waitForLoadScreen());
+        btnIngredients().waitUntil(visible, Timeout.APP_TO_LOAD);
+        linkGitHub().waitUntil(visible, Timeout.APP_TO_LOAD);
+        btnDishes().waitUntil(visible, Timeout.APP_TO_LOAD);
+        textContacts().waitUntil(visible, Timeout.APP_TO_LOAD);
+        textSendFeedback().waitUntil(visible, Timeout.APP_TO_LOAD);
+    }
+
+    Ingredient1Screen clickIngredientsBtn(){
+        btnIngredients().click();
+        return page(Ingredient1Screen.class);
     }
 
     Dish4Screen clickDishesBtn(){

@@ -1,16 +1,19 @@
 package screens;
 
-import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
-
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
-public class SplashScreen extends BaseScreen {
+import com.codeborne.selenide.SelenideElement;
+
+import constants.Timeout;
+
+import org.openqa.selenium.By;
+
+public class SplashScreen {
 
     public SplashScreen(){
-        progressBar().waitUntil(visible, waitForLoadScreen());
-        welcomeText().waitUntil(visible, waitForLoadScreen());
+        progressBar().waitUntil(visible, Timeout.APP_TO_LOAD);
+        welcomeText().waitUntil(visible, Timeout.APP_TO_LOAD);
     }
 
     SelenideElement welcomeText(){
