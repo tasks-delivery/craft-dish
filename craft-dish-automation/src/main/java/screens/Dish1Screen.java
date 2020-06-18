@@ -1,43 +1,51 @@
 package screens;
 
-import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
-
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.page;
 
-public class Dish1Screen extends BaseScreen {
+import com.codeborne.selenide.SelenideElement;
 
-    public SelenideElement btnIngredients(){
+import constants.Timeout;
+
+import org.openqa.selenium.By;
+
+public class Dish1Screen {
+
+    SelenideElement btnIngredients(){
         return $(By.id("dish1_ingredients_btn"));
     }
 
-    public SelenideElement btnDishes(){
+    SelenideElement btnDishes(){
         return $(By.id("dish1_dishes_btn"));
     }
 
-    public SelenideElement linkGitHub(){
+    SelenideElement linkGitHub(){
         return $(By.id("imageGithub"));
     }
 
-    public SelenideElement textSendFeedback(){
+    SelenideElement textSendFeedback(){
         return $(By.id("dish1_text_feedback"));
     }
 
-    public SelenideElement textContacts(){
+    SelenideElement textContacts(){
         return $(By.id("dish1_text_contacts"));
     }
 
     public Dish1Screen(){
-        btnIngredients().waitUntil(visible, waitForLoadScreen());
-        linkGitHub().waitUntil(visible, waitForLoadScreen());
-        btnDishes().waitUntil(visible, waitForLoadScreen());
-        textContacts().waitUntil(visible, waitForLoadScreen());
-        textSendFeedback().waitUntil(visible, waitForLoadScreen());
+        btnIngredients().waitUntil(visible, Timeout.APP_TO_LOAD);
+        linkGitHub().waitUntil(visible, Timeout.APP_TO_LOAD);
+        btnDishes().waitUntil(visible, Timeout.APP_TO_LOAD);
+        textContacts().waitUntil(visible, Timeout.APP_TO_LOAD);
+        textSendFeedback().waitUntil(visible, Timeout.APP_TO_LOAD);
     }
 
-    public Dish4Screen clickDishesBtn(){
+    Ingredient1Screen clickIngredientsBtn(){
+        btnIngredients().click();
+        return page(Ingredient1Screen.class);
+    }
+
+    Dish4Screen clickDishesBtn(){
         btnDishes().click();
         return page(Dish4Screen.class);
     }

@@ -1,35 +1,37 @@
 package screens;
 
-import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
-
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.back;
 import static com.codeborne.selenide.Selenide.page;
 
-public class Dish3Screen extends BaseScreen {
+import com.codeborne.selenide.SelenideElement;
 
-    private SelenideElement iconSuccess = $(By.id("dish3_success_img"));
+import constants.Timeout;
+import utils.Action;
 
-    public SelenideElement textSuccessCreated(){
+import org.openqa.selenium.By;
+
+public class Dish3Screen {
+
+    SelenideElement textSuccessCreated(){
         return $(By.id("dish3_text1"));
     }
 
-    public SelenideElement textSuccess(){
+    SelenideElement textSuccess(){
         return $(By.id("dish3_success_text"));
     }
 
-    public SelenideElement btnSkip(){
-        if(driverProvider().getCapabilities().getCapability("locale").toString().contains("ru")){
+    SelenideElement btnSkip(){
+        if(Action.getLocale().contains("ru")){
             return $(By.id("dish3_ru_btn_skip"));
         }else {
             return $(By.id("dish3_btn_skip"));
         }
     }
 
-    public SelenideElement btnAttach(){
-        if(driverProvider().getCapabilities().getCapability("locale").toString().contains("ru")){
+    SelenideElement btnAttach(){
+        if(Action.getLocale().contains("ru")){
             return $(By.id("dish3_ru_btn_attach"));
         }else {
             return $(By.id("dish3_btn_attach"));
@@ -37,19 +39,20 @@ public class Dish3Screen extends BaseScreen {
     }
 
     public Dish3Screen(){
-        iconSuccess.waitUntil(visible, waitForLoadScreen());
-        textSuccess().waitUntil(visible, waitForLoadScreen());
-        textSuccessCreated().waitUntil(visible, waitForLoadScreen());
-        btnAttach().waitUntil(visible, waitForLoadScreen());
-        btnSkip().waitUntil(visible, waitForLoadScreen());
+        SelenideElement iconSuccess = $(By.id("dish3_success_img"));
+        iconSuccess.waitUntil(visible, Timeout.SCREEN_TO_LOAD);
+        textSuccess().waitUntil(visible, Timeout.SCREEN_TO_LOAD);
+        textSuccessCreated().waitUntil(visible, Timeout.SCREEN_TO_LOAD);
+        btnAttach().waitUntil(visible, Timeout.SCREEN_TO_LOAD);
+        btnSkip().waitUntil(visible, Timeout.SCREEN_TO_LOAD);
     }
 
-    public Dish5Screen clickAttachBtn(){
+    Dish5Screen clickAttachBtn(){
         btnAttach().click();
         return page(Dish5Screen.class);
     }
 
-    public Dish4Screen clickSkipBtn(){
+    Dish4Screen clickSkipBtn(){
         btnSkip().click();
         return page(Dish4Screen.class);
     }

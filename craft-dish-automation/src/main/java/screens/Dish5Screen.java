@@ -1,35 +1,35 @@
 package screens;
 
-import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
-
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.back;
 import static com.codeborne.selenide.Selenide.page;
 
-public class Dish5Screen extends BaseScreen {
+import com.codeborne.selenide.SelenideElement;
 
-    private SelenideElement iconPhoto = $(By.id("dish5_photo_icon"));
+import constants.Timeout;
 
-    private SelenideElement iconUpload = $(By.id("dish5_share_icon"));
+import org.openqa.selenium.By;
 
-    private SelenideElement areaPreviewPhoto = $(By.id("dish5_icon_area"));
+public class Dish5Screen {
 
-    public SelenideElement textPreviewPhoto(){
+    SelenideElement textPreviewPhoto(){
         return $(By.id("dish5_preview_text"));
     }
 
-    public SelenideElement btnSave(){
+    SelenideElement btnSave(){
         return $(By.id("dish5_btn_save"));
     }
 
     public Dish5Screen(){
-        areaPreviewPhoto.waitUntil(visible, waitForLoadScreen());
-        iconPhoto.waitUntil(visible, waitForLoadScreen());
-        iconUpload.waitUntil(visible, waitForLoadScreen());
-        textPreviewPhoto().waitUntil(visible, waitForLoadScreen());
-        btnSave().waitUntil(visible, waitForLoadScreen());
+        SelenideElement areaPreviewPhoto = $(By.id("dish5_icon_area"));
+        areaPreviewPhoto.waitUntil(visible, Timeout.SCREEN_TO_LOAD);
+        SelenideElement iconPhoto = $(By.id("dish5_photo_icon"));
+        iconPhoto.waitUntil(visible, Timeout.SCREEN_TO_LOAD);
+        SelenideElement iconUpload = $(By.id("dish5_share_icon"));
+        iconUpload.waitUntil(visible, Timeout.SCREEN_TO_LOAD);
+        textPreviewPhoto().waitUntil(visible, Timeout.SCREEN_TO_LOAD);
+        btnSave().waitUntil(visible, Timeout.SCREEN_TO_LOAD);
     }
 
     public Dish4Screen clickSaveBtn(){

@@ -1,23 +1,22 @@
 package screens;
 
-import config.BaseConfig;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.ScreenOrientation;
-import org.openqa.selenium.WebDriverException;
-
 import java.io.FileInputStream;
 import java.util.Properties;
 
-public class BaseTest extends BaseConfig {
+import driver.DriverConfig;
+import utils.Action;
 
-    private static final Logger log = LogManager.getLogger(BaseTest.class.getName());
+import org.apache.log4j.Logger;
 
-    public String getText(String text) {
+public class BaseTest extends DriverConfig {
+
+    private static final Logger log = Logger.getLogger(BaseTest.class.getName());
+
+    String getText(String text) {
         FileInputStream fileInputStream;
         Properties property = new Properties();
         try {
-            switch (androidDriver.getSessionDetail("language").toString()) {
+            switch (Action.getSessionLanguage()) {
                 case "en":
                     fileInputStream = new FileInputStream("src/main/resources/language_en.xml");
                     property.loadFromXML(fileInputStream);
@@ -36,16 +35,6 @@ public class BaseTest extends BaseConfig {
 
         }
         return property.getProperty(text);
-    }
-
-    public ScreenOrientation changeRotate(ScreenOrientation orientation){
-        try {
-            driverProvider().rotate(orientation);
-        }catch (WebDriverException e){
-            return driverProvider().getOrientation();
-        }
-        log.info("Orientation is: " + driverProvider().getOrientation());
-        return driverProvider().getOrientation();
     }
 
 }
