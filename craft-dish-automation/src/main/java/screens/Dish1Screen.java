@@ -9,23 +9,23 @@ import static com.codeborne.selenide.Selenide.page;
 
 public class Dish1Screen extends BaseScreen {
 
-    public SelenideElement btnIngredients(){
+    SelenideElement btnIngredients(){
         return $(By.id("dish1_ingredients_btn"));
     }
 
-    public SelenideElement btnDishes(){
+    SelenideElement btnDishes(){
         return $(By.id("dish1_dishes_btn"));
     }
 
-    public SelenideElement linkGitHub(){
+    SelenideElement linkGitHub(){
         return $(By.id("imageGithub"));
     }
 
-    public SelenideElement textSendFeedback(){
+    SelenideElement textSendFeedback(){
         return $(By.id("dish1_text_feedback"));
     }
 
-    public SelenideElement textContacts(){
+    SelenideElement textContacts(){
         return $(By.id("dish1_text_contacts"));
     }
 
@@ -37,7 +37,7 @@ public class Dish1Screen extends BaseScreen {
         textSendFeedback().waitUntil(visible, waitForLoadScreen());
     }
 
-    public Dish4Screen clickDishesBtn(){
+    Dish4Screen clickDishesBtn(){
         btnDishes().click();
         return page(Dish4Screen.class);
     }

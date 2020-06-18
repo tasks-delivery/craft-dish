@@ -10,17 +10,15 @@ import static com.codeborne.selenide.Selenide.page;
 
 public class Dish3Screen extends BaseScreen {
 
-    private SelenideElement iconSuccess = $(By.id("dish3_success_img"));
-
-    public SelenideElement textSuccessCreated(){
+    SelenideElement textSuccessCreated(){
         return $(By.id("dish3_text1"));
     }
 
-    public SelenideElement textSuccess(){
+    SelenideElement textSuccess(){
         return $(By.id("dish3_success_text"));
     }
 
-    public SelenideElement btnSkip(){
+    SelenideElement btnSkip(){
         if(driverProvider().getCapabilities().getCapability("locale").toString().contains("ru")){
             return $(By.id("dish3_ru_btn_skip"));
         }else {
@@ -28,7 +26,7 @@ public class Dish3Screen extends BaseScreen {
         }
     }
 
-    public SelenideElement btnAttach(){
+    SelenideElement btnAttach(){
         if(driverProvider().getCapabilities().getCapability("locale").toString().contains("ru")){
             return $(By.id("dish3_ru_btn_attach"));
         }else {
@@ -37,6 +35,7 @@ public class Dish3Screen extends BaseScreen {
     }
 
     public Dish3Screen(){
+        SelenideElement iconSuccess = $(By.id("dish3_success_img"));
         iconSuccess.waitUntil(visible, waitForLoadScreen());
         textSuccess().waitUntil(visible, waitForLoadScreen());
         textSuccessCreated().waitUntil(visible, waitForLoadScreen());
@@ -44,12 +43,12 @@ public class Dish3Screen extends BaseScreen {
         btnSkip().waitUntil(visible, waitForLoadScreen());
     }
 
-    public Dish5Screen clickAttachBtn(){
+    Dish5Screen clickAttachBtn(){
         btnAttach().click();
         return page(Dish5Screen.class);
     }
 
-    public Dish4Screen clickSkipBtn(){
+    Dish4Screen clickSkipBtn(){
         btnSkip().click();
         return page(Dish4Screen.class);
     }

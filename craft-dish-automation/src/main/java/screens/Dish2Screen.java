@@ -12,7 +12,7 @@ public class Dish2Screen extends BaseScreen{
 
     private SelenideElement fieldDishDescription = $(By.id("dish_2_field_dish_description"));
 
-    public SelenideElement btnSave(){
+    SelenideElement btnSave(){
         return $(By.id("dish_2_btn_save"));
     }
 
@@ -22,13 +22,13 @@ public class Dish2Screen extends BaseScreen{
         btnSave().waitUntil(visible, waitForLoadScreen());
     }
 
-    public void inputData(String name, String description){
+    void inputData(String name, String description){
         fieldDishName.val(name);
         fieldDishDescription.val(description);
         driverProvider().hideKeyboard();
     }
 
-    public Dish3Screen clickSaveBtn(){
+    Dish3Screen clickSaveBtn(){
         btnSave().click();
         return page(Dish3Screen.class);
     }

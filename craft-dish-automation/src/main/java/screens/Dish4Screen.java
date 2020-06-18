@@ -13,15 +13,15 @@ public class Dish4Screen extends BaseScreen {
 
     private SelenideElement iconOpenSearch = $(By.id("dish4_search_icon"));
 
-    public SelenideElement floatBtnPlus(){
+    SelenideElement floatBtnPlus(){
         return $(By.id("fab"));
     }
 
-    public SelenideElement arrowBack(){
+    SelenideElement arrowBack(){
         return $(By.id("dish4_back_arrow"));
     }
 
-    public SelenideElement iconCloseSearch(){
+    SelenideElement iconCloseSearch(){
         return $(By.id("dish4_close_search_icon"));
     }
 
@@ -31,15 +31,15 @@ public class Dish4Screen extends BaseScreen {
         floatBtnPlus().waitUntil(visible, waitForLoadScreen());
     }
 
-    public ElementsCollection dishNamesList(){
+    ElementsCollection dishNamesList(){
         return $$(By.id("dish4_dish_name"));
     }
 
-    public ElementsCollection dishDescriptionsList(){
+    ElementsCollection dishDescriptionsList(){
         return $$(By.id("dish4_dish_description"));
     }
 
-    public Dish1Screen androidBackNavigation(){
+    Dish1Screen androidBackNavigation(){
         back();
         return page(Dish1Screen.class);
     }
@@ -49,12 +49,12 @@ public class Dish4Screen extends BaseScreen {
         return page(Dish1Screen.class);
     }
 
-    public void searchDish(String dishName){
+    void searchDish(String dishName){
         iconOpenSearch.click();
         fieldSearch.val(dishName);
     }
 
-    public Dish2Screen clickPlusBtn(){
+    Dish2Screen clickPlusBtn(){
         floatBtnPlus().click();
         return  page(Dish2Screen.class);
     }

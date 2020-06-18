@@ -10,23 +10,20 @@ import static com.codeborne.selenide.Selenide.page;
 
 public class Dish5Screen extends BaseScreen {
 
-    private SelenideElement iconPhoto = $(By.id("dish5_photo_icon"));
-
-    private SelenideElement iconUpload = $(By.id("dish5_share_icon"));
-
-    private SelenideElement areaPreviewPhoto = $(By.id("dish5_icon_area"));
-
-    public SelenideElement textPreviewPhoto(){
+    SelenideElement textPreviewPhoto(){
         return $(By.id("dish5_preview_text"));
     }
 
-    public SelenideElement btnSave(){
+    SelenideElement btnSave(){
         return $(By.id("dish5_btn_save"));
     }
 
     public Dish5Screen(){
+        SelenideElement areaPreviewPhoto = $(By.id("dish5_icon_area"));
         areaPreviewPhoto.waitUntil(visible, waitForLoadScreen());
+        SelenideElement iconPhoto = $(By.id("dish5_photo_icon"));
         iconPhoto.waitUntil(visible, waitForLoadScreen());
+        SelenideElement iconUpload = $(By.id("dish5_share_icon"));
         iconUpload.waitUntil(visible, waitForLoadScreen());
         textPreviewPhoto().waitUntil(visible, waitForLoadScreen());
         btnSave().waitUntil(visible, waitForLoadScreen());

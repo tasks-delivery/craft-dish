@@ -10,16 +10,15 @@ import java.io.OutputStream;
 
 import static io.restassured.RestAssured.given;
 
-public class DownloadService {
+class DownloadService {
 
     private static final Logger log = LogManager.getLogger(DownloadService.class.getName());
 
-    private String appveyorApk = "http://ci.appveyor.com/api/projects/ordeh/craft-dish/artifacts/Craft_dish/bin/Release/Craft_dish.Craft_dish-Signed.apk";
-
-    public void downloadApk() throws IOException {
+    void downloadApk() throws IOException {
         File outputApkFile = new File("Craft_dish.Craft_dish-Signed.apk");
         if (!outputApkFile.exists()) {
             log.info("Apk does not exist");
+            String appveyorApk = "http://ci.appveyor.com/api/projects/ordeh/craft-dish/artifacts/Craft_dish/bin/Release/Craft_dish.Craft_dish-Signed.apk";
             byte[] response = given()
                     .get(appveyorApk).asByteArray();
             OutputStream outStream = new FileOutputStream(outputApkFile);

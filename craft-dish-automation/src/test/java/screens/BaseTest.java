@@ -13,7 +13,7 @@ public class BaseTest extends BaseConfig {
 
     private static final Logger log = LogManager.getLogger(BaseTest.class.getName());
 
-    public String getText(String text) {
+    String getText(String text) {
         FileInputStream fileInputStream;
         Properties property = new Properties();
         try {
@@ -38,7 +38,7 @@ public class BaseTest extends BaseConfig {
         return property.getProperty(text);
     }
 
-    public ScreenOrientation changeRotate(ScreenOrientation orientation){
+    ScreenOrientation changeRotate(ScreenOrientation orientation){
         try {
             driverProvider().rotate(orientation);
         }catch (WebDriverException e){

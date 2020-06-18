@@ -13,11 +13,11 @@ public class SplashScreen extends BaseScreen {
         welcomeText().waitUntil(visible, waitForLoadScreen());
     }
 
-    public SelenideElement welcomeText(){
+    SelenideElement welcomeText(){
         return $(By.id("splash_screen_welcome_text"));
     }
 
-    public SelenideElement progressBar(){
+    SelenideElement progressBar(){
         return $(By.id("spash_screen_progress_bar"));
     }
 

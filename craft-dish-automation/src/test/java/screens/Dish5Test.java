@@ -20,7 +20,7 @@ public class Dish5Test extends BaseTest implements DriverActions {
 
     private Dish3Screen dish3Screen;
 
-    public void preconditions(){
+    private void preconditions(){
         Dish dish = new Dish("testName", "testDescr");
         dish = new DataGenerator().dish(dish);
         Dish1Screen dish1Screen = page(Dish1Screen.class);

@@ -27,9 +27,9 @@ public class BaseConfig {
 
     public String appName = "Craft_dish.Craft_dish";
 
-    public AndroidDriver androidDriver;
+    protected AndroidDriver androidDriver;
 
-    public AndroidDriver driverProvider(){
+    protected AndroidDriver driverProvider(){
         return (AndroidDriver) WebDriverRunner.getWebDriver();
     }
 
@@ -52,7 +52,7 @@ public class BaseConfig {
         log.info("Language is: " + getLang());
     }
 
-    public String getLang() {
+    private String getLang() {
         return System.getProperty("lang");
     }
 
@@ -71,7 +71,7 @@ public class BaseConfig {
     }
 
     public void setUp() throws MalformedURLException {
-        androidDriver = new AndroidDriver(new URL("http://localhost:4800/wd/hub"), setUpCaps());
+        androidDriver = new AndroidDriver(new URL("http://localhost:4723/wd/hub"), setUpCaps());
         setWebDriver(androidDriver);
         Configuration.timeout = 1000;
     }
