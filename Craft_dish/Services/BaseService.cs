@@ -13,7 +13,7 @@ namespace Craft_dish.Services
             _realm = Realm.GetInstance(config);        
         }
 
-        public Realm getDbInstance()
+        public Realm GetDbInstance()
         {
             return _realm;
         }

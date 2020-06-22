@@ -1,20 +1,23 @@
 package screens;
 
-import config.DataGenerator;
-import config.DriverActions;
+import static com.codeborne.selenide.CollectionCondition.texts;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.codeborne.selenide.Selenide.page;
+import static org.testng.Assert.assertEquals;
+
+import java.net.MalformedURLException;
+
+import driver.DriverActions;
 import models.Dish;
+import utils.Action;
+import utils.RandomUtil;
+
 import org.openqa.selenium.ScreenOrientation;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import java.net.MalformedURLException;
-
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.close;
-import static com.codeborne.selenide.Selenide.page;
-import static org.testng.Assert.assertEquals;
 
 public class Dish4Test extends BaseTest implements DriverActions {
 
@@ -25,12 +28,9 @@ public class Dish4Test extends BaseTest implements DriverActions {
     private Dish dish1, dish2, dish3;
 
     private void preconditions(){
-        dish1 = new Dish("testName", "testDescr");
-        dish1 = new DataGenerator().dish(dish1);
-        dish2 = new Dish("testName", "testDescr");
-        dish2 = new DataGenerator().dish(dish2);
-        dish3 = new Dish("different", "testDescr");
-        dish3 = new DataGenerator().dish(dish3);
+        dish1 = new Dish("testName" + RandomUtil.getRandomStringWith(10), "testDescr");
+        dish2 = new Dish("testName" + RandomUtil.getRandomStringWith(10), "testDescr");
+        dish3 = new Dish("different" + RandomUtil.getRandomStringWith(10), "testDescr");
         dish1Screen = page(Dish1Screen.class);
         dish4Screen = dish1Screen.clickDishesBtn();
         createDish(dish1);
@@ -40,9 +40,7 @@ public class Dish4Test extends BaseTest implements DriverActions {
 
     @Test
     public void dishNameCannotBeMore30Symbolds(){
-        dish1 = new Dish("testName", "testDescr");
-        dish1 = new DataGenerator().dish(dish1);
-        dish1.setName(dish1.getName() + "limited");
+        dish1 = new Dish(RandomUtil.getRandomStringWith(31), "testDescr");
         dish1Screen = page(Dish1Screen.class);
         dish4Screen = dish1Screen.clickDishesBtn();
         createDish(dish1);
@@ -53,11 +51,7 @@ public class Dish4Test extends BaseTest implements DriverActions {
     public void searchDishByName(){
         preconditions();
         dish4Screen.dishNamesList().shouldHaveSize(3)
-                .findBy(text(dish1.getName())).shouldBe(visible);
-        dish4Screen.dishNamesList()
-                .findBy(text(dish2.getName())).shouldBe(visible);
-        dish4Screen.dishNamesList()
-                .findBy(text(dish3.getName())).shouldBe(visible);
+            .shouldHave(texts(dish1.getName(), dish2.getName(), dish3.getName()));
         dish4Screen.searchDish(dish1.getName());
         dish4Screen.dishNamesList().shouldHaveSize(1)
                 .findBy(text(dish1.getName())).shouldBe(visible);
@@ -98,7 +92,7 @@ public class Dish4Test extends BaseTest implements DriverActions {
     public void landscapeMode(){
         Dish1Screen dish1Screen = page(Dish1Screen.class);
         dish1Screen.clickDishesBtn();
-        assertEquals(changeRotate(ScreenOrientation.LANDSCAPE), ScreenOrientation.PORTRAIT);
+        assertEquals(Action.changeRotate(ScreenOrientation.LANDSCAPE), ScreenOrientation.PORTRAIT);
     }
 
     private void createDish(Dish dish){
@@ -117,6 +111,6 @@ public class Dish4Test extends BaseTest implements DriverActions {
     @AfterMethod
     @Override
     public void closeDriver() {
-        close();
+        closeWebDriver();
     }
 }

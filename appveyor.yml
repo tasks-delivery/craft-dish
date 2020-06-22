@@ -1,12 +1,24 @@
-image: Visual Studio 2017
-  
-install: 
-  - cmd: set PATH=C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\MSBuild\15.0\Bin;C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin;C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin;%PATH%
-  - ps: (new-object Net.WebClient).DownloadString("https://raw.github.com/madskristensen/ExtensionScripts/master/AppVeyor/vsix.ps1") | iex
+version: 1.0.{build}
+image: Visual Studio 2019
+
+environment:
+  keystore-password:
+    secure: /IzhyjaqKRZE+ub+WDWlng==
 
 before_build:
   - nuget restore
 build_script:
-  - msbuild "/t:SignAndroidPackage" "/p:Configuration=Release" "Craft_dish\Craft_dish.csproj" "/p:SolutionDir=Tools/"
+  - msbuild /verbosity:quiet "/t:SignAndroidPackage" "/p:Configuration=Release" "/p:AndroidKeyStore=true" "/p:AndroidSigningKeyAlias=craftdishkey" "/p:AndroidSigningKeyPass=%keystore-password%" "/p:AndroidSigningKeyStore=craftdishkey.keystore" "/p:AndroidSigningStorePass=%keystore-password%"  "Craft_dish\Craft_dish.csproj"
 artifacts:
   - path: Craft_dish\bin\Release\Craft_dish.Craft_dish-Signed.apk
+ 
+notifications:
+- provider: Email
+  to:
+  - fiodarmotin@gmail.com
+  - ordeh@mail.ru
+  subject: 'Build {{status}}: {{projectName}} {{buildVersion}}'
+  message: Build was finished
+  on_build_success: true
+  on_build_failure: true
+  on_build_status_changed: false 

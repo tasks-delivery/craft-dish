@@ -1,16 +1,22 @@
 package screens;
 
-import config.DriverActions;
+import static com.codeborne.selenide.Condition.enabled;
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Selenide.back;
+import static com.codeborne.selenide.Selenide.closeWebDriver;
+import static com.codeborne.selenide.Selenide.page;
+import static org.testng.Assert.assertEquals;
+
+import java.net.MalformedURLException;
+
+import driver.DriverActions;
+import utils.Action;
+
 import org.openqa.selenium.ScreenOrientation;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import java.net.MalformedURLException;
-
-import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selenide.*;
-import static org.testng.Assert.assertEquals;
 
 public class Dish1Test extends BaseTest implements DriverActions {
 
@@ -33,7 +39,7 @@ public class Dish1Test extends BaseTest implements DriverActions {
     @Test
     public void landscapeMode(){
         page(Dish1Screen.class);
-        assertEquals(changeRotate(ScreenOrientation.LANDSCAPE), ScreenOrientation.PORTRAIT);
+        assertEquals(Action.changeRotate(ScreenOrientation.LANDSCAPE), ScreenOrientation.PORTRAIT);
     }
 
     @BeforeMethod
@@ -45,6 +51,6 @@ public class Dish1Test extends BaseTest implements DriverActions {
     @AfterMethod
     @Override
     public void closeDriver() {
-        close();
+        closeWebDriver();
     }
 }

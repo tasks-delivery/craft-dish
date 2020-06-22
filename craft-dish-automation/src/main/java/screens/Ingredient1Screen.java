@@ -13,36 +13,46 @@ import constants.Timeout;
 
 import org.openqa.selenium.By;
 
-public class Dish4Screen {
+public class Ingredient1Screen {
 
-    private SelenideElement fieldSearch = $(By.id("dish4_search_field"));
+    private SelenideElement fieldSearch = $(By.id("ingredient1_search_field"));
 
-    private SelenideElement iconOpenSearch = $(By.id("dish4_search_icon"));
+    private SelenideElement iconOpenSearch = $(By.id("ingredient1_search_icon"));
 
     SelenideElement floatBtnPlus(){
         return $(By.id("fab"));
     }
 
+    ElementsCollection ingredientWeightList(){
+        return $$(By.id("ingredient1_weight"));
+    }
+
+    ElementsCollection ingredientNamesList(){
+        return $$(By.id("ingredient1_name"));
+    }
+
     SelenideElement arrowBack(){
-        return $(By.id("dish4_back_arrow"));
+        return $(By.id("ingredient1_back_arrow"));
     }
 
     SelenideElement iconCloseSearch(){
-        return $(By.id("dish4_close_search_icon"));
+        return $(By.id("ingredient1_close_search_icon"));
     }
 
-    public Dish4Screen(){
+    public Ingredient1Screen(){
         arrowBack().waitUntil(visible, Timeout.SCREEN_TO_LOAD);
-        iconOpenSearch.waitUntil(visible,Timeout.SCREEN_TO_LOAD);
+        iconOpenSearch.waitUntil(visible, Timeout.SCREEN_TO_LOAD);
         floatBtnPlus().waitUntil(visible, Timeout.SCREEN_TO_LOAD);
     }
 
-    ElementsCollection dishNamesList(){
-        return $$(By.id("dish4_dish_name"));
+    Ingredient2Screen clickPlusBtn(){
+        floatBtnPlus().click();
+        return page(Ingredient2Screen.class);
     }
 
-    ElementsCollection dishDescriptionsList(){
-        return $$(By.id("dish4_dish_description"));
+    void searchIngredient(String ingredientName){
+        iconOpenSearch.click();
+        fieldSearch.val(ingredientName);
     }
 
     Dish1Screen androidBackNavigation(){
@@ -54,15 +64,4 @@ public class Dish4Screen {
         arrowBack().click();
         return page(Dish1Screen.class);
     }
-
-    void searchDish(String dishName){
-        iconOpenSearch.click();
-        fieldSearch.val(dishName);
-    }
-
-    Dish2Screen clickPlusBtn(){
-        floatBtnPlus().click();
-        return  page(Dish2Screen.class);
-    }
-
 }
