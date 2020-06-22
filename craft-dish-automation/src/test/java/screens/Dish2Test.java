@@ -56,7 +56,6 @@ public class Dish2Test extends BaseTest implements DriverActions {
         dish2Screen.btnSave().shouldBe(visible);
     }
 
-
     @Test
     public void landscapeMode(){
         Dish1Screen dish1Screen = page(Dish1Screen.class);
