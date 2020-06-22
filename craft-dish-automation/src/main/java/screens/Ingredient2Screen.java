@@ -28,10 +28,11 @@ public class Ingredient2Screen {
         btnSave().waitUntil(visible, Timeout.SCREEN_TO_LOAD);
     }
 
-    void inputData(String name, String description){
+    Ingredient2Screen inputData(String name, String description){
         fieldIngredientName.val(name);
         fieldIngredientWeight.val(description);
         Action.hideKeyboard();
+        return this;
     }
 
     Ingredient1Screen clickSaveBtn(){
