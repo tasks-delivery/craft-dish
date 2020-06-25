@@ -28,10 +28,11 @@ public class Dish2Screen {
         btnSave().waitUntil(visible, Timeout.SCREEN_TO_LOAD);
     }
 
-    void inputData(String name, String description){
+    Dish2Screen inputData(String name, String description){
         fieldDishName.val(name);
         fieldDishDescription.val(description);
         Action.hideKeyboard();
+        return this;
     }
 
     Dish3Screen clickSaveBtn(){

@@ -1,8 +1,10 @@
 package screens;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.back;
 import static com.codeborne.selenide.Selenide.page;
 
@@ -18,6 +20,14 @@ public class Ingredient1Screen {
     private SelenideElement fieldSearch = $(By.id("ingredient1_search_field"));
 
     private SelenideElement iconOpenSearch = $(By.id("ingredient1_search_icon"));
+
+    ElementsCollection checkBox = $$(By.id("ingredient1_checkbox"));
+
+    SelenideElement btnDelete = $(By.id("ingredient1_delete_button"));
+
+    SelenideElement btnSelectAll = $(By.id("ingredient1_select_all_btn"));
+
+    SelenideElement btnCancel = $(By.id("ingredient1_cancel_btn"));
 
     SelenideElement floatBtnPlus(){
         return $(By.id("fab"));
@@ -42,7 +52,29 @@ public class Ingredient1Screen {
     public Ingredient1Screen(){
         arrowBack().waitUntil(visible, Timeout.SCREEN_TO_LOAD);
         iconOpenSearch.waitUntil(visible, Timeout.SCREEN_TO_LOAD);
-        floatBtnPlus().waitUntil(visible, Timeout.SCREEN_TO_LOAD);
+    }
+
+    public Ingredient1Screen selectIngredientByName(String name){
+        $x("//*[@id='ingredient1_checkbox' and (./preceding-sibling::* | ./following-sibling::*)[@text='"+name+"']]")
+            .waitUntil(visible, Timeout.APP_TO_LOAD).click();
+      //  $x("//*[@id='ingredient1_checkbox']//parent:://*[@class='android.widget.RelativeLayout' and ./*[@text='"+name+"']]").click();
+       // ingredientNamesList().findBy(text(name)).parent().$(By.id("ingredient1_checkbox")).click();
+        return this;
+    }
+
+    public Ingredient1Screen clickSelectAllBtn(){
+        btnSelectAll.click();
+        return this;
+    }
+
+    public Ingredient1Screen clickDeleteBtn(){
+        btnDelete.click();
+        return this;
+    }
+
+    public Ingredient1Screen clickCancelBtn(){
+        btnCancel.click();
+        return this;
     }
 
     Ingredient2Screen clickPlusBtn(){

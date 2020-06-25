@@ -58,7 +58,7 @@ public class DriverConfig {
     }
 
     public void setUp() throws MalformedURLException {
-        AndroidDriver androidDriver = new AndroidDriver(new URL("http://localhost:4800/wd/hub"), setUpCaps());
+        AndroidDriver androidDriver = new AndroidDriver(new URL("http://localhost:4900/wd/hub"), setUpCaps());
         setWebDriver(androidDriver);
         Configuration.timeout = Timeout.APP_TO_LOAD;
     }
