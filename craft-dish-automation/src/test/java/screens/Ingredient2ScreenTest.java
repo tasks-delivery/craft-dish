@@ -22,23 +22,23 @@ public class Ingredient2ScreenTest extends BaseTest implements DriverActions {
     public void createIngredient(){
         Ingredient2Screen ingredient2Screen = page(Dish1Screen.class).clickIngredientsBtn()
             .clickPlusBtn().inputData("test name", "test descr");
-        ingredient2Screen.btnSave().shouldHave(text(getText("save")));
+        ingredient2Screen.btnSave.shouldHave(text(getText("save")));
         ingredient2Screen.clickSaveBtn();
     }
 
     @Test
-    public void ingredientNameCannotBeEmpty(){
+    public void ingredientNameCannotBeEmpty() {
         Ingredient2Screen ingredient2Screen = page(Dish1Screen.class).clickIngredientsBtn().clickPlusBtn();
-        ingredient2Screen.btnSave().click();
-        ingredient2Screen.btnSave().shouldBe(visible);
+        ingredient2Screen.btnSave.click();
+        ingredient2Screen.btnSave.shouldBe(visible);
     }
 
     @Test
     public void ingredientNameCannotBeContainsOnlySpaces(){
         Ingredient2Screen ingredient2Screen = page(Dish1Screen.class).clickIngredientsBtn()
             .clickPlusBtn().inputData("                              ", "");
-        ingredient2Screen.btnSave().click();
-        ingredient2Screen.btnSave().shouldBe(visible);
+        ingredient2Screen.btnSave.click();
+        ingredient2Screen.btnSave.shouldBe(visible);
     }
 
     @Test

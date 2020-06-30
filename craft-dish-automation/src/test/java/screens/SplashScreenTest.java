@@ -22,10 +22,10 @@ public class SplashScreenTest extends BaseTest implements DriverActions {
     @Test
     public void backNavigation(){
         SplashScreen splashScreen = page(SplashScreen.class);
-        splashScreen.welcomeText().shouldHave(text(getText("welcome_text")));
+        splashScreen.welcomeText.shouldHave(text(getText("welcome_text")));
         back();
-        splashScreen.welcomeText().shouldNotBe(visible);
-        splashScreen.progressBar().shouldNotBe(visible);
+        splashScreen.welcomeText.shouldNotBe(visible);
+        splashScreen.progressBar.shouldNotBe(visible);
     }
 
     @Test

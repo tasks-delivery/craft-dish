@@ -18,14 +18,12 @@ public class Dish2Screen {
 
     private SelenideElement fieldDishDescription = $(By.id("dish_2_field_dish_description"));
 
-    SelenideElement btnSave(){
-        return $(By.id("dish_2_btn_save"));
-    }
+    SelenideElement btnSave = $(By.id("dish_2_btn_save"));
 
     public Dish2Screen(){
         fieldDishName.waitUntil(visible, Timeout.SCREEN_TO_LOAD);
         fieldDishDescription.waitUntil(visible, Timeout.SCREEN_TO_LOAD);
-        btnSave().waitUntil(visible, Timeout.SCREEN_TO_LOAD);
+        btnSave.waitUntil(visible, Timeout.SCREEN_TO_LOAD);
     }
 
     Dish2Screen inputData(String name, String description){
@@ -36,7 +34,7 @@ public class Dish2Screen {
     }
 
     Dish3Screen clickSaveBtn(){
-        btnSave().click();
+        btnSave.click();
         return page(Dish3Screen.class);
     }
 

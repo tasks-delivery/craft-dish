@@ -66,7 +66,7 @@ public class Dish4Test extends BaseTest implements DriverActions {
         dish4Screen.searchDish("test");
         dish4Screen.dishNamesList().shouldHaveSize(2)
                 .findBy(text(dish3.getName())).shouldNotBe(visible);
-        dish4Screen.iconCloseSearch().click();
+        dish4Screen.iconCloseSearch.click();
         dish4Screen.dishNamesList().shouldHaveSize(3);
     }
 
@@ -75,8 +75,8 @@ public class Dish4Test extends BaseTest implements DriverActions {
         Dish1Screen dish1Screen = page(Dish1Screen.class);
         Dish4Screen dish4Screen = dish1Screen.clickDishesBtn();
         dish4Screen.androidBackNavigation();
-        dish4Screen.arrowBack().shouldNotBe(visible);
-        dish4Screen.floatBtnPlus().shouldNotBe(visible);
+        dish4Screen.arrowBack.shouldNotBe(visible);
+        dish4Screen.floatBtnPlus.shouldNotBe(visible);
     }
 
     @Test
@@ -84,8 +84,8 @@ public class Dish4Test extends BaseTest implements DriverActions {
         Dish1Screen dish1Screen = page(Dish1Screen.class);
         Dish4Screen dish4Screen = dish1Screen.clickDishesBtn();
         dish4Screen.backNavigation();
-        dish4Screen.arrowBack().shouldNotBe(visible);
-        dish4Screen.floatBtnPlus().shouldNotBe(visible);
+        dish4Screen.arrowBack.shouldNotBe(visible);
+        dish4Screen.floatBtnPlus.shouldNotBe(visible);
     }
 
     @Test

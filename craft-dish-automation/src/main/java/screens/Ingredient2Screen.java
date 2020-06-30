@@ -18,14 +18,12 @@ public class Ingredient2Screen {
 
     private SelenideElement fieldIngredientWeight = $(By.id("ingredient2_field_ingredient_weight"));
 
-    SelenideElement btnSave(){
-        return $(By.id("ingredient2_btn_save"));
-    }
+    SelenideElement btnSave = $(By.id("ingredient2_btn_save"));
 
     public Ingredient2Screen(){
         fieldIngredientName.waitUntil(visible, Timeout.SCREEN_TO_LOAD);
         fieldIngredientWeight.waitUntil(visible, Timeout.SCREEN_TO_LOAD);
-        btnSave().waitUntil(visible, Timeout.SCREEN_TO_LOAD);
+        btnSave.waitUntil(visible, Timeout.SCREEN_TO_LOAD);
     }
 
     Ingredient2Screen inputData(String name, String description){
@@ -36,7 +34,7 @@ public class Ingredient2Screen {
     }
 
     Ingredient1Screen clickSaveBtn(){
-        btnSave().click();
+        btnSave.click();
         return page(Ingredient1Screen.class);
     }
 

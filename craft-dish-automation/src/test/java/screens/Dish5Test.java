@@ -35,10 +35,10 @@ public class Dish5Test extends BaseTest implements DriverActions {
     public void backNavigation(){
         preconditions();
         Dish5Screen dish5Screen = dish3Screen.clickAttachBtn();
-        dish5Screen.btnSave().shouldHave(text(getText("save")));
-        dish5Screen.textPreviewPhoto().shouldHave(text(getText("text_preview_photo")));
+        dish5Screen.btnSave.shouldHave(text(getText("save")));
+        dish5Screen.textPreviewPhoto.shouldHave(text(getText("text_preview_photo")));
         dish5Screen.backNavigation();
-        dish5Screen.textPreviewPhoto().shouldNotBe(visible);
+        dish5Screen.textPreviewPhoto.shouldNotBe(visible);
     }
 
     @Test

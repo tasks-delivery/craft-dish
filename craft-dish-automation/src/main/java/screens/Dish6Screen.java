@@ -15,7 +15,6 @@ import org.openqa.selenium.By;
 public class Dish6Screen {
 
     private SelenideElement editIcon = $(By.id("dish6_edit_icon"));
-    private SelenideElement arrowBack = $(By.id("dish6_back_arrow"));
     SelenideElement dishPhoto = $(By.id("dish6_photo_icon"));
     private SelenideElement minusIcon = $(By.id("dish6_minus_icon"));
     private SelenideElement plusIcon = $(By.id("dish6_plus_icon"));
@@ -24,6 +23,7 @@ public class Dish6Screen {
 
     public Dish6Screen(){
         editIcon.waitUntil(visible, Timeout.SCREEN_TO_LOAD);
+        SelenideElement arrowBack = $(By.id("dish6_back_arrow"));
         arrowBack.waitUntil(visible, Timeout.SCREEN_TO_LOAD);
         dishPhoto.waitUntil(visible, Timeout.SCREEN_TO_LOAD);
         minusIcon.waitUntil(visible, Timeout.SCREEN_TO_LOAD);
