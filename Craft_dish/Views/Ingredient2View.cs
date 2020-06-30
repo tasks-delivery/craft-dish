@@ -23,8 +23,6 @@ namespace Craft_dish
 
         private string weight_unit;
 
-        private Spinner weight_unit_spinner;
-
         private Intent navigateToIngredient1;
 
         private string dish_name;
@@ -37,7 +35,7 @@ namespace Craft_dish
             dish_name = Intent.GetStringExtra("dish_name");
             field_name = (EditText)FindViewById(Resource.Id.ingredient2_field_ingredient_name);
             field_weight = (EditText)FindViewById(Resource.Id.ingredient2_field_ingredient_weight);
-            weight_unit_spinner = FindViewById<Spinner>(Resource.Id.ingredient2_weight_unit_spinner);
+            Spinner weight_unit_spinner = FindViewById<Spinner>(Resource.Id.ingredient2_weight_unit_spinner);
             weight_unit_spinner.ItemSelected += spinner_ItemSelected;
             ingredient2ViewModel = new Ingredient2ViewModel();
             NavigateResolver();
@@ -65,7 +63,7 @@ namespace Craft_dish
 
         private void spinner_ItemSelected(object sender, AdapterView.ItemSelectedEventArgs e)
         {
-            weight_unit_spinner = (Spinner)sender;
+            Spinner weight_unit_spinner = (Spinner)sender;
             weight_unit = weight_unit_spinner.GetItemAtPosition(e.Position).ToString();
         }
 

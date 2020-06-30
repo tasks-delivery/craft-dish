@@ -11,7 +11,7 @@ import java.net.MalformedURLException;
 
 import driver.DriverActions;
 import models.Dish;
-import utils.Action;
+import utils.DeviceApiUtil;
 import utils.RandomUtil;
 
 import org.openqa.selenium.ScreenOrientation;
@@ -25,12 +25,11 @@ public class Dish4Test extends BaseTest implements DriverActions {
 
     private Dish4Screen dish4Screen;
 
-    private Dish dish1, dish2, dish3;
+    private Dish dish1 = new Dish("testName" + RandomUtil.getRandomStringWith(10), "testDescr");
+    private Dish dish2 = new Dish("testName" + RandomUtil.getRandomStringWith(10), "testDescr");
+    private Dish dish3 = new Dish("different" + RandomUtil.getRandomStringWith(10), "testDescr");
 
     private void preconditions(){
-        dish1 = new Dish("testName" + RandomUtil.getRandomStringWith(10), "testDescr");
-        dish2 = new Dish("testName" + RandomUtil.getRandomStringWith(10), "testDescr");
-        dish3 = new Dish("different" + RandomUtil.getRandomStringWith(10), "testDescr");
         dish1Screen = page(Dish1Screen.class);
         dish4Screen = dish1Screen.clickDishesBtn();
         createDish(dish1);
@@ -66,7 +65,7 @@ public class Dish4Test extends BaseTest implements DriverActions {
         dish4Screen.searchDish("test");
         dish4Screen.dishNamesList().shouldHaveSize(2)
                 .findBy(text(dish3.getName())).shouldNotBe(visible);
-        dish4Screen.iconCloseSearch().click();
+        dish4Screen.iconCloseSearch.click();
         dish4Screen.dishNamesList().shouldHaveSize(3);
     }
 
@@ -75,8 +74,8 @@ public class Dish4Test extends BaseTest implements DriverActions {
         Dish1Screen dish1Screen = page(Dish1Screen.class);
         Dish4Screen dish4Screen = dish1Screen.clickDishesBtn();
         dish4Screen.androidBackNavigation();
-        dish4Screen.arrowBack().shouldNotBe(visible);
-        dish4Screen.floatBtnPlus().shouldNotBe(visible);
+        dish4Screen.arrowBack.shouldNotBe(visible);
+        dish4Screen.floatBtnPlus.shouldNotBe(visible);
     }
 
     @Test
@@ -84,15 +83,15 @@ public class Dish4Test extends BaseTest implements DriverActions {
         Dish1Screen dish1Screen = page(Dish1Screen.class);
         Dish4Screen dish4Screen = dish1Screen.clickDishesBtn();
         dish4Screen.backNavigation();
-        dish4Screen.arrowBack().shouldNotBe(visible);
-        dish4Screen.floatBtnPlus().shouldNotBe(visible);
+        dish4Screen.arrowBack.shouldNotBe(visible);
+        dish4Screen.floatBtnPlus.shouldNotBe(visible);
     }
 
     @Test
     public void landscapeMode(){
         Dish1Screen dish1Screen = page(Dish1Screen.class);
         dish1Screen.clickDishesBtn();
-        assertEquals(Action.changeRotate(ScreenOrientation.LANDSCAPE), ScreenOrientation.PORTRAIT);
+        assertEquals(DeviceApiUtil.changeRotate(ScreenOrientation.LANDSCAPE), ScreenOrientation.PORTRAIT);
     }
 
     private void createDish(Dish dish){

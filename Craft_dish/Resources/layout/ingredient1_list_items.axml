@@ -8,67 +8,68 @@
 		android:layout_width="match_parent"  
 		android:layout_height="wrap_content"  
 		android:orientation="vertical"  
-		android:padding="2dp"> 
+		android:padding="2dp">
 
-		<RelativeLayout
-			android:layout_width="match_parent"  
-			android:layout_height="wrap_content"  
-			android:orientation="vertical"  
-			android:padding="2dp">			
-	  
-			<TextView  
-				android:layout_width="wrap_content"  
-				android:layout_height="wrap_content"  
-				android:textAppearance="?android:attr/textAppearanceMedium"  
-				android:textColor="@color/colorBlack"  
-				android:text="Name"  
-				android:id="@+id/ingredient1_name"
-				android:layout_marginRight="40px"
-				android:layout_marginLeft="40px"/>  
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="2dp"
+            android:id="@+id/ingredient1_item_container">
 
-			<TextView  
-				android:layout_below="@+id/ingredient1_name"
-				android:layout_width="wrap_content"  
-				android:layout_height="wrap_content"  
-				android:textAppearance="?android:attr/textAppearanceMedium"  
-				android:textColor="@color/colorGreyLight"  				
-				android:textSize="15sp"
-				android:text="Weight"  
-				android:id="@+id/ingredient1_weight" 
-				android:layout_marginRight="40px"
-				android:layout_marginLeft="40px"/>  
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/colorBlack"
+                android:text="Name"
+                android:id="@+id/ingredient1_name"
+                android:layout_marginRight="40px"
+                android:layout_marginLeft="40px"/>
 
-			<TextView  
-				android:layout_toRightOf="@+id/ingredient1_weight"
-				android:layout_below="@+id/ingredient1_name"
-				android:layout_width="wrap_content"  
-				android:layout_height="wrap_content"  
-				android:textAppearance="?android:attr/textAppearanceMedium"  
-				android:textColor="@color/colorGreyLight"  				
-				android:textSize="15sp"
-				android:text="Unit"  
-				android:id="@+id/ingredient1_weight_unit" 
-				android:layout_marginRight="40px"
-				android:layout_marginLeft="40px"/>  
+            <TextView
+                android:layout_below="@+id/ingredient1_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/colorGreyLight"
+                android:textSize="15sp"
+                android:text="Weight"
+                android:id="@+id/ingredient1_weight"
+                android:layout_marginRight="40px"
+                android:layout_marginLeft="40px"/>
 
-			<CheckBox
-				android:id="@+id/ingredient1_checkbox"
-				android:layout_marginRight="80px"
-				android:layout_centerVertical="true"
-				android:layout_alignParentRight="true"
-				android:layout_width="wrap_content"  
-				android:layout_height="wrap_content" />			
+            <TextView
+                android:layout_toRightOf="@+id/ingredient1_weight"
+                android:layout_below="@+id/ingredient1_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/colorGreyLight"
+                android:textSize="15sp"
+                android:text="Unit"
+                android:id="@+id/ingredient1_weight_unit"
+                android:layout_marginRight="40px"
+                android:layout_marginLeft="40px"/>
 
-			<View
-				android:layout_below="@+id/ingredient1_weight"
-				android:background="@color/colorBlack"
-				android:layout_width="match_parent"  
-				android:layout_height="3px" 
-				android:layout_marginRight="40px"
-				android:layout_marginLeft="40px"
+            <CheckBox
+                android:id="@+id/ingredient1_checkbox"
+                android:layout_marginRight="80px"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:layout_below="@+id/ingredient1_weight"
+                android:background="@color/colorBlack"
+                android:layout_width="match_parent"
+                android:layout_height="3px"
+                android:layout_marginRight="40px"
+                android:layout_marginLeft="40px"
 			/>
-			
-		</RelativeLayout>
+
+        </RelativeLayout>
    
     </LinearLayout>  
  

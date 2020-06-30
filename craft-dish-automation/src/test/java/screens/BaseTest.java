@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 import java.util.Properties;
 
 import driver.DriverConfig;
-import utils.Action;
+import utils.DeviceApiUtil;
 
 import org.apache.log4j.Logger;
 
@@ -16,7 +16,7 @@ public class BaseTest extends DriverConfig {
         FileInputStream fileInputStream;
         Properties property = new Properties();
         try {
-            switch (Action.getSessionLanguage()) {
+            switch (DeviceApiUtil.getSessionLanguage()) {
                 case "en":
                     fileInputStream = new FileInputStream("src/main/resources/language_en.xml");
                     property.loadFromXML(fileInputStream);

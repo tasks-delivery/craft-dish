@@ -10,7 +10,7 @@ import java.net.MalformedURLException;
 
 import driver.DriverActions;
 import models.Dish;
-import utils.Action;
+import utils.DeviceApiUtil;
 import utils.RandomUtil;
 
 import org.openqa.selenium.ScreenOrientation;
@@ -36,20 +36,20 @@ public class Dish3Test extends BaseTest implements DriverActions {
         Dish3Screen dish3Screen = dish2Screen.clickSaveBtn();
         dish3Screen.btnSkip().shouldHave(text(getText("skip")));
         dish3Screen.btnAttach().shouldHave(text(getText("attach")));
-        dish3Screen.textSuccessCreated().shouldHave(text(getText("text_dish_was_created_successfully")));
-        dish3Screen.textSuccess().shouldHave(text(getText("success")));
+        dish3Screen.textSuccessCreated.shouldHave(text(getText("text_dish_was_created_successfully")));
+        dish3Screen.textSuccess.shouldHave(text(getText("success")));
         dish3Screen.backNavigation();
         dish3Screen.btnSkip().shouldNotBe(visible);
         dish3Screen.btnAttach().shouldNotBe(visible);
-        dish3Screen.textSuccessCreated().shouldNotBe(visible);
-        dish3Screen.textSuccess().shouldNotBe(visible);
+        dish3Screen.textSuccessCreated.shouldNotBe(visible);
+        dish3Screen.textSuccess.shouldNotBe(visible);
     }
 
     @Test
     public void landscapeMode(){
         preconditions();
         dish2Screen.clickSaveBtn();
-        assertEquals(Action.changeRotate(ScreenOrientation.LANDSCAPE), ScreenOrientation.PORTRAIT);;
+        assertEquals(DeviceApiUtil.changeRotate(ScreenOrientation.LANDSCAPE), ScreenOrientation.PORTRAIT);
     }
 
     @BeforeMethod

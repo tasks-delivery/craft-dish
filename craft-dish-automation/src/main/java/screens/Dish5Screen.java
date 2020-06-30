@@ -13,13 +13,9 @@ import org.openqa.selenium.By;
 
 public class Dish5Screen {
 
-    SelenideElement textPreviewPhoto(){
-        return $(By.id("dish5_preview_text"));
-    }
+    SelenideElement textPreviewPhoto = $(By.id("dish5_preview_text"));
 
-    SelenideElement btnSave(){
-        return $(By.id("dish5_btn_save"));
-    }
+    SelenideElement btnSave = $(By.id("dish5_btn_save"));
 
     public Dish5Screen(){
         SelenideElement areaPreviewPhoto = $(By.id("dish5_icon_area"));
@@ -28,12 +24,12 @@ public class Dish5Screen {
         iconPhoto.waitUntil(visible, Timeout.SCREEN_TO_LOAD);
         SelenideElement iconUpload = $(By.id("dish5_share_icon"));
         iconUpload.waitUntil(visible, Timeout.SCREEN_TO_LOAD);
-        textPreviewPhoto().waitUntil(visible, Timeout.SCREEN_TO_LOAD);
-        btnSave().waitUntil(visible, Timeout.SCREEN_TO_LOAD);
+        textPreviewPhoto.waitUntil(visible, Timeout.SCREEN_TO_LOAD);
+        btnSave.waitUntil(visible, Timeout.SCREEN_TO_LOAD);
     }
 
     public Dish4Screen clickSaveBtn(){
-        btnSave().click();
+        btnSave.click();
         return page(Dish4Screen.class);
     }
 
