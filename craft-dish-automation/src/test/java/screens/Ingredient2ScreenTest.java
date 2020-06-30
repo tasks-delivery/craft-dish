@@ -9,7 +9,7 @@ import static org.testng.Assert.*;
 import java.net.MalformedURLException;
 
 import driver.DriverActions;
-import utils.Action;
+import utils.DeviceApiUtil;
 
 import org.openqa.selenium.ScreenOrientation;
 import org.testng.annotations.AfterMethod;
@@ -22,29 +22,29 @@ public class Ingredient2ScreenTest extends BaseTest implements DriverActions {
     public void createIngredient(){
         Ingredient2Screen ingredient2Screen = page(Dish1Screen.class).clickIngredientsBtn()
             .clickPlusBtn().inputData("test name", "test descr");
-        ingredient2Screen.btnSave().shouldHave(text(getText("save")));
+        ingredient2Screen.btnSave.shouldHave(text(getText("save")));
         ingredient2Screen.clickSaveBtn();
     }
 
     @Test
-    public void ingredientNameCannotBeEmpty(){
+    public void ingredientNameCannotBeEmpty() {
         Ingredient2Screen ingredient2Screen = page(Dish1Screen.class).clickIngredientsBtn().clickPlusBtn();
-        ingredient2Screen.btnSave().click();
-        ingredient2Screen.btnSave().shouldBe(visible);
+        ingredient2Screen.btnSave.click();
+        ingredient2Screen.btnSave.shouldBe(visible);
     }
 
     @Test
     public void ingredientNameCannotBeContainsOnlySpaces(){
         Ingredient2Screen ingredient2Screen = page(Dish1Screen.class).clickIngredientsBtn()
             .clickPlusBtn().inputData("                              ", "");
-        ingredient2Screen.btnSave().click();
-        ingredient2Screen.btnSave().shouldBe(visible);
+        ingredient2Screen.btnSave.click();
+        ingredient2Screen.btnSave.shouldBe(visible);
     }
 
     @Test
     public void landscapeMode(){
         page(Dish1Screen.class).clickIngredientsBtn().clickPlusBtn();
-        assertEquals(Action.changeRotate(ScreenOrientation.LANDSCAPE), ScreenOrientation.PORTRAIT);
+        assertEquals(DeviceApiUtil.changeRotate(ScreenOrientation.LANDSCAPE), ScreenOrientation.PORTRAIT);
     }
 
     @Test

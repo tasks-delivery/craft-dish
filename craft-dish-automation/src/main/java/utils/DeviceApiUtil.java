@@ -8,9 +8,9 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.ScreenOrientation;
 import org.openqa.selenium.WebDriverException;
 
-public class Action {
+public class DeviceApiUtil {
 
-    private static final Logger log = Logger.getLogger(Action.class.getName());
+    private static final Logger log = Logger.getLogger(DeviceApiUtil.class.getName());
 
     public static void hideKeyboard(){
         AndroidDriver driver = (AndroidDriver) WebDriverRunner.getWebDriver();

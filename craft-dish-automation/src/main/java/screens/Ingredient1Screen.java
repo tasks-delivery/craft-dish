@@ -23,36 +23,26 @@ public class Ingredient1Screen {
 
     private SelenideElement iconOpenSearch = $(By.id("ingredient1_search_icon"));
 
-    SelenideElement btnDelete = $(By.id("ingredient1_delete_button"));
+    private SelenideElement btnDelete = $(By.id("ingredient1_delete_button"));
 
-    SelenideElement btnSelectAll = $(By.id("ingredient1_select_all_btn"));
+    private SelenideElement btnSelectAll = $(By.id("ingredient1_select_all_btn"));
 
-    SelenideElement btnCancel = $(By.id("ingredient1_cancel_btn"));
+    private SelenideElement btnCancel = $(By.id("ingredient1_cancel_btn"));
 
-    SelenideElement btnAdd = $(By.id("ingredient1_add_button"));
+    private SelenideElement btnAdd = $(By.id("ingredient1_add_button"));
 
-    SelenideElement floatBtnPlus(){
-        return $(By.id("fab"));
-    }
+    SelenideElement floatBtnPlus = $(By.id("fab"));
 
-    ElementsCollection ingredientWeightList(){
-        return $$(By.id("ingredient1_weight"));
-    }
+    ElementsCollection ingredientWeightList = $$(By.id("ingredient1_weight"));
 
-    ElementsCollection ingredientNamesList(){
-        return $$(By.id("ingredient1_name"));
-    }
+    ElementsCollection ingredientNamesList = $$(By.id("ingredient1_name"));
 
-    SelenideElement arrowBack(){
-        return $(By.id("ingredient1_back_arrow"));
-    }
+    SelenideElement arrowBack = $(By.id("ingredient1_back_arrow"));
 
-    SelenideElement iconCloseSearch(){
-        return $(By.id("ingredient1_close_search_icon"));
-    }
+    SelenideElement iconCloseSearch = $(By.id("ingredient1_close_search_icon"));
 
     public Ingredient1Screen(){
-        arrowBack().waitUntil(visible, Timeout.SCREEN_TO_LOAD);
+        arrowBack.waitUntil(visible, Timeout.SCREEN_TO_LOAD);
         iconOpenSearch.waitUntil(visible, Timeout.SCREEN_TO_LOAD);
     }
 
@@ -84,7 +74,7 @@ public class Ingredient1Screen {
     }
 
     Ingredient2Screen clickPlusBtn(){
-        floatBtnPlus().click();
+        floatBtnPlus.click();
         return page(Ingredient2Screen.class);
     }
 
@@ -99,7 +89,7 @@ public class Ingredient1Screen {
     }
 
     public Dish1Screen backNavigation(){
-        arrowBack().click();
+        arrowBack.click();
         return page(Dish1Screen.class);
     }
 }

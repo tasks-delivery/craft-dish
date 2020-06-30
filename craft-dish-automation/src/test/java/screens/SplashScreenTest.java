@@ -10,7 +10,7 @@ import static org.testng.Assert.assertEquals;
 import java.net.MalformedURLException;
 
 import driver.DriverActions;
-import utils.Action;
+import utils.DeviceApiUtil;
 
 import org.openqa.selenium.ScreenOrientation;
 import org.testng.annotations.AfterMethod;
@@ -22,16 +22,16 @@ public class SplashScreenTest extends BaseTest implements DriverActions {
     @Test
     public void backNavigation(){
         SplashScreen splashScreen = page(SplashScreen.class);
-        splashScreen.welcomeText().shouldHave(text(getText("welcome_text")));
+        splashScreen.welcomeText.shouldHave(text(getText("welcome_text")));
         back();
-        splashScreen.welcomeText().shouldNotBe(visible);
-        splashScreen.progressBar().shouldNotBe(visible);
+        splashScreen.welcomeText.shouldNotBe(visible);
+        splashScreen.progressBar.shouldNotBe(visible);
     }
 
     @Test
     public void landscapeMode(){
         page(SplashScreen.class);
-        assertEquals(Action.changeRotate(ScreenOrientation.LANDSCAPE), ScreenOrientation.PORTRAIT);
+        assertEquals(DeviceApiUtil.changeRotate(ScreenOrientation.LANDSCAPE), ScreenOrientation.PORTRAIT);
     }
 
     @Override
