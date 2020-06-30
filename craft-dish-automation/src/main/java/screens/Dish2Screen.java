@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.page;
 import com.codeborne.selenide.SelenideElement;
 
 import constants.Timeout;
-import utils.Action;
+import utils.DeviceApiUtil;
 
 import org.openqa.selenium.By;
 
@@ -29,7 +29,7 @@ public class Dish2Screen {
     Dish2Screen inputData(String name, String description){
         fieldDishName.val(name);
         fieldDishDescription.val(description);
-        Action.hideKeyboard();
+        DeviceApiUtil.hideKeyboard();
         return this;
     }
 

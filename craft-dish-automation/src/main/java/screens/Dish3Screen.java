@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.page;
 import com.codeborne.selenide.SelenideElement;
 
 import constants.Timeout;
-import utils.Action;
+import utils.DeviceApiUtil;
 
 import org.openqa.selenium.By;
 
@@ -19,7 +19,7 @@ public class Dish3Screen {
     SelenideElement textSuccess = $(By.id("dish3_success_text"));
 
     SelenideElement btnSkip(){
-        if(Action.getLocale().contains("ru")){
+        if(DeviceApiUtil.getLocale().contains("ru")){
             return $(By.id("dish3_ru_btn_skip"));
         }else {
             return $(By.id("dish3_btn_skip"));
@@ -27,7 +27,7 @@ public class Dish3Screen {
     }
 
     SelenideElement btnAttach(){
-        if(Action.getLocale().contains("ru")){
+        if(DeviceApiUtil.getLocale().contains("ru")){
             return $(By.id("dish3_ru_btn_attach"));
         }else {
             return $(By.id("dish3_btn_attach"));

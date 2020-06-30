@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.page;
 import com.codeborne.selenide.SelenideElement;
 
 import constants.Timeout;
-import utils.Action;
+import utils.DeviceApiUtil;
 
 import org.openqa.selenium.By;
 
@@ -29,7 +29,7 @@ public class Ingredient2Screen {
     Ingredient2Screen inputData(String name, String description){
         fieldIngredientName.val(name);
         fieldIngredientWeight.val(description);
-        Action.hideKeyboard();
+        DeviceApiUtil.hideKeyboard();
         return this;
     }
 

@@ -11,7 +11,7 @@ import java.net.MalformedURLException;
 
 import driver.DriverActions;
 import models.Ingredient;
-import utils.Action;
+import utils.DeviceApiUtil;
 import utils.RandomUtil;
 
 import org.openqa.selenium.ScreenOrientation;
@@ -91,7 +91,7 @@ public class Ingredient1ScreenTest extends BaseTest implements DriverActions {
     public void landscapeMode(){
         Dish1Screen dish1Screen = page(Dish1Screen.class);
         dish1Screen.clickIngredientsBtn();
-        assertEquals(Action.changeRotate(ScreenOrientation.LANDSCAPE), ScreenOrientation.PORTRAIT);
+        assertEquals(DeviceApiUtil.changeRotate(ScreenOrientation.LANDSCAPE), ScreenOrientation.PORTRAIT);
     }
 
     private void createIngredient(Ingredient ingredient){

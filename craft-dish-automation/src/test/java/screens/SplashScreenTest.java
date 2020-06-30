@@ -10,7 +10,7 @@ import static org.testng.Assert.assertEquals;
 import java.net.MalformedURLException;
 
 import driver.DriverActions;
-import utils.Action;
+import utils.DeviceApiUtil;
 
 import org.openqa.selenium.ScreenOrientation;
 import org.testng.annotations.AfterMethod;
@@ -31,7 +31,7 @@ public class SplashScreenTest extends BaseTest implements DriverActions {
     @Test
     public void landscapeMode(){
         page(SplashScreen.class);
-        assertEquals(Action.changeRotate(ScreenOrientation.LANDSCAPE), ScreenOrientation.PORTRAIT);
+        assertEquals(DeviceApiUtil.changeRotate(ScreenOrientation.LANDSCAPE), ScreenOrientation.PORTRAIT);
     }
 
     @Override

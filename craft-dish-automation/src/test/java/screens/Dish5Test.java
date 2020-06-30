@@ -10,7 +10,7 @@ import java.net.MalformedURLException;
 
 import driver.DriverActions;
 import models.Dish;
-import utils.Action;
+import utils.DeviceApiUtil;
 import utils.RandomUtil;
 
 import org.openqa.selenium.ScreenOrientation;
@@ -45,7 +45,7 @@ public class Dish5Test extends BaseTest implements DriverActions {
     public void landscapeMode(){
         preconditions();
         dish3Screen.clickAttachBtn();
-        assertEquals(Action.changeRotate(ScreenOrientation.LANDSCAPE), ScreenOrientation.PORTRAIT);
+        assertEquals(DeviceApiUtil.changeRotate(ScreenOrientation.LANDSCAPE), ScreenOrientation.PORTRAIT);
     }
 
     @BeforeMethod

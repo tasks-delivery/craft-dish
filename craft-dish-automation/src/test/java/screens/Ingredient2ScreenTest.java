@@ -9,7 +9,7 @@ import static org.testng.Assert.*;
 import java.net.MalformedURLException;
 
 import driver.DriverActions;
-import utils.Action;
+import utils.DeviceApiUtil;
 
 import org.openqa.selenium.ScreenOrientation;
 import org.testng.annotations.AfterMethod;
@@ -44,7 +44,7 @@ public class Ingredient2ScreenTest extends BaseTest implements DriverActions {
     @Test
     public void landscapeMode(){
         page(Dish1Screen.class).clickIngredientsBtn().clickPlusBtn();
-        assertEquals(Action.changeRotate(ScreenOrientation.LANDSCAPE), ScreenOrientation.PORTRAIT);
+        assertEquals(DeviceApiUtil.changeRotate(ScreenOrientation.LANDSCAPE), ScreenOrientation.PORTRAIT);
     }
 
     @Test

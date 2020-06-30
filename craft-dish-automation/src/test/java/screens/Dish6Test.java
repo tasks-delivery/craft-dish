@@ -16,7 +16,7 @@ import java.util.List;
 import driver.DriverActions;
 import models.Dish;
 import models.Ingredient;
-import utils.Action;
+import utils.DeviceApiUtil;
 import utils.RandomUtil;
 
 import org.openqa.selenium.ScreenOrientation;
@@ -102,7 +102,7 @@ public class Dish6Test extends BaseTest implements DriverActions {
     @Test
     public void landscapeMode(){
         createDish().clickDishesBtn().openDishByName(dish.getName());
-        assertEquals(Action.changeRotate(ScreenOrientation.LANDSCAPE), ScreenOrientation.PORTRAIT);
+        assertEquals(DeviceApiUtil.changeRotate(ScreenOrientation.LANDSCAPE), ScreenOrientation.PORTRAIT);
     }
 
     private Dish1Screen createDish(){

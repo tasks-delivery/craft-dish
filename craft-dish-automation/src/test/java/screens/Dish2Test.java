@@ -9,7 +9,7 @@ import static org.testng.Assert.assertEquals;
 import java.net.MalformedURLException;
 
 import driver.DriverActions;
-import utils.Action;
+import utils.DeviceApiUtil;
 
 import org.openqa.selenium.ScreenOrientation;
 import org.testng.annotations.AfterMethod;
@@ -61,7 +61,7 @@ public class Dish2Test extends BaseTest implements DriverActions {
         Dish1Screen dish1Screen = page(Dish1Screen.class);
         Dish4Screen dish4Screen = dish1Screen.clickDishesBtn();
         dish4Screen.clickPlusBtn();
-        assertEquals(Action.changeRotate(ScreenOrientation.LANDSCAPE), ScreenOrientation.PORTRAIT);
+        assertEquals(DeviceApiUtil.changeRotate(ScreenOrientation.LANDSCAPE), ScreenOrientation.PORTRAIT);
     }
 
     @BeforeMethod
