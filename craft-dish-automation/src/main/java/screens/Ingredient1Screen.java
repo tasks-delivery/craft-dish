@@ -55,8 +55,10 @@ public class Ingredient1Screen {
     }
 
     public Ingredient1Screen selectIngredientByName(String name){
-        $x("//*[@id='ingredient1_checkbox' and (./preceding-sibling::* | ./following-sibling::*)[@text='"+name+"']]")
-            .waitUntil(visible, Timeout.APP_TO_LOAD).click();
+        $x("//*[@id='ingredient1_checkbox' and (./preceding-sibling::* | ./following-sibling::*)[@text='"+name+"']]").click();
+
+       //$x("//*[@id='ingredient1_checkbox' and (./preceding-sibling::* | ./following-sibling::*)[@text='"+name+"']]")
+       //    .waitUntil(visible, Timeout.APP_TO_LOAD).click();
       //  $x("//*[@id='ingredient1_checkbox']//parent:://*[@class='android.widget.RelativeLayout' and ./*[@text='"+name+"']]").click();
        // ingredientNamesList().findBy(text(name)).parent().$(By.id("ingredient1_checkbox")).click();
         return this;
