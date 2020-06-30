@@ -2,6 +2,7 @@ package screens;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 import static com.codeborne.selenide.Selenide.back;
 import static com.codeborne.selenide.Selenide.page;
 
@@ -31,12 +32,16 @@ public class Dish6Screen {
         dishName.waitUntil(visible, Timeout.SCREEN_TO_LOAD);
     }
 
-    public Ingredient1Screen addIngredient(){
+    SelenideElement getIngredientByName(String name){
+        return $x("//*[@text='"+name+"']");
+    }
+
+    Ingredient1Screen addIngredient(){
         plusIcon.click();
         return page(Ingredient1Screen.class);
     }
 
-    public Ingredient1Screen removeIngredient(){
+    Ingredient1Screen removeIngredient(){
         minusIcon.click();
         return page(Ingredient1Screen.class);
     }
@@ -51,7 +56,7 @@ public class Dish6Screen {
         return page(Dish4Screen.class);
     }
 
-    public Dish7Screen clickEditIcon(){
+    Dish7Screen clickEditIcon(){
         editIcon.click();
         return page(Dish7Screen.class);
     }

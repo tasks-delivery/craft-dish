@@ -2,12 +2,16 @@ package screens;
 
 import static com.codeborne.selenide.Condition.attribute;
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static com.codeborne.selenide.Selenide.page;
+import static java.util.Arrays.asList;
 import static org.assertj.core.api.Java6Assertions.assertThat;
 import static org.testng.Assert.assertEquals;
 
 import java.net.MalformedURLException;
+import java.util.Collections;
+import java.util.List;
 
 import driver.DriverActions;
 import models.Dish;
@@ -24,11 +28,11 @@ public class Dish6Test extends BaseTest implements DriverActions {
 
     private Dish dish = new Dish("testName" + RandomUtil.getRandomStringWith(10), "testDescr");
     private Ingredient ingredient1 = new Ingredient("testName" + RandomUtil.getRandomStringWith(10), "213");
+    private Ingredient ingredient2 = new Ingredient("testName" + RandomUtil.getRandomStringWith(10), "213");
 
     @Test(description = "if clickable = true, Dish have not photo")
     public void dishDefaultPhoto(){
-        preconditions();
-        Dish6Screen dish6Screen = new Dish4Screen().openDishByName(dish.getName());
+        Dish6Screen dish6Screen = createDish().clickDishesBtn().openDishByName(dish.getName());
         dish6Screen.dishDescription.shouldHave(text(dish.getDescription()));
         dish6Screen.dishName.shouldHave(text(dish.getName()));
         dish6Screen.dishPhoto.shouldNotHave(attribute("clickable", "true"));
@@ -36,65 +40,85 @@ public class Dish6Test extends BaseTest implements DriverActions {
 
     @Test
     public void navigateToDish7ByEditIcon(){
-        preconditions();
-        Object dish7Screen = new Dish4Screen().openDishByName(dish.getName()).clickEditIcon();
+        Dish7Screen dish7Screen = createDish().clickDishesBtn().openDishByName(dish.getName()).clickEditIcon();
         assertThat(dish7Screen).isInstanceOf(Dish7Screen.class);
     }
 
     @Test
     public void removeAllIngredientsFromDish(){
-        preconditions();
-        Ingredient1Screen ingredient1Screen = new Dish4Screen().openDishByName(dish.getName()).removeIngredient();
-
+        createDish();
+        createIngredient(ingredient1);
+        createIngredient(ingredient2);
+        Dish6Screen dish6Screen = addIngredientToDish(asList(ingredient2, ingredient1), dish)
+            .clickDishesBtn().openDishByName(dish.getName())
+            .removeIngredient()
+            .selectIngredientByName(Collections.singletonList(ingredient1))
+            .clickSelectAllBtn().clickDeleteBtn()
+            .backNavigation()
+            .clickDishesBtn()
+            .openDishByName(dish.getName());
+        dish6Screen.getIngredientByName(ingredient1.getName()).shouldNotBe(visible);
+        dish6Screen.getIngredientByName(ingredient2.getName()).shouldNotBe(visible);
     }
 
     @Test
     public void removeOneIngredientFromDish(){
-        preconditions();
-        Object ingredient1Screen = new Dish4Screen().openDishByName(dish.getName()).removeIngredient();
-        assertThat(ingredient1Screen).isInstanceOf(Ingredient1Screen.class);
+        createDish();
+        createIngredient(ingredient1);
+        Dish6Screen dish6Screen = addIngredientToDish(Collections.singletonList(ingredient1), dish)
+            .clickDishesBtn().openDishByName(dish.getName())
+            .removeIngredient()
+            .selectIngredientByName(Collections.singletonList(ingredient1))
+            .clickDeleteBtn()
+            .backNavigation()
+            .clickDishesBtn()
+            .openDishByName(dish.getName());
+        dish6Screen.getIngredientByName(ingredient1.getName()).shouldNotBe(visible);
     }
 
     @Test
     public void addIngredientToDish(){
-        Ingredient1Screen ingredient1Screen = createIngredient(ingredient1).clickDishesBtn()
-            .openDishByName(dish.getName()).addIngredient();
-        ingredient1Screen.selectIngredientByName(ingredient1.getName());
-
-        System.out.println("t");
+        createDish();
+        Dish6Screen dish6Screen = createIngredient(ingredient1).clickDishesBtn()
+            .openDishByName(dish.getName()).addIngredient()
+            .selectIngredientByName(Collections.singletonList(ingredient1)).clickAddBtn();
+        dish6Screen.getIngredientByName(ingredient1.getName()).shouldBe(visible);
     }
 
     @Test
     public void backNavigationByArrow(){
-        preconditions();
-        Object dish4Screen = new Dish4Screen().openDishByName(dish.getName()).clickBackArrow();
+        Object dish4Screen = createDish().clickDishesBtn()
+            .openDishByName(dish.getName()).clickBackArrow();
         assertThat(dish4Screen).isInstanceOf(Dish4Screen.class);
     }
 
     @Test
     public void backNavigationByAndroidBtn(){
-        preconditions();
-        Object dish4Screen = new Dish4Screen().openDishByName(dish.getName()).clickAndroidBackBtn();
+        Object dish4Screen = createDish().clickDishesBtn()
+            .openDishByName(dish.getName()).clickAndroidBackBtn();
         assertThat(dish4Screen).isInstanceOf(Dish4Screen.class);
     }
 
     @Test
     public void landscapeMode(){
-        preconditions();
-        new Dish4Screen().openDishByName(dish.getName());
+        createDish().clickDishesBtn().openDishByName(dish.getName());
         assertEquals(Action.changeRotate(ScreenOrientation.LANDSCAPE), ScreenOrientation.PORTRAIT);
     }
 
-    private Dish4Screen preconditions(){
+    private Dish1Screen createDish(){
         return page(Dish1Screen.class).clickDishesBtn().clickPlusBtn()
-            .inputData(dish.getName(), dish.getDescription()).clickSaveBtn().clickSkipBtn();
+            .inputData(dish.getName(), dish.getDescription()).clickSaveBtn().clickSkipBtn().backNavigation();
     }
 
     private Dish1Screen createIngredient(Ingredient ingredient){
-        return preconditions().backNavigation().clickIngredientsBtn().clickPlusBtn()
+        return new Dish1Screen().clickIngredientsBtn().clickPlusBtn()
             .inputData(ingredient.getName(), ingredient.getWeight()).clickSaveBtn().androidBackNavigation();
     }
 
+    private Dish1Screen addIngredientToDish(List<Ingredient> ingredients, Dish dish){
+        return new Dish1Screen().clickDishesBtn().openDishByName(dish.getName()).addIngredient()
+            .selectIngredientByName(ingredients).clickAddBtn().clickAndroidBackBtn().backNavigation();
+    }
 
     @BeforeMethod
     @Override
