@@ -1,5 +1,6 @@
 package screens;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -39,6 +40,11 @@ public class Dish4Screen {
 
     ElementsCollection dishNamesList(){
         return $$(By.id("dish4_dish_name"));
+    }
+
+    Dish6Screen openDishByName(String name){
+        dishNamesList().findBy(text(name)).click();
+        return page(Dish6Screen.class);
     }
 
     ElementsCollection dishDescriptionsList(){

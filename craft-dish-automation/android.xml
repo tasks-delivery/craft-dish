@@ -9,6 +9,7 @@
             <class name="screens.Dish3Test"/>
             <class name="screens.Dish4Test"/>
             <class name="screens.Dish5Test"/>
+			<class name="screens.Dish6Test"/>
 			<class name="screens.Ingredient1ScreenTest"/>
         </classes>
     </test>
