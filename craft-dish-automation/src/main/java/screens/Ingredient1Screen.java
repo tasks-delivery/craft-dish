@@ -23,13 +23,13 @@ public class Ingredient1Screen {
 
     private SelenideElement iconOpenSearch = $(By.id("ingredient1_search_icon"));
 
-    SelenideElement btnDelete = $(By.id("ingredient1_delete_button"));
+    private SelenideElement btnDelete = $(By.id("ingredient1_delete_button"));
 
-    SelenideElement btnSelectAll = $(By.id("ingredient1_select_all_btn"));
+    private SelenideElement btnSelectAll = $(By.id("ingredient1_select_all_btn"));
 
-    SelenideElement btnCancel = $(By.id("ingredient1_cancel_btn"));
+    private SelenideElement btnCancel = $(By.id("ingredient1_cancel_btn"));
 
-    SelenideElement btnAdd = $(By.id("ingredient1_add_button"));
+    private SelenideElement btnAdd = $(By.id("ingredient1_add_button"));
 
     SelenideElement floatBtnPlus(){
         return $(By.id("fab"));

@@ -14,13 +14,9 @@ import org.openqa.selenium.By;
 
 public class Dish3Screen {
 
-    SelenideElement textSuccessCreated(){
-        return $(By.id("dish3_text1"));
-    }
+    SelenideElement textSuccessCreated = $(By.id("dish3_text1"));
 
-    SelenideElement textSuccess(){
-        return $(By.id("dish3_success_text"));
-    }
+    SelenideElement textSuccess = $(By.id("dish3_success_text"));
 
     SelenideElement btnSkip(){
         if(Action.getLocale().contains("ru")){
@@ -41,8 +37,8 @@ public class Dish3Screen {
     public Dish3Screen(){
         SelenideElement iconSuccess = $(By.id("dish3_success_img"));
         iconSuccess.waitUntil(visible, Timeout.SCREEN_TO_LOAD);
-        textSuccess().waitUntil(visible, Timeout.SCREEN_TO_LOAD);
-        textSuccessCreated().waitUntil(visible, Timeout.SCREEN_TO_LOAD);
+        textSuccess.waitUntil(visible, Timeout.SCREEN_TO_LOAD);
+        textSuccessCreated.waitUntil(visible, Timeout.SCREEN_TO_LOAD);
         btnAttach().waitUntil(visible, Timeout.SCREEN_TO_LOAD);
         btnSkip().waitUntil(visible, Timeout.SCREEN_TO_LOAD);
     }

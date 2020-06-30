@@ -12,41 +12,31 @@ import org.openqa.selenium.By;
 
 public class Dish1Screen {
 
-    SelenideElement btnIngredients(){
-        return $(By.id("dish1_ingredients_btn"));
-    }
+    SelenideElement btnIngredients = $(By.id("dish1_ingredients_btn"));
 
-    SelenideElement btnDishes(){
-        return $(By.id("dish1_dishes_btn"));
-    }
+    SelenideElement btnDishes = $(By.id("dish1_dishes_btn"));
 
-    SelenideElement linkGitHub(){
-        return $(By.id("imageGithub"));
-    }
+    SelenideElement linkGitHub = $(By.id("imageGithub"));
 
-    SelenideElement textSendFeedback(){
-        return $(By.id("dish1_text_feedback"));
-    }
+    SelenideElement textSendFeedback = $(By.id("dish1_text_feedback"));
 
-    SelenideElement textContacts(){
-        return $(By.id("dish1_text_contacts"));
-    }
+    SelenideElement textContacts = $(By.id("dish1_text_contacts"));
 
     public Dish1Screen(){
-        btnIngredients().waitUntil(visible, Timeout.APP_TO_LOAD);
-        linkGitHub().waitUntil(visible, Timeout.APP_TO_LOAD);
-        btnDishes().waitUntil(visible, Timeout.APP_TO_LOAD);
-        textContacts().waitUntil(visible, Timeout.APP_TO_LOAD);
-        textSendFeedback().waitUntil(visible, Timeout.APP_TO_LOAD);
+        btnIngredients.waitUntil(visible, Timeout.APP_TO_LOAD);
+        linkGitHub.waitUntil(visible, Timeout.APP_TO_LOAD);
+        btnDishes.waitUntil(visible, Timeout.APP_TO_LOAD);
+        textContacts.waitUntil(visible, Timeout.APP_TO_LOAD);
+        textSendFeedback.waitUntil(visible, Timeout.APP_TO_LOAD);
     }
 
     Ingredient1Screen clickIngredientsBtn(){
-        btnIngredients().click();
+        btnIngredients.click();
         return page(Ingredient1Screen.class);
     }
 
     Dish4Screen clickDishesBtn(){
-        btnDishes().click();
+        btnDishes.click();
         return page(Dish4Screen.class);
     }
 
